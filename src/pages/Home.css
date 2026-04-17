@@ -1,0 +1,128 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.page h1 {
+  font-size: 24px;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.page h2 {
+  font-size: 18px;
+  color: #1a1a2e;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.generated {
+  color: #888;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.league-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.league-card {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  border-left: 4px solid #4361ee;
+}
+
+.league-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.league-model {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.league-ensemble {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.league-acc {
+  font-size: 22px;
+  font-weight: 800;
+  color: #4361ee;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  font-size: 13px;
+}
+
+.data-table th {
+  background: #1a1a2e;
+  color: white;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.data-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.data-table tbody tr:hover {
+  background: #f8f9ff;
+}
+
+.model-table-wrap {
+  overflow-x: auto;
+}
+
+.date-cell {
+  white-space: nowrap;
+  font-size: 12px;
+  color: #666;
+}
+
+.prob-cell {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.loading, .error, .empty {
+  text-align: center;
+  padding: 60px;
+  font-size: 16px;
+  color: #888;
+}
+
+.error {
+  color: #e74c3c;
+}
