@@ -1,0 +1,58 @@
+{
+  "date": "2026-04-10",
+  "generated_at": "2026-04-10 15:30",
+  "best_overall": {},
+  "per_league": [],
+  "cup_models": [
+    {
+      "league": "Champions",
+      "model": "random_forest",
+      "accuracy": 0.613
+    },
+    {
+      "league": "Champions",
+      "model": "gradient_boosting",
+      "accuracy": 0.64
+    },
+    {
+      "league": "Europa",
+      "model": "knn",
+      "accuracy": 0.58
+    },
+    {
+      "league": "Conference",
+      "model": "calibrated_lgbm",
+      "accuracy": 0.6
+    }
+  ],
+  "national_models": [
+    {
+      "league": "NationalTeams",
+      "model": "extra_trees",
+      "accuracy": 0.61
+    },
+    {
+      "league": "WorldCup",
+      "model": "lightgbm",
+      "accuracy": 0.64
+    },
+    {
+      "league": "Euro",
+      "model": "logistic_regression",
+      "accuracy": 0.6
+    },
+    {
+      "league": "WC_Qual_Europe",
+      "model": "gradient_boosting",
+      "accuracy": 0.68
+    },
+    {
+      "league": "Euro_Qual",
+      "model": "xgboost",
+      "accuracy": 0.68
+    }
+  ],
+  "ai_metrics": {},
+  "predictions": [],
+  "test_review": {}
+}

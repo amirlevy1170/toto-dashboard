@@ -1,0 +1,105 @@
+{
+  "date": "2026-04-13",
+  "generated_at": "2026-04-13 11:16",
+  "best_overall": {
+    "model": "mlp_large",
+    "ensemble": "E3_CLEAN_ELO_45",
+    "accuracy": 0.534
+  },
+  "per_league": [
+    {
+      "league": "France1",
+      "model": "catboost",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.64
+    },
+    {
+      "league": "England1",
+      "model": "gradient_boosting",
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 0.56
+    },
+    {
+      "league": "Spain1",
+      "model": "xgboost",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "accuracy": 0.64
+    },
+    {
+      "league": "Italy1",
+      "model": "perceptron",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.64
+    },
+    {
+      "league": "Germany1",
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.66
+    },
+    {
+      "league": "Israel2",
+      "model": "neural_network",
+      "ensemble": "E6_API_RICH_79",
+      "accuracy": 0.52
+    },
+    {
+      "league": "Israel1",
+      "model": "gradient_boosting",
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 0.68
+    }
+  ],
+  "cup_models": [
+    {
+      "league": "Champions",
+      "model": "calibrated_rf",
+      "accuracy": 0.593
+    },
+    {
+      "league": "Champions",
+      "model": "random_forest",
+      "accuracy": 0.66
+    },
+    {
+      "league": "Europa",
+      "model": "lightgbm",
+      "accuracy": 0.58
+    },
+    {
+      "league": "Conference",
+      "model": "calibrated_lgbm",
+      "accuracy": 0.66
+    }
+  ],
+  "national_models": [
+    {
+      "league": "NationalTeams",
+      "model": "extra_trees",
+      "accuracy": 0.595
+    },
+    {
+      "league": "WorldCup",
+      "model": "random_forest",
+      "accuracy": 0.58
+    },
+    {
+      "league": "Euro",
+      "model": "neural_network",
+      "accuracy": 0.6
+    },
+    {
+      "league": "WC_Qual_Europe",
+      "model": "mlp_small",
+      "accuracy": 0.7
+    },
+    {
+      "league": "Euro_Qual",
+      "model": "gradient_boosting",
+      "accuracy": 0.7
+    }
+  ],
+  "ai_metrics": {},
+  "predictions": [],
+  "test_review": {}
+}
