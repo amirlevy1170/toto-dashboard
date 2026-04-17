@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useSnapshots } from '../hooks/useSnapshots';
 import StatCard from '../components/StatCard';
 import { leagueName, predColor, pct } from '../utils';
@@ -6,6 +6,7 @@ import './Home.css';
 
 export default function Home() {
   const { snapshots, loading, error } = useSnapshots();
+  const [selectedLeague, setSelectedLeague] = useState('all');
 
   const latest = snapshots?.[0];
 
@@ -20,6 +21,12 @@ export default function Home() {
     }
     return groups;
   }, [latest]);
+
+  const leagueKeys = useMemo(() => Object.keys(predsByLeague).sort(), [predsByLeague]);
+
+  const filteredLeagues = selectedLeague === 'all'
+    ? leagueKeys
+    : leagueKeys.filter(k => k === selectedLeague);
 
   if (loading) return <div className="loading">Loading latest data...</div>;
   if (error) return <div className="error">Error: {error}</div>;
@@ -80,8 +87,17 @@ export default function Home() {
         </>
       )}
 
-      <h2>Upcoming Predictions</h2>
-      {Object.entries(predsByLeague).sort().map(([league, lgPreds]) => (
+      <div className="section-header">
+        <h2>Upcoming Predictions</h2>
+        <select className="league-select" value={selectedLeague}
+                onChange={e => setSelectedLeague(e.target.value)}>
+          <option value="all">All Leagues</option>
+          {leagueKeys.map(k => (
+            <option key={k} value={k}>{leagueName(k)}</option>
+          ))}
+        </select>
+      </div>
+      {filteredLeagues.map(league => (
         <div key={league} className="league-pred-section">
           <h3 className="league-pred-header">{leagueName(league)}</h3>
           <div className="model-table-wrap">
@@ -95,7 +111,7 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-                {lgPreds.map((p, i) => (
+                {predsByLeague[league].map((p, i) => (
                   <tr key={i}>
                     <td className="date-cell">{p.date}</td>
                     <td><strong>{p.home}</strong> vs {p.away}</td>

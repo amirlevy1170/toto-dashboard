@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useSnapshots } from '../hooks/useSnapshots';
 import { leagueName, pct, LEAGUES } from '../utils';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
@@ -6,6 +6,7 @@ import './Home.css';
 
 export default function Leagues() {
   const { snapshots, loading, error } = useSnapshots();
+  const [selectedLeague, setSelectedLeague] = useState('all');
 
   const leagueData = useMemo(() => {
     if (!snapshots.length) return {};
@@ -37,12 +38,25 @@ export default function Leagues() {
   if (loading) return <div className="loading">Loading...</div>;
   if (error) return <div className="error">Error: {error}</div>;
 
+  const filteredLeagues = selectedLeague === 'all'
+    ? LEAGUES
+    : LEAGUES.filter(l => l.id === selectedLeague);
+
   return (
     <div className="page">
-      <h1>Per-League Analysis</h1>
+      <div className="section-header">
+        <h1>Per-League Analysis</h1>
+        <select className="league-select" value={selectedLeague}
+                onChange={e => setSelectedLeague(e.target.value)}>
+          <option value="all">All Leagues</option>
+          {LEAGUES.map(l => (
+            <option key={l.id} value={l.id}>{l.flag} {l.name}</option>
+          ))}
+        </select>
+      </div>
       <p className="generated">Accuracy trends and model frequency across {snapshots.length} runs</p>
 
-      {LEAGUES.map(league => {
+      {filteredLeagues.map(league => {
         const data = leagueData[league.id];
         if (!data || !data.history.length) return null;
 
