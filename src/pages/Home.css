@@ -126,3 +126,35 @@
 .error {
   color: #e74c3c;
 }
+
+.league-pred-section {
+  margin-bottom: 24px;
+}
+
+.league-pred-header {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  padding: 6px 12px;
+  background: #e8ecff;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.form-section {
+  margin-bottom: 24px;
+}
+
+.form-header {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
+
+.form-number {
+  font-weight: 400;
+  color: #888;
+  font-size: 13px;
+}

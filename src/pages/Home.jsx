@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useSnapshots } from '../hooks/useSnapshots';
 import StatCard from '../components/StatCard';
 import { leagueName, predColor, pct } from '../utils';
@@ -6,17 +7,31 @@ import './Home.css';
 export default function Home() {
   const { snapshots, loading, error } = useSnapshots();
 
+  const latest = snapshots?.[0];
+
+  // Group predictions by league
+  const predsByLeague = useMemo(() => {
+    if (!latest?.predictions?.length) return {};
+    const groups = {};
+    for (const p of latest.predictions) {
+      const key = p.league || 'Other';
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(p);
+    }
+    return groups;
+  }, [latest]);
+
   if (loading) return <div className="loading">Loading latest data...</div>;
   if (error) return <div className="error">Error: {error}</div>;
   if (!snapshots.length) return <div className="empty">No data available yet.</div>;
 
-  const latest = snapshots[0];
   const best = latest.best_overall || {};
   const leagues = latest.per_league || [];
   const cups = latest.cup_models || [];
   const nationals = latest.national_models || [];
   const preds = latest.predictions || [];
   const ai = latest.ai_metrics || {};
+  const forms = latest.toto_forms || {};
 
   return (
     <div className="page">
@@ -66,44 +81,89 @@ export default function Home() {
       )}
 
       <h2>Upcoming Predictions</h2>
-      <div className="model-table-wrap">
-        <table className="data-table predictions-table">
-          <thead>
-            <tr>
-              <th>Date</th><th>Match</th>
-              <th>League Pred</th><th>H / D / A</th>
-              <th>Overall Pred</th><th>H / D / A</th>
-              <th>AI Pred</th><th>H / D / A</th>
-            </tr>
-          </thead>
-          <tbody>
-            {preds.map((p, i) => (
-              <tr key={i}>
-                <td className="date-cell">{p.date}</td>
-                <td><strong>{p.home}</strong> vs {p.away}</td>
-                <td style={{ background: predColor(p.league_pred), fontWeight: 700, textAlign: 'center' }}>
-                  {p.league_pred}
-                </td>
-                <td className="prob-cell">
-                  {pct(p.league_prob_h)} / {pct(p.league_prob_d)} / {pct(p.league_prob_a)}
-                </td>
-                <td style={{ background: predColor(p.overall_pred), fontWeight: 700, textAlign: 'center' }}>
-                  {p.overall_pred}
-                </td>
-                <td className="prob-cell">
-                  {pct(p.overall_prob_h)} / {pct(p.overall_prob_d)} / {pct(p.overall_prob_a)}
-                </td>
-                <td style={{ background: predColor(p.ai_pred), fontWeight: 700, textAlign: 'center' }}>
-                  {p.ai_pred}
-                </td>
-                <td className="prob-cell">
-                  {pct(p.ai_prob_h)} / {pct(p.ai_prob_d)} / {pct(p.ai_prob_a)}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {Object.entries(predsByLeague).sort().map(([league, lgPreds]) => (
+        <div key={league} className="league-pred-section">
+          <h3 className="league-pred-header">{leagueName(league)}</h3>
+          <div className="model-table-wrap">
+            <table className="data-table predictions-table">
+              <thead>
+                <tr>
+                  <th>Date</th><th>Match</th>
+                  <th>League</th><th>H / D / A</th>
+                  <th>Overall</th><th>H / D / A</th>
+                  <th>AI</th><th>H / D / A</th>
+                </tr>
+              </thead>
+              <tbody>
+                {lgPreds.map((p, i) => (
+                  <tr key={i}>
+                    <td className="date-cell">{p.date}</td>
+                    <td><strong>{p.home}</strong> vs {p.away}</td>
+                    <td style={{ background: predColor(p.league_pred), fontWeight: 700, textAlign: 'center' }}>
+                      {p.league_pred}
+                    </td>
+                    <td className="prob-cell">
+                      {pct(p.league_prob_h)} / {pct(p.league_prob_d)} / {pct(p.league_prob_a)}
+                    </td>
+                    <td style={{ background: predColor(p.overall_pred), fontWeight: 700, textAlign: 'center' }}>
+                      {p.overall_pred}
+                    </td>
+                    <td className="prob-cell">
+                      {pct(p.overall_prob_h)} / {pct(p.overall_prob_d)} / {pct(p.overall_prob_a)}
+                    </td>
+                    <td style={{ background: predColor(p.ai_pred), fontWeight: 700, textAlign: 'center' }}>
+                      {p.ai_pred}
+                    </td>
+                    <td className="prob-cell">
+                      {pct(p.ai_prob_h)} / {pct(p.ai_prob_d)} / {pct(p.ai_prob_a)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+
+      {Object.keys(forms).length > 0 && (
+        <>
+          <h2>🎯 Toto Forms</h2>
+          {Object.entries(forms).map(([formKey, formData]) => (
+            <div key={formKey} className="form-section">
+              <h3 className="form-header">
+                {formKey === 'toto16' ? '🏆 Toto 16' : '🌍 Toto World'}
+                {formData.form_number && <span className="form-number"> (Form #{formData.form_number})</span>}
+              </h3>
+              {formData.games?.length > 0 ? (
+                <div className="model-table-wrap">
+                  <table className="data-table">
+                    <thead>
+                      <tr><th>#</th><th>Home</th><th>Away</th><th>League</th><th>Kickoff</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                      {formData.games.map((g, i) => (
+                        <tr key={i}>
+                          <td>{i + 1}</td>
+                          <td><strong>{g.home}</strong></td>
+                          <td><strong>{g.away}</strong></td>
+                          <td>{g.league}</td>
+                          <td className="date-cell">{g.kickoff}</td>
+                          <td>{g.status === 'not_started' ? '⏳' : g.status === 'finished' ? '✅' : '🔴'}{' '}
+                            {g.score_home != null && g.score_away != null && g.status !== 'not_started'
+                              ? `${g.score_home}-${g.score_away}` : g.status}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : (
+                <p className="empty">No games in this form</p>
+              )}
+            </div>
+          ))}
+        </>
+      )}
     </div>
   );
 }
