@@ -53,6 +53,20 @@ export default function Home() {
         <StatCard label="AI Accuracy" value={pct(ai.accuracy || 0)} sub="Gemini evaluation" color="#f72585" />
       </div>
 
+      {latest.fallbacks && Object.keys(latest.fallbacks).length > 0 && (
+        <div className="fallback-banner">
+          <strong>⚠ Degenerate model fallbacks:</strong>
+          <ul>
+            {Object.entries(latest.fallbacks).map(([scope, info]) => (
+              <li key={scope}>
+                <strong>{scope === 'overall' ? 'Overall' : leagueName(scope)}:</strong>{' '}
+                {info.original} → {info.replaced_by}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <h2>Per-League Winners</h2>
       <div className="league-grid">
         {leagues.map(l => (
@@ -61,6 +75,9 @@ export default function Home() {
             <div className="league-model">{l.model}</div>
             <div className="league-ensemble">{l.ensemble}</div>
             <div className="league-acc">{pct(l.accuracy)}</div>
+            {latest.fallbacks?.[l.league] && (
+              <div className="fallback-tag">⚠ → {latest.fallbacks[l.league].replaced_by}</div>
+            )}
           </div>
         ))}
       </div>

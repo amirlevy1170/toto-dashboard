@@ -63,6 +63,23 @@ export default function History() {
                 <div className="detail-section">
                   <h3>Best Overall</h3>
                   <p><strong>{snap.best_overall.model}</strong> + {snap.best_overall.ensemble} — {pct(snap.best_overall.accuracy)}</p>
+                  {snap.fallbacks?.overall && (
+                    <p className="fallback-tag">⚠ Degenerate → replaced by: {snap.fallbacks.overall.replaced_by}</p>
+                  )}
+                </div>
+              )}
+
+              {snap.fallbacks && Object.keys(snap.fallbacks).length > 0 && (
+                <div className="fallback-banner">
+                  <strong>⚠ Degenerate model fallbacks:</strong>
+                  <ul>
+                    {Object.entries(snap.fallbacks).map(([scope, info]) => (
+                      <li key={scope}>
+                        <strong>{scope === 'overall' ? 'Overall' : leagueName(scope)}:</strong>{' '}
+                        {info.original} → {info.replaced_by}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
 
@@ -76,7 +93,12 @@ export default function History() {
                     {(snap.per_league || []).map((l, i) => (
                       <tr key={i}>
                         <td>{leagueName(l.league)}</td>
-                        <td><strong>{l.model}</strong></td>
+                        <td>
+                          <strong>{l.model}</strong>
+                          {snap.fallbacks?.[l.league] && (
+                            <span className="fallback-tag" style={{marginLeft: 6}}>⚠ → {snap.fallbacks[l.league].replaced_by}</span>
+                          )}
+                        </td>
                         <td>{l.ensemble}</td>
                         <td style={{ fontWeight: 700, color: l.accuracy >= 0.6 ? '#27ae60' : l.accuracy >= 0.5 ? '#f39c12' : '#e74c3c' }}>
                           {pct(l.accuracy)}
