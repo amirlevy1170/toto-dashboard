@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useSnapshots, useSnapshot } from '../hooks/useSnapshots';
 import { leagueName, pct, predColor } from '../utils';
 import './Home.css';
@@ -7,6 +7,31 @@ export default function History() {
   const { dates, loading, error } = useSnapshots();
   const [selected, setSelected] = useState(null);
   const { data: snap, loading: snapLoading } = useSnapshot(selected);
+  const [selectedLeague, setSelectedLeague] = useState('all');
+
+  // Group predictions by league
+  const predsByLeague = useMemo(() => {
+    if (!snap?.predictions?.length) return {};
+    const groups = {};
+    for (const p of snap.predictions) {
+      const key = p.league || 'Other';
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(p);
+    }
+    return groups;
+  }, [snap]);
+
+  const leagueKeys = useMemo(() => Object.keys(predsByLeague).sort(), [predsByLeague]);
+
+  const filteredLeagues = selectedLeague === 'all'
+    ? leagueKeys
+    : leagueKeys.filter(k => k === selectedLeague);
+
+  // Reset league filter when switching dates
+  const handleDateSelect = (d) => {
+    setSelected(d);
+    setSelectedLeague('all');
+  };
 
   if (loading) return <div className="loading">Loading history...</div>;
   if (error) return <div className="error">Error: {error}</div>;
@@ -20,7 +45,7 @@ export default function History() {
         <div className="date-list">
           {dates.map(d => (
             <button key={d} className={`date-btn ${d === selected ? 'active' : ''}`}
-                    onClick={() => setSelected(d)}>
+                    onClick={() => handleDateSelect(d)}>
               📅 {d}
             </button>
           ))}
@@ -82,26 +107,40 @@ export default function History() {
 
               {snap.predictions?.length > 0 && (
                 <div className="detail-section">
-                  <h3>Predictions ({snap.predictions.length} matches)</h3>
-                  <div className="model-table-wrap">
-                    <table className="data-table">
-                      <thead>
-                        <tr><th>Date</th><th>Match</th><th>League</th><th>H/D/A</th><th>Overall</th><th>AI</th></tr>
-                      </thead>
-                      <tbody>
-                        {snap.predictions.map((p, i) => (
-                          <tr key={i}>
-                            <td className="date-cell">{p.date}</td>
-                            <td><strong>{p.home}</strong> vs {p.away}</td>
-                            <td style={{ background: predColor(p.league_pred), textAlign: 'center', fontWeight: 700 }}>{p.league_pred}</td>
-                            <td className="prob-cell">{pct(p.league_prob_h)}/{pct(p.league_prob_d)}/{pct(p.league_prob_a)}</td>
-                            <td style={{ background: predColor(p.overall_pred), textAlign: 'center', fontWeight: 700 }}>{p.overall_pred}</td>
-                            <td style={{ background: predColor(p.ai_pred), textAlign: 'center', fontWeight: 700 }}>{p.ai_pred}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                  <div className="section-header">
+                    <h3>Predictions ({snap.predictions.length} matches)</h3>
+                    <select className="league-select" value={selectedLeague}
+                            onChange={e => setSelectedLeague(e.target.value)}>
+                      <option value="all">All Leagues</option>
+                      {leagueKeys.map(k => (
+                        <option key={k} value={k}>{leagueName(k)}</option>
+                      ))}
+                    </select>
                   </div>
+                  {filteredLeagues.map(league => (
+                    <div key={league} className="league-pred-section">
+                      <h4 className="league-pred-header">{leagueName(league)}</h4>
+                      <div className="model-table-wrap">
+                        <table className="data-table">
+                          <thead>
+                            <tr><th>Date</th><th>Match</th><th>League</th><th>H/D/A</th><th>Overall</th><th>AI</th></tr>
+                          </thead>
+                          <tbody>
+                            {predsByLeague[league].map((p, i) => (
+                              <tr key={i}>
+                                <td className="date-cell">{p.date}</td>
+                                <td><strong>{p.home}</strong> vs {p.away}</td>
+                                <td style={{ background: predColor(p.league_pred), textAlign: 'center', fontWeight: 700 }}>{p.league_pred}</td>
+                                <td className="prob-cell">{pct(p.league_prob_h)}/{pct(p.league_prob_d)}/{pct(p.league_prob_a)}</td>
+                                <td style={{ background: predColor(p.overall_pred), textAlign: 'center', fontWeight: 700 }}>{p.overall_pred}</td>
+                                <td style={{ background: predColor(p.ai_pred), textAlign: 'center', fontWeight: 700 }}>{p.ai_pred}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               )}
 
