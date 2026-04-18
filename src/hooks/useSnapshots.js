@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { fetchIndex, fetchSnapshot, fetchAllSnapshots } from '../api';
+import {
+  fetchIndex, fetchSnapshot, fetchAllSnapshots, fetchDrawSnapshot,
+} from '../api';
 
 export function useSnapshots() {
   const [dates, setDates] = useState([]);
@@ -48,4 +50,22 @@ export function useSnapshot(date) {
   }, [date]);
 
   return { data, loading, error };
+}
+
+// Draw snapshot for a given date. Null if that date has no draw file yet.
+export function useDrawSnapshot(date) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!date) { setLoading(false); return; }
+    let cancelled = false;
+    setLoading(true);
+    fetchDrawSnapshot(date)
+      .then(d => { if (!cancelled) setData(d); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, [date]);
+
+  return { data, loading };
 }

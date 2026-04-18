@@ -192,3 +192,46 @@
   color: #888;
   font-size: 13px;
 }
+
+/* ── Draw model integration ───────────────────────────────────────── */
+.section-sub {
+  color: #666;
+  font-size: 13px;
+  margin-top: -8px;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.draw-cell {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.row-disagreement {
+  background: #fff9e6 !important;
+  box-shadow: inset 3px 0 0 #f72585;
+}
+
+.row-disagreement:hover {
+  background: #fff3cc !important;
+}
+
+.draw-model-table td {
+  font-size: 13px;
+}
+
+.draw-row-overall {
+  background: #f5f6fa;
+  font-style: italic;
+}
+
+.ensemble-cell {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: #666;
+}
+
+.num-cell {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}

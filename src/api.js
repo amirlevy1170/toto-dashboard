@@ -39,3 +39,39 @@ export async function fetchAllSnapshots() {
   );
   return snapshots.filter(Boolean);
 }
+
+// ── Draw model (binary Draw vs Not-Draw) ─────────────────────────────
+// Loaded from `<date>_draw.json`. Missing file is normal on older dates
+// — returns null instead of throwing.
+export async function fetchDrawSnapshot(date) {
+  try {
+    const res = await fetch(`${baseUrl()}/${date}_draw.json`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+// ── Walk-forward backtest ────────────────────────────────────────────
+// Latest run is expected at `backtest/latest_rounds.csv` + `latest_winners.json`.
+// Returns null if the files aren't there yet (graceful empty state).
+export async function fetchBacktestRounds() {
+  try {
+    const res = await fetch(`${baseUrl()}/backtest/latest_rounds.csv`);
+    if (!res.ok) return null;
+    return await res.text();
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchBacktestWinners() {
+  try {
+    const res = await fetch(`${baseUrl()}/backtest/latest_winners.json`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}

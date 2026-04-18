@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react';
-import { useSnapshots } from '../hooks/useSnapshots';
+import { useSnapshots, useDrawSnapshot } from '../hooks/useSnapshots';
 import StatCard from '../components/StatCard';
-import { leagueName, predColor, pct } from '../utils';
+import {
+  leagueName, predColor, pct, matchKey, buildDrawLookup, isDisagreement,
+} from '../utils';
 import './Home.css';
 
 export default function Home() {
@@ -9,6 +11,9 @@ export default function Home() {
   const [selectedLeague, setSelectedLeague] = useState('all');
 
   const latest = snapshots?.[0];
+  const { data: drawData } = useDrawSnapshot(latest?.date);
+  const drawLookup = useMemo(() => buildDrawLookup(drawData), [drawData]);
+  const drawModels = drawData?.models || [];
 
   // Group predictions by league
   const predsByLeague = useMemo(() => {
@@ -82,6 +87,45 @@ export default function Home() {
         ))}
       </div>
 
+      {drawModels.length > 0 && (
+        <>
+          <h2>Draw-Model Winners</h2>
+          <p className="section-sub">
+            Binary Draw-vs-Not-Draw model per league. AUC = how well it ranks draws
+            above non-draws (0.5 = random, 1.0 = perfect). Threshold = P(X) cutoff
+            for flagging a match as a probable draw.
+          </p>
+          <div className="model-table-wrap">
+            <table className="data-table draw-model-table">
+              <thead>
+                <tr>
+                  <th>Scope</th>
+                  <th>Model</th>
+                  <th>Ensemble</th>
+                  <th>AUC</th>
+                  <th>Threshold</th>
+                  <th>Accuracy</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[...drawModels]
+                  .sort((a, b) => (a.scope === 'ALL' ? -1 : b.scope === 'ALL' ? 1 : b.auc - a.auc))
+                  .map((m) => (
+                    <tr key={m.scope} className={m.scope === 'ALL' ? 'draw-row-overall' : ''}>
+                      <td><strong>{m.scope === 'ALL' ? 'ALL (overall)' : leagueName(m.scope)}</strong></td>
+                      <td>{m.model}</td>
+                      <td className="ensemble-cell">{m.ensemble}</td>
+                      <td className="num-cell">{m.auc.toFixed(3)}</td>
+                      <td className="num-cell">{m.threshold.toFixed(2)}</td>
+                      <td className="num-cell">{pct(m.accuracy)}</td>
+                    </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+
       {cups.length > 0 && (
         <>
           <h2>Cup & National Models</h2>
@@ -125,11 +169,15 @@ export default function Home() {
                   <th>League</th><th>H / D / A</th>
                   <th>Overall</th><th>H / D / A</th>
                   <th>AI</th><th>H / D / A</th>
+                  <th title="Binary Draw model's P(X); colored yellow when it flags a probable draw. Star marks disagreement with the 3-class league pick.">Draw</th>
                 </tr>
               </thead>
               <tbody>
-                {predsByLeague[league].map((p, i) => (
-                  <tr key={i}>
+                {predsByLeague[league].map((p, i) => {
+                  const draw = drawLookup[matchKey(p.date, p.league, p.home, p.away)];
+                  const disagreement = isDisagreement(p.league_pred, draw);
+                  return (
+                  <tr key={i} className={disagreement ? 'row-disagreement' : ''}>
                     <td className="date-cell">{p.date}</td>
                     <td><strong>{p.home}</strong> vs {p.away}</td>
                     <td style={{ background: predColor(p.league_pred), fontWeight: 700, textAlign: 'center' }}>
@@ -150,8 +198,21 @@ export default function Home() {
                     <td className="prob-cell">
                       {pct(p.ai_prob_h)} / {pct(p.ai_prob_d)} / {pct(p.ai_prob_a)}
                     </td>
+                    <td
+                      className="draw-cell"
+                      style={{ background: draw?.predicted_draw ? predColor('X') : '#f8f9fa', textAlign: 'center' }}
+                      title={draw ? `model=${draw.model_name} threshold=${draw.threshold}` : 'no draw prediction'}
+                    >
+                      {draw ? (
+                        <>
+                          <strong>{pct(draw.prob_draw)}</strong>
+                          {draw.predicted_draw ? ' 🎯' : ''}
+                          {disagreement ? ' ★' : ''}
+                        </>
+                      ) : '—'}
+                    </td>
                   </tr>
-                ))}
+                );})}
               </tbody>
             </table>
           </div>
