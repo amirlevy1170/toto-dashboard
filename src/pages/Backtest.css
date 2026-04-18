@@ -1,0 +1,77 @@
+/* Backtest page inherits from Home.css globals (.page, .data-table, .num-cell, .ensemble-cell) */
+
+.empty-panel {
+  margin-top: 32px;
+  padding: 32px;
+  background: white;
+  border-radius: 12px;
+  border: 2px dashed #d0d5dd;
+  text-align: center;
+  color: #555;
+  line-height: 1.6;
+}
+
+.empty-panel h3 {
+  color: #1a1a2e;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.empty-panel code {
+  background: #f5f6fa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #4361ee;
+}
+
+.empty-panel .hint {
+  color: #888;
+  font-size: 13px;
+  margin-top: 16px;
+}
+
+.stat-box {
+  background: white;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  border-left: 4px solid #4361ee;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1a1a2e;
+  line-height: 1;
+}
+
+.stat-sub {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+
+.backtest-table .row-baseline {
+  background: #f5f6fa;
+  font-style: italic;
+}
+
+.backtest-table .row-baseline:hover {
+  background: #ebecf2;
+}
+
+.rounds-detail {
+  font-size: 12px;
+}
+
+.rounds-detail th,
+.rounds-detail td {
+  padding: 6px 10px;
+}

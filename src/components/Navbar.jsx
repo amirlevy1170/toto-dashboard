@@ -10,6 +10,7 @@ export default function Navbar() {
         <NavLink to="/history">History</NavLink>
         <NavLink to="/leagues">Leagues</NavLink>
         <NavLink to="/models">Models</NavLink>
+        <NavLink to="/backtest">Backtest</NavLink>
       </div>
     </nav>
   );
