@@ -1,12 +1,16 @@
 import { useMemo, useState } from 'react';
-import { useSnapshots, useSnapshot } from '../hooks/useSnapshots';
-import { leagueName, pct, predColor } from '../utils';
+import { useSnapshots, useSnapshot, useDrawSnapshot } from '../hooks/useSnapshots';
+import {
+  leagueName, pct, predColor, matchKey, buildDrawLookup, isDisagreement,
+} from '../utils';
 import './Home.css';
 
 export default function History() {
   const { dates, loading, error } = useSnapshots();
   const [selected, setSelected] = useState(null);
   const { data: snap, loading: snapLoading } = useSnapshot(selected);
+  const { data: drawData } = useDrawSnapshot(selected);
+  const drawLookup = useMemo(() => buildDrawLookup(drawData), [drawData]);
   const [selectedLeague, setSelectedLeague] = useState('all');
 
   // Group predictions by league
@@ -145,19 +149,40 @@ export default function History() {
                       <div className="model-table-wrap">
                         <table className="data-table">
                           <thead>
-                            <tr><th>Date</th><th>Match</th><th>League</th><th>H/D/A</th><th>Overall</th><th>AI</th></tr>
+                            <tr>
+                              <th>Date</th><th>Match</th>
+                              <th>League</th><th>H/D/A</th>
+                              <th>Overall</th><th>AI</th>
+                              <th title="Binary draw model's P(X); colored yellow when flagged as probable draw. Star marks disagreement with the 3-class league pick.">Draw</th>
+                            </tr>
                           </thead>
                           <tbody>
-                            {predsByLeague[league].map((p, i) => (
-                              <tr key={i}>
+                            {predsByLeague[league].map((p, i) => {
+                              const draw = drawLookup[matchKey(p.date, p.league, p.home, p.away)];
+                              const disagreement = isDisagreement(p.league_pred, draw);
+                              return (
+                              <tr key={i} className={disagreement ? 'row-disagreement' : ''}>
                                 <td className="date-cell">{p.date}</td>
                                 <td><strong>{p.home}</strong> vs {p.away}</td>
                                 <td style={{ background: predColor(p.league_pred), textAlign: 'center', fontWeight: 700 }}>{p.league_pred}</td>
                                 <td className="prob-cell">{pct(p.league_prob_h)}/{pct(p.league_prob_d)}/{pct(p.league_prob_a)}</td>
                                 <td style={{ background: predColor(p.overall_pred), textAlign: 'center', fontWeight: 700 }}>{p.overall_pred}</td>
                                 <td style={{ background: predColor(p.ai_pred), textAlign: 'center', fontWeight: 700 }}>{p.ai_pred}</td>
+                                <td
+                                  className="draw-cell"
+                                  style={{ background: draw?.predicted_draw ? predColor('X') : '#f8f9fa', textAlign: 'center' }}
+                                  title={draw ? `model=${draw.model_name} threshold=${draw.threshold}` : 'no draw prediction for this date'}
+                                >
+                                  {draw ? (
+                                    <>
+                                      <strong>{pct(draw.prob_draw)}</strong>
+                                      {draw.predicted_draw ? ' 🎯' : ''}
+                                      {disagreement ? ' ★' : ''}
+                                    </>
+                                  ) : '—'}
+                                </td>
                               </tr>
-                            ))}
+                            );})}
                           </tbody>
                         </table>
                       </div>
