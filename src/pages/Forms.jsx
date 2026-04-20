@@ -143,12 +143,11 @@ export default function Forms() {
                     <p className="doubles-info">
                       Close threshold: <strong>{Number(fs.close_threshold).toFixed(3)}</strong>
                       {fs.doubles_summary && (
-                        <> · Doubles: {fs.doubles_summary.map((d, j) => (
-                          <span key={j} className={`double-badge ${d.correct ? 'correct' : 'wrong'}`}>
-                            #{d.game_number} {d.prediction}→{d.double_prediction}
-                            {d.correct ? ' ✓' : ' ✗'}
-                          </span>
-                        ))}</>
+                        <> · Doubles: <strong>{fs.doubles_summary.correct}/{fs.doubles_summary.count}</strong> correct
+                          {fs.doubles_summary.games?.map((g, j) => (
+                            <span key={j} className="double-badge">{g}</span>
+                          ))}
+                        </>
                       )}
                     </p>
                   )}
