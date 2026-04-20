@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchFormsPredictions } from '../api';
-import { leagueName, pct } from '../utils';
+import { leagueName, pct, predColor } from '../utils';
 import './Forms.css';
 
 export default function Forms() {
@@ -41,6 +41,14 @@ export default function Forms() {
 
   const { form_summaries = [], league_winners = {}, overall_ranking = [], predictions = [], config = {} } = data;
   const ts = data.timestamp ? new Date(data.timestamp).toLocaleString() : '—';
+
+  // Group predictions by league (like Home page)
+  const predsByLeague = {};
+  for (const p of predictions) {
+    if (!predsByLeague[p.league]) predsByLeague[p.league] = [];
+    predsByLeague[p.league].push(p);
+  }
+  const predLeagues = Object.keys(predsByLeague).sort();
 
   return (
     <div className="page">
@@ -132,7 +140,7 @@ export default function Forms() {
                   <span className="form-acc">({fs.accuracy}%)</span>
                 </div>
                 <div className="form-card-meta">
-                  {fs.best_model} + {fs.best_ensemble}
+                  {fs.games ? [...new Set(fs.games.map(g => g.league))].length : '?'} leagues
                 </div>
                 <span className="expand-icon">{isExpanded ? '▲' : '▼'}</span>
               </div>
@@ -190,43 +198,52 @@ export default function Forms() {
         })}
       </div>
 
-      {/* Upcoming predictions */}
+      {/* Upcoming predictions — grouped by league like Home page */}
       {predictions.length > 0 && (
         <>
           <h2>🔮 Upcoming Predictions</h2>
           <p className="section-sub">
             Next 5 days' games predicted by the winning model per league.
           </p>
-          <div className="model-table-wrap">
-            <table className="data-table">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Match</th>
-                  <th>League</th>
-                  <th>Prediction</th>
-                  <th>Confidence</th>
-                  <th>Model</th>
-                </tr>
-              </thead>
-              <tbody>
-                {predictions.map((p, i) => (
-                  <tr key={i}>
-                    <td className="date-cell">{p.date}</td>
-                    <td className="match-cell">{p.home_team} vs {p.away_team}</td>
-                    <td>{leagueName(p.league)}</td>
-                    <td className="num-cell">
-                      <strong className={`pred-${p.prediction}`}>{p.prediction}</strong>
-                    </td>
-                    <td className="num-cell">
-                      {p.confidence != null ? `${(p.confidence * 100).toFixed(0)}%` : '—'}
-                    </td>
-                    <td className="ensemble-cell">{p.model || '—'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          {predLeagues.map(league => (
+            <div key={league} className="league-pred-section">
+              <h3 className="league-pred-header">
+                {leagueName(league)}
+                {league_winners[league] && (
+                  <span className="league-winner-tag">
+                    {league_winners[league].model} + {league_winners[league].ensemble}
+                    ({league_winners[league].accuracy}%)
+                  </span>
+                )}
+              </h3>
+              <div className="model-table-wrap">
+                <table className="data-table predictions-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Match</th>
+                      <th>Pred</th>
+                      <th>H / D / A</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {predsByLeague[league].map((p, i) => (
+                      <tr key={i}>
+                        <td className="date-cell">{p.date}</td>
+                        <td><strong>{p.home_team}</strong> vs {p.away_team}</td>
+                        <td style={{ background: predColor(p.prediction), fontWeight: 700, textAlign: 'center' }}>
+                          {p.prediction}
+                        </td>
+                        <td className="prob-cell">
+                          {pct(p.prob_home)} / {pct(p.prob_draw)} / {pct(p.prob_away)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ))}
         </>
       )}
     </div>

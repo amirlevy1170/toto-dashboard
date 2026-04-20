@@ -126,3 +126,10 @@
 .pred-1 { color: #2563eb; }
 .pred-X { color: #d97706; }
 .pred-2 { color: #dc2626; }
+
+.league-winner-tag {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #6c757d;
+  margin-left: 0.5rem;
+}
