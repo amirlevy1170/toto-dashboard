@@ -42,11 +42,16 @@ export default function Forms() {
   const { form_summaries = [], league_winners = {}, overall_ranking = [], predictions = [], config = {} } = data;
   const ts = data.timestamp ? new Date(data.timestamp).toLocaleString() : '—';
 
-  // Group predictions by league (like Home page)
+  // Group predictions by league, compute confidence diff, sort by diff desc
   const predsByLeague = {};
   for (const p of predictions) {
+    const probs = [p.prob_home, p.prob_draw, p.prob_away].sort((a, b) => b - a);
+    p._diff = probs[0] - probs[1];
     if (!predsByLeague[p.league]) predsByLeague[p.league] = [];
     predsByLeague[p.league].push(p);
+  }
+  for (const lg of Object.keys(predsByLeague)) {
+    predsByLeague[lg].sort((a, b) => b._diff - a._diff);
   }
   const predLeagues = Object.keys(predsByLeague).sort();
 
@@ -224,6 +229,7 @@ export default function Forms() {
                       <th>Match</th>
                       <th>Pred</th>
                       <th>H / D / A</th>
+                      <th title="Difference between highest and second-highest probability">Diff</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -236,6 +242,9 @@ export default function Forms() {
                         </td>
                         <td className="prob-cell">
                           {pct(p.prob_home)} / {pct(p.prob_draw)} / {pct(p.prob_away)}
+                        </td>
+                        <td className="num-cell" style={{ fontWeight: 600 }}>
+                          {(p._diff * 100).toFixed(0)}%
                         </td>
                       </tr>
                     ))}
