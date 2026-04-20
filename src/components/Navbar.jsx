@@ -11,6 +11,7 @@ export default function Navbar() {
         <NavLink to="/leagues">Leagues</NavLink>
         <NavLink to="/models">Models</NavLink>
         <NavLink to="/backtest">Backtest</NavLink>
+        <NavLink to="/forms">Forms</NavLink>
       </div>
     </nav>
   );

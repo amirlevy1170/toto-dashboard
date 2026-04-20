@@ -1,0 +1,128 @@
+.forms-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.form-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.form-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.form-card-header:hover {
+  background: #f8f9fa;
+}
+
+.form-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  min-width: 160px;
+}
+
+.form-type-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.form-type-badge.world {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.form-type-badge.winner16 {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.form-card-score {
+  font-size: 1.1rem;
+  min-width: 120px;
+}
+.form-acc {
+  color: #666;
+  font-size: 0.9rem;
+  margin-left: 4px;
+}
+
+.form-card-meta {
+  color: #555;
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.expand-icon {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.form-card-body {
+  padding: 0 16px 16px;
+  border-top: 1px solid #eee;
+}
+
+.doubles-info {
+  margin: 12px 0 8px;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.double-badge {
+  display: inline-block;
+  padding: 2px 6px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.double-badge.correct {
+  background: #d1fae5;
+  color: #065f46;
+}
+.double-badge.wrong {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.games-table {
+  font-size: 0.85rem;
+}
+.games-table td,
+.games-table th {
+  padding: 4px 8px;
+}
+
+.double-row {
+  background: #fffbeb;
+}
+
+.double-marker {
+  background: #fbbf24;
+  color: #78350f;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.match-cell {
+  white-space: nowrap;
+}
+
+.pred-1 { color: #2563eb; }
+.pred-X { color: #d97706; }
+.pred-2 { color: #dc2626; }

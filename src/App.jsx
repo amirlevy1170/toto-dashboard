@@ -5,6 +5,7 @@ import History from './pages/History';
 import Leagues from './pages/Leagues';
 import Models from './pages/Models';
 import Backtest from './pages/Backtest';
+import Forms from './pages/Forms';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/leagues" element={<Leagues />} />
         <Route path="/models" element={<Models />} />
         <Route path="/backtest" element={<Backtest />} />
+        <Route path="/forms" element={<Forms />} />
       </Routes>
     </BrowserRouter>
   );

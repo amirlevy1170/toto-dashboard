@@ -75,3 +75,16 @@ export async function fetchBacktestWinners() {
     return null;
   }
 }
+
+// ── Forms walk-forward pipeline ──────────────────────────────────────
+// Daily forms pipeline output with per-form results, league winners,
+// and upcoming predictions.
+export async function fetchFormsPredictions() {
+  try {
+    const res = await fetch(`${baseUrl()}/forms_predictions.json`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
