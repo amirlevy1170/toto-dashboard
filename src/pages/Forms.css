@@ -133,3 +133,17 @@
   color: #6c757d;
   margin-left: 0.5rem;
 }
+
+.date-picker-row {
+  margin-bottom: 0.75rem;
+}
+.date-picker-row label {
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+.date-picker-row select {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  font-size: 0.9rem;
+}

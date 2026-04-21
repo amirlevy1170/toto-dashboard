@@ -88,3 +88,20 @@ export async function fetchFormsPredictions() {
     return null;
   }
 }
+
+export async function fetchFormsIndex() {
+  try {
+    const res = await fetch(`${baseUrl()}/forms/index.json`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.dates || [];
+  } catch {
+    return [];
+  }
+}
+
+export async function fetchFormsSnapshot(date) {
+  const res = await fetch(`${baseUrl()}/forms/${date}.json`);
+  if (!res.ok) throw new Error(`Failed to fetch forms snapshot for ${date}`);
+  return res.json();
+}

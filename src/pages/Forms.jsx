@@ -1,25 +1,54 @@
 import { useEffect, useState } from 'react';
-import { fetchFormsPredictions } from '../api';
+import { fetchFormsPredictions, fetchFormsIndex, fetchFormsSnapshot } from '../api';
 import { leagueName, pct, predColor } from '../utils';
 import './Forms.css';
 
 export default function Forms() {
+  const [dates, setDates] = useState([]);
+  const [selected, setSelected] = useState(null);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [expandedForm, setExpandedForm] = useState(null);
 
+  // Load index + latest on mount
   useEffect(() => {
     let cancelled = false;
     async function load() {
-      const d = await fetchFormsPredictions();
-      if (!cancelled) {
-        setData(d);
-        setLoading(false);
-      }
+      const [latest, idx] = await Promise.all([
+        fetchFormsPredictions(),
+        fetchFormsIndex(),
+      ]);
+      if (cancelled) return;
+      // If index has dates, use them; always include "latest"
+      setDates(idx.length > 0 ? idx : []);
+      setData(latest);
+      setSelected('latest');
+      setLoading(false);
     }
     load();
     return () => { cancelled = true; };
   }, []);
+
+  // Load a specific date's snapshot when selected
+  const handleDateSelect = async (val) => {
+    setSelected(val);
+    setExpandedForm(null);
+    if (val === 'latest') {
+      setLoading(true);
+      const d = await fetchFormsPredictions();
+      setData(d);
+      setLoading(false);
+    } else {
+      setLoading(true);
+      try {
+        const d = await fetchFormsSnapshot(val);
+        setData(d);
+      } catch {
+        setData(null);
+      }
+      setLoading(false);
+    }
+  };
 
   if (loading) return <div className="loading">Loading forms data...</div>;
 
@@ -58,6 +87,20 @@ export default function Forms() {
   return (
     <div className="page">
       <h1>📋 Forms Walk-Forward</h1>
+
+      {/* Date picker */}
+      {dates.length > 0 && (
+        <div className="date-picker-row">
+          <label>Run date: </label>
+          <select value={selected || 'latest'} onChange={e => handleDateSelect(e.target.value)}>
+            <option value="latest">Latest</option>
+            {dates.map(d => (
+              <option key={d} value={d}>{d}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
       <p className="generated">
         Updated: {ts} · Elapsed: {data.elapsed_minutes ?? '?'} min · {data.forms_used ?? '?'} forms evaluated
       </p>
