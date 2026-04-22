@@ -37,7 +37,6 @@ export default function Home() {
   if (error) return <div className="error">Error: {error}</div>;
   if (!snapshots.length) return <div className="empty">No data available yet.</div>;
 
-  const best = latest.best_overall || {};
   const leagues = latest.per_league || [];
   const cups = latest.cup_models || [];
   const nationals = latest.national_models || [];
@@ -51,8 +50,6 @@ export default function Home() {
       <p className="generated">Generated: {latest.generated_at}</p>
 
       <div className="stats-row">
-        <StatCard label="Best Overall" value={best.model || 'N/A'}
-                  sub={`${best.ensemble} — ${pct(best.accuracy || 0)}`} color="#4361ee" />
         <StatCard label="Leagues" value={leagues.length} sub="active leagues" color="#3a86a8" />
         <StatCard label="Predictions" value={preds.length} sub="upcoming matches" color="#7209b7" />
         <StatCard label="AI Accuracy" value={pct(ai.accuracy || 0)} sub="Gemini evaluation" color="#f72585" />
@@ -64,7 +61,7 @@ export default function Home() {
           <ul>
             {Object.entries(latest.fallbacks).map(([scope, info]) => (
               <li key={scope}>
-                <strong>{scope === 'overall' ? 'Overall' : leagueName(scope)}:</strong>{' '}
+                <strong>{leagueName(scope)}:</strong>{' '}
                 {info.original} → {info.replaced_by}
               </li>
             ))}
@@ -167,7 +164,6 @@ export default function Home() {
                 <tr>
                   <th>Date</th><th>Match</th>
                   <th>League</th><th>H / D / A</th>
-                  <th>Overall</th><th>H / D / A</th>
                   <th>AI</th><th>H / D / A</th>
                   <th title="Binary Draw model's P(X); colored yellow when it flags a probable draw. Star marks disagreement with the 3-class league pick.">Draw</th>
                 </tr>
@@ -185,12 +181,6 @@ export default function Home() {
                     </td>
                     <td className="prob-cell">
                       {pct(p.league_prob_h)} / {pct(p.league_prob_d)} / {pct(p.league_prob_a)}
-                    </td>
-                    <td style={{ background: predColor(p.overall_pred), fontWeight: 700, textAlign: 'center' }}>
-                      {p.overall_pred}
-                    </td>
-                    <td className="prob-cell">
-                      {pct(p.overall_prob_h)} / {pct(p.overall_prob_d)} / {pct(p.overall_prob_a)}
                     </td>
                     <td style={{ background: predColor(p.ai_pred), fontWeight: 700, textAlign: 'center' }}>
                       {p.ai_pred}

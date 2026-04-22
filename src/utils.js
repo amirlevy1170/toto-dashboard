@@ -33,18 +33,16 @@ export function matchKey(date, league, home, away) {
   return `${date}|${league}|${home}|${away}`.toLowerCase();
 }
 
-// Build a lookup: matchKey -> draw prediction. Prefers per_league rows;
-// falls back to best_overall when per_league is missing for that fixture.
+// Build a lookup: matchKey -> per-league draw prediction.
 export function buildDrawLookup(drawData) {
   if (!drawData?.predictions?.length) return {};
   const perLeague = {};
-  const overall = {};
   for (const p of drawData.predictions) {
+    if (p.model_type !== 'per_league') continue;
     const key = matchKey(p.date, p.league, p.home_team_name, p.away_team_name);
-    if (p.model_type === 'per_league') perLeague[key] = p;
-    else if (p.model_type === 'best_overall') overall[key] = p;
+    perLeague[key] = p;
   }
-  return { ...overall, ...perLeague };  // per_league wins on collision
+  return perLeague;
 }
 
 // A match is a "disagreement" when the 3-class picks a team (1 or 2) but

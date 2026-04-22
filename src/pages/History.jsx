@@ -63,23 +63,13 @@ export default function History() {
               <h2>Run: {snap.date}</h2>
               <p className="generated">Generated: {snap.generated_at}</p>
 
-              {snap.best_overall?.model && (
-                <div className="detail-section">
-                  <h3>Best Overall</h3>
-                  <p><strong>{snap.best_overall.model}</strong> + {snap.best_overall.ensemble} — {pct(snap.best_overall.accuracy)}</p>
-                  {snap.fallbacks?.overall && (
-                    <p className="fallback-tag">⚠ Degenerate → replaced by: {snap.fallbacks.overall.replaced_by}</p>
-                  )}
-                </div>
-              )}
-
               {snap.fallbacks && Object.keys(snap.fallbacks).length > 0 && (
                 <div className="fallback-banner">
                   <strong>⚠ Degenerate model fallbacks:</strong>
                   <ul>
                     {Object.entries(snap.fallbacks).map(([scope, info]) => (
                       <li key={scope}>
-                        <strong>{scope === 'overall' ? 'Overall' : leagueName(scope)}:</strong>{' '}
+                        <strong>{leagueName(scope)}:</strong>{' '}
                         {info.original} → {info.replaced_by}
                       </li>
                     ))}
@@ -152,7 +142,7 @@ export default function History() {
                             <tr>
                               <th>Date</th><th>Match</th>
                               <th>League</th><th>H/D/A</th>
-                              <th>Overall</th><th>AI</th>
+                              <th>AI</th>
                               <th title="Binary draw model's P(X); colored yellow when flagged as probable draw. Star marks disagreement with the 3-class league pick.">Draw</th>
                             </tr>
                           </thead>
@@ -166,7 +156,6 @@ export default function History() {
                                 <td><strong>{p.home}</strong> vs {p.away}</td>
                                 <td style={{ background: predColor(p.league_pred), textAlign: 'center', fontWeight: 700 }}>{p.league_pred}</td>
                                 <td className="prob-cell">{pct(p.league_prob_h)}/{pct(p.league_prob_d)}/{pct(p.league_prob_a)}</td>
-                                <td style={{ background: predColor(p.overall_pred), textAlign: 'center', fontWeight: 700 }}>{p.overall_pred}</td>
                                 <td style={{ background: predColor(p.ai_pred), textAlign: 'center', fontWeight: 700 }}>{p.ai_pred}</td>
                                 <td
                                   className="draw-cell"

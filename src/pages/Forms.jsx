@@ -68,7 +68,7 @@ export default function Forms() {
     );
   }
 
-  const { form_summaries = [], league_winners = {}, overall_ranking = [], predictions = [], config = {} } = data;
+  const { form_summaries = [], league_winners = {}, predictions = [], config = {} } = data;
   const ts = data.timestamp ? new Date(data.timestamp).toLocaleString() : '—';
 
   // Group predictions by league, compute confidence diff, sort by diff desc
@@ -128,35 +128,6 @@ export default function Forms() {
                 <td>{w.model}</td>
                 <td className="ensemble-cell">{w.ensemble}</td>
                 <td className="num-cell">{w.accuracy}%</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Overall top 10 */}
-      <h2>📊 Overall Ranking (Top 10)</h2>
-      <div className="model-table-wrap">
-        <table className="data-table">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Model</th>
-              <th>Ensemble</th>
-              <th>Points</th>
-              <th>Total</th>
-              <th>Accuracy</th>
-            </tr>
-          </thead>
-          <tbody>
-            {overall_ranking.map((r, i) => (
-              <tr key={i} className={i === 0 ? 'row-baseline' : ''}>
-                <td>{i + 1}</td>
-                <td>{r.model}</td>
-                <td className="ensemble-cell">{r.ensemble}</td>
-                <td className="num-cell">{r.points}</td>
-                <td className="num-cell">{r.total}</td>
-                <td className="num-cell"><strong>{r.accuracy}%</strong></td>
               </tr>
             ))}
           </tbody>
