@@ -207,6 +207,33 @@ export default function Forms() {
                       )}
                     </p>
                   )}
+                  {fs.per_league_best && Object.keys(fs.per_league_best).length > 0 && (
+                    <div className="per-league-best">
+                      <h4 style={{margin: '12px 0 6px'}}>Best model × ensemble per league (this form)</h4>
+                      <table className="data-table">
+                        <thead>
+                          <tr>
+                            <th>League</th>
+                            <th>Model</th>
+                            <th>Ensemble</th>
+                            <th>Score</th>
+                            <th>Acc</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {Object.entries(fs.per_league_best).map(([lg, info]) => (
+                            <tr key={lg}>
+                              <td><strong>{leagueName(lg)}</strong></td>
+                              <td>{info.model}</td>
+                              <td><code>{info.ensemble}</code></td>
+                              <td className="num-cell">{info.points}/{info.total}</td>
+                              <td className="num-cell">{info.accuracy}%</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                   {fs.games?.length > 0 && (
                     <table className="data-table games-table">
                       <thead>
