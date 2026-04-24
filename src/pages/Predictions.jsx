@@ -96,6 +96,7 @@ export default function Predictions() {
         threshold: p.threshold,
         predicts_draw: p.predicted_draw === 1,
         model: p.model_name,
+        roc_auc: p.roc_auc,
       };
     }
     for (const p of forms?.predictions || []) {
@@ -104,6 +105,7 @@ export default function Predictions() {
         h: p.prob_home, d: p.prob_draw, a: p.prob_away,
         pick: p.prediction ?? pickFromProbs(p.prob_home, p.prob_draw, p.prob_away),
         model: `${p.model}+${p.ensemble}`,
+        accuracy: p.walk_forward_accuracy,
       };
     }
 
@@ -177,15 +179,43 @@ export default function Predictions() {
       {filtered.map(lg => {
         const rows = byLeague[lg];
         const drawThreshold = rows.find(m => m.draw?.threshold != null)?.draw?.threshold;
+        const dailyMeta = (daily?.per_league || []).find(x => x.league === lg);
+        const drawMeta = rows.find(m => m.draw?.model)?.draw;
+        const formsMeta = rows.find(m => m.forms?.model)?.forms;
         return (
         <section key={lg} className="league-block">
           <h2>
             {leagueName(lg)}{' '}
             <span className="muted">({rows.length} matches)</span>
-            {drawThreshold != null && (
-              <span className="muted threshold-badge"> · Draw threshold: {pct(drawThreshold)}</span>
-            )}
           </h2>
+          <div className="model-summary">
+            {dailyMeta && (
+              <span className="model-chip src-daily-chip">
+                <b>Daily:</b> {dailyMeta.model}
+                {dailyMeta.ensemble ? <span className="muted"> / {dailyMeta.ensemble}</span> : null}
+                {dailyMeta.accuracy != null && (
+                  <span className="acc"> · acc {pct(dailyMeta.accuracy)}</span>
+                )}
+              </span>
+            )}
+            {drawMeta && (
+              <span className="model-chip src-draw-chip">
+                <b>Draw:</b> {drawMeta.model}
+                {drawThreshold != null && <span className="muted"> · thr {pct(drawThreshold)}</span>}
+                {drawMeta.roc_auc != null && (
+                  <span className="acc"> · AUC {drawMeta.roc_auc.toFixed(3)}</span>
+                )}
+              </span>
+            )}
+            {formsMeta && (
+              <span className="model-chip src-forms-chip">
+                <b>Forms:</b> {formsMeta.model}
+                {formsMeta.accuracy != null && (
+                  <span className="acc"> · WF acc {formsMeta.accuracy.toFixed(1)}%</span>
+                )}
+              </span>
+            )}
+          </div>
           <div className="pred-table-wrap">
             <table className="pred-table">
               <thead>

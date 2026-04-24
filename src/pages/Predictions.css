@@ -76,6 +76,26 @@
 
 .threshold-badge { margin-left: 6px; font-style: italic; }
 
+.model-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 10px;
+}
+.model-chip {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.82em;
+  background: #f1f3f5;
+  border: 1px solid #e0e3e7;
+}
+.model-chip b { font-weight: 600; }
+.model-chip .acc { color: #2c7a3a; font-weight: 600; margin-left: 2px; }
+.src-daily-chip { background: #e3f2fd; border-color: #b3e0fb; }
+.src-draw-chip  { background: #fff7e6; border-color: #ffe1b3; }
+.src-forms-chip { background: #ecfccb; border-color: #d3eaa6; }
+
 /* Predictions page is wide — let it use the full viewport so most
    leagues fit without horizontal scroll. */
 .predictions-page {
