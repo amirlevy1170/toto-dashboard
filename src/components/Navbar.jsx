@@ -7,6 +7,7 @@ export default function Navbar() {
       <div className="navbar-brand">⚽ Toto Dashboard</div>
       <div className="navbar-links">
         <NavLink to="/" end>Home</NavLink>
+        <NavLink to="/predictions">Predictions</NavLink>
         <NavLink to="/history">History</NavLink>
         <NavLink to="/leagues">Leagues</NavLink>
         <NavLink to="/models">Models</NavLink>

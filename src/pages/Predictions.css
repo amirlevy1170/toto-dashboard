@@ -1,0 +1,86 @@
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.85em;
+  color: #555;
+  margin: 8px 0 12px;
+}
+.legend-item { background: #f1f3f5; padding: 4px 10px; border-radius: 4px; }
+
+.filter-row { margin: 12px 0; }
+.filter-row select {
+  padding: 6px 10px;
+  font-size: 0.95em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.league-block { margin-top: 24px; }
+.league-block h2 { margin-bottom: 8px; }
+.muted { color: #888; font-weight: normal; font-size: 0.85em; }
+
+.pred-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.pred-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88em;
+  background: #fff;
+}
+.pred-table th, .pred-table td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+  white-space: nowrap;
+}
+.pred-table thead th {
+  background: #f8f9fa;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+  position: sticky;
+  top: 0;
+}
+.pred-table tbody tr:hover { background: #fafbfc; }
+
+.match-cell {
+  text-align: left;
+  min-width: 200px;
+}
+.match-cell .home, .match-cell .away { font-weight: 500; }
+.match-cell .vs { color: #999; margin: 0 6px; font-size: 0.85em; }
+.nowrap { white-space: nowrap; }
+
+.prob { font-variant-numeric: tabular-nums; color: #444; }
+
+/* Source-column tinting (header bands) */
+.pred-table thead th.src-daily { background: #e3f2fd; color: #0c4a6e; }
+.pred-table thead th.src-draw  { background: #fff7e6; color: #7a4f01; }
+.pred-table thead th.src-forms { background: #ecfccb; color: #365314; }
+
+.pred-table td.src-daily { border-left: 2px solid #e3f2fd; }
+.pred-table td.src-draw  { background: #fffaf0; }
+.pred-table td.src-forms { border-left: 2px solid #ecfccb; }
+
+.draw-yes { color: #b45309; font-weight: 600; }
+.draw-no  { color: #999; }
+
+.diff-cell { font-variant-numeric: tabular-nums; font-weight: 500; }
+.diff-cell.diff-med  { background: #fff3cd; color: #856404; }
+.diff-cell.diff-high { background: #f8d7da; color: #721c24; font-weight: 700; }
+
+.cons-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+.cons-agree { background: #d4edda; color: #155724; }
+.cons-mixed { background: #fff3cd; color: #856404; }
+.cons-split { background: #f8d7da; color: #721c24; }
+.cons-na    { background: #f1f3f5; color: #888; }
