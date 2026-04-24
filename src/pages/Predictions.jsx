@@ -151,7 +151,7 @@ export default function Predictions() {
   const filtered = selectedLeague === 'all' ? leagueKeys : [selectedLeague];
 
   return (
-    <div className="page">
+    <div className="page predictions-page">
       <h1>🔮 Predictions — Side by Side</h1>
       <p className="generated">
         Daily: {daily?.date || '—'} · Draw: {draw?.generated_at?.slice(0, 10) || '—'} ·
@@ -174,9 +174,18 @@ export default function Predictions() {
         </select>
       </div>
 
-      {filtered.map(lg => (
+      {filtered.map(lg => {
+        const rows = byLeague[lg];
+        const drawThreshold = rows.find(m => m.draw?.threshold != null)?.draw?.threshold;
+        return (
         <section key={lg} className="league-block">
-          <h2>{leagueName(lg)} <span className="muted">({byLeague[lg].length} matches)</span></h2>
+          <h2>
+            {leagueName(lg)}{' '}
+            <span className="muted">({rows.length} matches)</span>
+            {drawThreshold != null && (
+              <span className="muted threshold-badge"> · Draw threshold: {pct(drawThreshold)}</span>
+            )}
+          </h2>
           <div className="pred-table-wrap">
             <table className="pred-table">
               <thead>
@@ -186,7 +195,7 @@ export default function Predictions() {
                   <th colSpan={4} className="src-daily">Daily (per-league)</th>
                   <th colSpan={2} className="src-draw">Draw model</th>
                   <th colSpan={4} className="src-forms">Forms (walk-forward)</th>
-                  <th rowSpan={2} title="max |ΔP| between Daily and Forms across H/D/A">Δ</th>
+                  <th rowSpan={2} title="Confidence margin (top probability − second probability). Larger = more confident pick.">Δ</th>
                   <th rowSpan={2}>Consensus</th>
                 </tr>
                 <tr>
@@ -196,9 +205,14 @@ export default function Predictions() {
                 </tr>
               </thead>
               <tbody>
-                {byLeague[lg].map(m => {
+                {rows.map(m => {
                   const diff = diffSpread(m.daily, m.forms);
                   const cons = consensusBadge([m.daily?.pick, m.forms?.pick]);
+                  const diffCls = diff == null
+                    ? ''
+                    : diff >= 0.20 ? 'diff-high'
+                    : diff >= 0.10 ? 'diff-med'
+                    : 'diff-low';
                   return (
                     <tr key={m.key}>
                       <td className="nowrap">{m.date}</td>
@@ -234,7 +248,7 @@ export default function Predictions() {
                       <td className="src-forms prob">{m.forms ? pct(m.forms.d) : '—'}</td>
                       <td className="src-forms prob">{m.forms ? pct(m.forms.a) : '—'}</td>
 
-                      <td className={`diff-cell ${diff != null && diff > 0.20 ? 'diff-high' : diff != null && diff > 0.10 ? 'diff-med' : ''}`}>
+                      <td className={`diff-cell ${diffCls}`}>
                         {diff == null ? '—' : pct(diff)}
                       </td>
                       <td><span className={`cons-badge ${cons.cls}`}>{cons.label}</span></td>
@@ -245,7 +259,8 @@ export default function Predictions() {
             </table>
           </div>
         </section>
-      ))}
+        );
+      })}
     </div>
   );
 }

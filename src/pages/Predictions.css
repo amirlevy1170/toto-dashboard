@@ -33,7 +33,7 @@
   background: #fff;
 }
 .pred-table th, .pred-table td {
-  padding: 6px 8px;
+  padding: 6px 4px;
   border-bottom: 1px solid #eee;
   text-align: center;
   white-space: nowrap;
@@ -70,8 +70,21 @@
 .draw-no  { color: #999; }
 
 .diff-cell { font-variant-numeric: tabular-nums; font-weight: 500; }
+.diff-cell.diff-low  { background: #f8d7da; color: #721c24; }
 .diff-cell.diff-med  { background: #fff3cd; color: #856404; }
-.diff-cell.diff-high { background: #f8d7da; color: #721c24; font-weight: 700; }
+.diff-cell.diff-high { background: #d4edda; color: #155724; font-weight: 700; }
+
+.threshold-badge { margin-left: 6px; font-style: italic; }
+
+/* Predictions page is wide — let it use the full viewport so most
+   leagues fit without horizontal scroll. */
+.predictions-page {
+  max-width: none;
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
 
 .cons-badge {
   display: inline-block;
