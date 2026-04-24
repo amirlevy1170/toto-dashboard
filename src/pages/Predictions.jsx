@@ -14,13 +14,19 @@ function pickFromProbs(h, d, a) {
   return '2';
 }
 
-// Max absolute spread between Daily and Forms across H/D/A probabilities.
+// Confidence margin: max of (top1 - top2) probability gap across Daily and Forms.
+// Larger Δ ⇒ at least one source picks its outcome with high confidence.
+function topMargin(src) {
+  if (!src) return null;
+  const probs = [src.h ?? 0, src.d ?? 0, src.a ?? 0].sort((a, b) => b - a);
+  return probs[0] - probs[1];
+}
 function diffSpread(daily, forms) {
-  if (!daily || !forms) return null;
-  const dh = Math.abs((daily.h ?? 0) - (forms.h ?? 0));
-  const dd = Math.abs((daily.d ?? 0) - (forms.d ?? 0));
-  const da = Math.abs((daily.a ?? 0) - (forms.a ?? 0));
-  return Math.max(dh, dd, da);
+  const md = topMargin(daily);
+  const mf = topMargin(forms);
+  const vals = [md, mf].filter((v) => v != null);
+  if (!vals.length) return null;
+  return Math.max(...vals);
 }
 
 function consensusBadge(picks) {
