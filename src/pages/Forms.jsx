@@ -1,12 +1,15 @@
-import { useEffect, useState } from 'react';
-import { fetchFormsPredictions, fetchFormsIndex, fetchFormsSnapshot } from '../api';
-import { leagueName, pct, predColor } from '../utils';
+import { useEffect, useMemo, useState } from 'react';
+import { fetchFormsPredictions, fetchFormsIndex, fetchFormsSnapshot, fetchDrawSnapshot } from '../api';
+import { leagueName, pct, predColor, buildDrawByFixtureId } from '../utils';
 import './Forms.css';
+
+const DRAW_DOUBLES = 4;
 
 export default function Forms() {
   const [dates, setDates] = useState([]);
   const [selected, setSelected] = useState(null);
   const [data, setData] = useState(null);
+  const [drawData, setDrawData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [expandedForm, setExpandedForm] = useState(null);
 
@@ -49,6 +52,35 @@ export default function Forms() {
       setLoading(false);
     }
   };
+
+  // Load matching draw snapshot whenever the selected forms run changes.
+  // Run date for "latest" comes from the timestamp; for a specific date pick, that date.
+  useEffect(() => {
+    if (!data) { setDrawData(null); return; }
+    const runDate = (selected && selected !== 'latest')
+      ? selected
+      : (data.timestamp ? data.timestamp.split('T')[0] : null);
+    if (!runDate) { setDrawData(null); return; }
+    let cancelled = false;
+    fetchDrawSnapshot(runDate).then(d => { if (!cancelled) setDrawData(d); });
+    return () => { cancelled = true; };
+  }, [data, selected]);
+
+  // fixture_id -> per-league draw prediction (robust join — both files carry fixture_id).
+  const drawByFixture = useMemo(() => buildDrawByFixtureId(drawData), [drawData]);
+
+  // Pick the doubles: top-N fixtures by P(draw) among games where the regular
+  // model picks a TEAM (1 or 2). Doubling an already-X pick adds nothing — the
+  // form would still have only one outcome covered, so X-picks aren't candidates.
+  const top4DrawIds = useMemo(() => {
+    const preds = data?.predictions || [];
+    const ranked = preds
+      .filter(p => p.prediction === '1' || p.prediction === '2')
+      .map(p => ({ id: p.fixture_id, prob: drawByFixture[p.fixture_id]?.prob_draw }))
+      .filter(x => x.prob != null)
+      .sort((a, b) => b.prob - a.prob);
+    return new Set(ranked.slice(0, DRAW_DOUBLES).map(x => x.id));
+  }, [data, drawByFixture]);
 
   if (loading) return <div className="loading">Loading forms data...</div>;
 
@@ -255,6 +287,9 @@ export default function Forms() {
           <h2>🔮 Upcoming Predictions</h2>
           <p className="section-sub">
             Next 5 days' games predicted by the winning model per league.
+            {drawData
+              ? <> The <strong>Draw Double</strong> column marks the top {DRAW_DOUBLES} fixtures by the draw model's P(X) — those become the form's doubles, producing 2<sup>{DRAW_DOUBLES}</sup> = {1 << DRAW_DOUBLES} forms.</>
+              : <> <em>Draw model snapshot for this run not found — Draw Double column will be empty.</em></>}
           </p>
           {predLeagues.map(league => (
             <div key={league} className="league-pred-section">
@@ -276,24 +311,43 @@ export default function Forms() {
                       <th>Pred</th>
                       <th>H / D / A</th>
                       <th title="Difference between highest and second-highest probability">Diff</th>
+                      <th title={`Top ${DRAW_DOUBLES} fixtures globally by draw model's P(X) get X added as a 2nd pick`}>🎯 Draw Double</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {predsByLeague[league].map((p, i) => (
-                      <tr key={i}>
-                        <td className="date-cell">{p.date}</td>
-                        <td><strong>{p.home_team}</strong> vs {p.away_team}</td>
-                        <td style={{ background: predColor(p.prediction), fontWeight: 700, textAlign: 'center' }}>
-                          {p.prediction}
-                        </td>
-                        <td className="prob-cell">
-                          {pct(p.prob_home)} / {pct(p.prob_draw)} / {pct(p.prob_away)}
-                        </td>
-                        <td className="num-cell" style={{ fontWeight: 600 }}>
-                          {(p._diff * 100).toFixed(0)}%
-                        </td>
-                      </tr>
-                    ))}
+                    {predsByLeague[league].map((p, i) => {
+                      const dp = drawByFixture[p.fixture_id];
+                      const isDoubled = top4DrawIds.has(p.fixture_id);
+                      const doubledPick = isDoubled ? `${p.prediction}X` : null;
+                      return (
+                        <tr key={i} className={isDoubled ? 'double-row' : ''}>
+                          <td className="date-cell">{p.date}</td>
+                          <td><strong>{p.home_team}</strong> vs {p.away_team}</td>
+                          <td style={{ background: predColor(p.prediction), fontWeight: 700, textAlign: 'center' }}>
+                            {p.prediction}
+                          </td>
+                          <td className="prob-cell">
+                            {pct(p.prob_home)} / {pct(p.prob_draw)} / {pct(p.prob_away)}
+                          </td>
+                          <td className="num-cell" style={{ fontWeight: 600 }}>
+                            {(p._diff * 100).toFixed(0)}%
+                          </td>
+                          <td
+                            className="num-cell draw-double-cell"
+                            title={dp ? `P(draw)=${(dp.prob_draw*100).toFixed(1)}% · threshold=${dp.threshold} · ${dp.model_name}` : 'no draw prediction for this fixture'}
+                          >
+                            {doubledPick ? (
+                              <>
+                                <span className="double-marker">{doubledPick}</span>
+                                {dp && <div className="draw-prob-sub">{pct(dp.prob_draw)}</div>}
+                              </>
+                            ) : (
+                              dp ? <span className="draw-dim">{pct(dp.prob_draw)}</span> : '—'
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>

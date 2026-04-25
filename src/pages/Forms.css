@@ -147,3 +147,19 @@
   border: 1px solid #dee2e6;
   font-size: 0.9rem;
 }
+
+.draw-double-cell {
+  text-align: center;
+  min-width: 70px;
+}
+.draw-prob-sub {
+  font-size: 11px;
+  color: #888;
+  margin-top: 2px;
+  font-weight: 400;
+}
+.draw-dim {
+  color: #aaa;
+  font-weight: 400;
+  font-size: 12px;
+}

@@ -45,6 +45,18 @@ export function buildDrawLookup(drawData) {
   return perLeague;
 }
 
+// Build a lookup: fixture_id -> per-league draw prediction.
+// Use when joining files that both carry fixture_id (more robust than name match).
+export function buildDrawByFixtureId(drawData) {
+  if (!drawData?.predictions?.length) return {};
+  const map = {};
+  for (const p of drawData.predictions) {
+    if (p.model_type !== 'per_league') continue;
+    map[p.fixture_id] = p;
+  }
+  return map;
+}
+
 // A match is a "disagreement" when the 3-class picks a team (1 or 2) but
 // the draw model flags X above the league's tuned threshold.
 export function isDisagreement(threeClassPred, drawPrediction) {
