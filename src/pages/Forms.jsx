@@ -309,6 +309,12 @@ export default function Forms() {
                             {partialCoverage && (
                               <span style={{ color: '#b45309', marginLeft: 8 }}>(only fixtures within the recent draw-snapshot window can be matched)</span>
                             )}
+                            <span
+                              style={{ color: '#888', marginLeft: 8, fontSize: '0.85em' }}
+                              title="Each draw prediction comes from the latest snapshot that ran BEFORE its kickoff (pipeline_draw only emits upcoming fixtures, so leakage is impossible). Hover any cell for the exact run date."
+                            >
+                              · pre-game ✓
+                            </span>
                           </p>
                         )}
                         {drawJoined === 0 && (
@@ -348,7 +354,7 @@ export default function Forms() {
                                   </td>
                                   <td
                                     className="num-cell draw-double-cell"
-                                    title={dp ? `P(draw)=${(dp.prob_draw*100).toFixed(1)}% · ${dp.model_name}` : 'no draw prediction matched'}
+                                    title={dp ? `P(draw)=${(dp.prob_draw*100).toFixed(1)}% · ${dp.model_name} · predicted on ${dp._snapshotDate || '?'} (kickoff ${dp.date}) — pre-game, no leakage` : 'no draw prediction matched'}
                                   >
                                     {drawPick ? (
                                       <>

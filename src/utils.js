@@ -58,15 +58,27 @@ export function buildDrawByFixtureId(drawData) {
 }
 
 // Pool many draw snapshots into one (league|home|away) -> prediction lookup.
-// Verified zero collisions in current data — same team pair never repeats across
-// the available 8-snapshot window. First match wins.
+// Each snapshot is generated BEFORE kickoff (pipeline_draw only emits upcoming
+// fixtures), so any candidate is leakage-free. When the same fixture appears in
+// multiple snapshots (a Friday game shows up in Mon/Tue/Wed/Thu/Fri runs),
+// prefer the latest pre-kickoff snapshot — that's what the user would actually
+// have known when filling the form. Returns predictions enriched with the
+// snapshot date they came from (`_snapshotDate`) for display + audit.
 export function buildDrawByTeams(snapshots) {
   const map = {};
   for (const s of snapshots || []) {
+    const snapDate = s?.generated_at ? s.generated_at.split('T')[0] : null;
     for (const p of s?.predictions || []) {
       if (p.model_type !== 'per_league') continue;
       const key = `${p.league}|${p.home_team_name}|${p.away_team_name}`.toLowerCase();
-      if (!(key in map)) map[key] = p;
+      const existing = map[key];
+      // Newest pre-kickoff snapshot wins (lexicographic ISO date compare is OK).
+      // If existing has no _snapshotDate (legacy entry), any dated entry overrides.
+      const isNewer = !existing
+        || (snapDate && (!existing._snapshotDate || snapDate > existing._snapshotDate));
+      if (isNewer) {
+        map[key] = { ...p, _snapshotDate: snapDate };
+      }
     }
   }
   return map;
