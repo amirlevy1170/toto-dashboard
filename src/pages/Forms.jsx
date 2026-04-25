@@ -117,6 +117,19 @@ export default function Forms() {
   // fixture_id -> per-league draw prediction (robust join — both files carry fixture_id).
   const drawByFixture = useMemo(() => buildDrawByFixtureId(drawData), [drawData]);
 
+  // Per-form draw-double stats, computed once for header display + body reuse.
+  // Map: form_id -> { drawPts, baselinePts, gain, doublesCount, total, joined, accuracy }
+  const drawStatsByForm = useMemo(() => {
+    const out = {};
+    for (const fs of data?.form_summaries || []) {
+      const { games, stats } = computeDrawDoubles(fs.games || [], drawByTeams);
+      const joined = games.filter(g => g._drawPred).length;
+      const accuracy = stats.total ? (stats.drawPts / stats.total) * 100 : 0;
+      out[fs.form_id] = { ...stats, joined, accuracy };
+    }
+    return out;
+  }, [data, drawByTeams]);
+
   // Pick the doubles: top-N fixtures by P(draw) among games where the regular
   // model picks a TEAM (1 or 2). Doubling an already-X pick adds nothing — the
   // form would still have only one outcome covered, so X-picks aren't candidates.
@@ -238,6 +251,31 @@ export default function Forms() {
                   <strong>{fs.points}/{fs.total}</strong>
                   <span className="form-acc">({fs.accuracy}%)</span>
                 </div>
+                {(() => {
+                  const ds = drawStatsByForm[fs.form_id];
+                  if (!ds || !ds.joined) {
+                    return (
+                      <div className="form-card-score draw-card-score" title="No draw predictions matched for this form's games">
+                        <span className="form-acc">🎯 —</span>
+                      </div>
+                    );
+                  }
+                  const gainColor = ds.gain > 0 ? '#16a34a' : ds.gain < 0 ? '#dc2626' : '#6b7280';
+                  const gainSign = ds.gain >= 0 ? '+' : '';
+                  return (
+                    <div
+                      className="form-card-score draw-card-score"
+                      title={`Draw doubles: ${ds.drawPts}/${ds.total} (${ds.accuracy.toFixed(1)}%) · joined ${ds.joined}/${ds.total} · gain ${gainSign}${ds.gain} vs baseline`}
+                    >
+                      <span style={{ marginRight: 4 }}>🎯</span>
+                      <strong>{ds.drawPts}/{ds.total}</strong>
+                      <span className="form-acc">({ds.accuracy.toFixed(1)}%)</span>
+                      <span style={{ marginLeft: 6, fontWeight: 700, color: gainColor }}>
+                        {gainSign}{ds.gain}
+                      </span>
+                    </div>
+                  );
+                })()}
                 <div className="form-card-meta">
                   {fs.games ? [...new Set(fs.games.map(g => g.league))].length : '?'} leagues
                 </div>

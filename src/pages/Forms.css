@@ -152,6 +152,13 @@
   text-align: center;
   min-width: 70px;
 }
+
+.draw-card-score {
+  min-width: 140px;
+  padding-left: 12px;
+  border-left: 1px dashed #e2e8f0;
+  color: #475569;
+}
 .draw-prob-sub {
   font-size: 11px;
   color: #888;
