@@ -5,9 +5,16 @@ import './Forms.css';
 
 const DRAW_DOUBLES = 4;
 
-// Compute draw-doubles overlay for a form's games.
+// Compute draw-doubles strategy score for a form's games.
+// The draw-doubles strategy REPLACES the form's threshold doubles: each game is
+// either a single pick (the league model's prediction) OR a double "{pred}X" if
+// it's in the top-N team picks by P(draw). We score it from scratch — we do NOT
+// reuse `g.correct` because that reflects threshold-double saves which a pure
+// draw-doubles strategy wouldn't get.
+//
 // Returns { games: [{...g, _drawPred, _isDrawDouble, _coveredWithDouble}], stats }.
-// stats.points / stats.gain only meaningful when actuals are present (historical forms).
+// `stats.baselinePts` = the form's existing score (with threshold doubles applied
+// by the pipeline) — this is the "current strategy" we're comparing against.
 function computeDrawDoubles(games, drawByTeams) {
   if (!games?.length) return { games: [], stats: null };
   const enriched = games.map(g => {
@@ -26,12 +33,16 @@ function computeDrawDoubles(games, drawByTeams) {
   let hasActuals = false;
   const out = enriched.map((g, i) => {
     const isDouble = top.has(i);
-    const baselineCorrect = g.correct === true;
-    let coveredByDouble = baselineCorrect;
-    if (isDouble && g.actual === 'X' && g.prediction !== 'X') coveredByDouble = true;
-    if (g.actual != null && g.actual !== '') {
+    const hasActual = g.actual != null && g.actual !== '';
+    // Draw-doubles strategy: covered iff actual matches single pick, or — when
+    // doubled — also matches X. Computed from pred + actual directly, not from
+    // g.correct (which already includes threshold-double saves).
+    const coveredByDouble = hasActual
+      ? (g.actual === g.prediction || (isDouble && g.actual === 'X'))
+      : false;
+    if (hasActual) {
       hasActuals = true;
-      if (baselineCorrect) baselinePts += 1;
+      if (g.correct === true) baselinePts += 1;
       if (coveredByDouble) drawPts += 1;
     }
     return { ...g, _isDrawDouble: isDouble, _coveredWithDouble: coveredByDouble };
@@ -255,8 +266,18 @@ export default function Forms() {
                   const ds = drawStatsByForm[fs.form_id];
                   if (!ds || !ds.joined) {
                     return (
-                      <div className="form-card-score draw-card-score" title="No draw predictions matched for this form's games">
+                      <div className="form-card-score draw-card-score" title="No draw predictions matched this form's games (they predate the draw-snapshot window)">
                         <span className="form-acc">🎯 —</span>
+                      </div>
+                    );
+                  }
+                  if (ds.joined < ds.total) {
+                    return (
+                      <div
+                        className="form-card-score draw-card-score"
+                        title={`Only ${ds.joined}/${ds.total} games matched a draw prediction — strategy score is not comparable when coverage is partial (un-joined games would lose their threshold-double saves and unfairly penalize the draw strategy)`}
+                      >
+                        <span className="form-acc">🎯 partial ({ds.joined}/{ds.total})</span>
                       </div>
                     );
                   }
@@ -265,7 +286,7 @@ export default function Forms() {
                   return (
                     <div
                       className="form-card-score draw-card-score"
-                      title={`Draw doubles: ${ds.drawPts}/${ds.total} (${ds.accuracy.toFixed(1)}%) · joined ${ds.joined}/${ds.total} · gain ${gainSign}${ds.gain} vs baseline`}
+                      title={`Draw-doubles strategy (replaces threshold doubles): ${ds.drawPts}/${ds.total} (${ds.accuracy.toFixed(1)}%) · gain ${gainSign}${ds.gain} vs current form's ${ds.baselinePts}/${ds.total}`}
                     >
                       <span style={{ marginRight: 4 }}>🎯</span>
                       <strong>{ds.drawPts}/{ds.total}</strong>
@@ -331,28 +352,32 @@ export default function Forms() {
                   {fs.games?.length > 0 && (() => {
                     const { games: enrichedGames, stats: drawStats } = computeDrawDoubles(fs.games, drawByTeams);
                     const drawJoined = enrichedGames.filter(g => g._drawPred).length;
-                    const partialCoverage = drawJoined > 0 && drawJoined < enrichedGames.length;
                     return (
                       <>
-                        {drawJoined > 0 && drawStats && (
+                        {drawJoined === enrichedGames.length && drawStats && (
                           <p className="doubles-info">
-                            <strong>🎯 With draw doubles ({drawStats.doublesCount}):</strong>{' '}
+                            <strong title="Draw-doubles strategy: replaces the form's threshold doubles with X added on the top-N team picks by P(draw)">
+                              🎯 Draw-doubles strategy ({drawStats.doublesCount} doubles, replaces threshold doubles):
+                            </strong>{' '}
                             <strong>{drawStats.drawPts}/{drawStats.total}</strong>
-                            <span style={{ color: '#666' }}> (baseline {drawStats.baselinePts}/{drawStats.total},{' '}
+                            <span style={{ color: '#666' }}> (current form {drawStats.baselinePts}/{drawStats.total},{' '}
                               <span style={{ color: drawStats.gain > 0 ? '#16a34a' : drawStats.gain < 0 ? '#dc2626' : '#666', fontWeight: 700 }}>
                                 {drawStats.gain >= 0 ? '+' : ''}{drawStats.gain}
                               </span>)
                             </span>
-                            <span style={{ color: '#888', marginLeft: 8 }}>· joined {drawJoined}/{enrichedGames.length}</span>
-                            {partialCoverage && (
-                              <span style={{ color: '#b45309', marginLeft: 8 }}>(only fixtures within the recent draw-snapshot window can be matched)</span>
-                            )}
                             <span
                               style={{ color: '#888', marginLeft: 8, fontSize: '0.85em' }}
                               title="Each draw prediction comes from the latest snapshot that ran BEFORE its kickoff (pipeline_draw only emits upcoming fixtures, so leakage is impossible). Hover any cell for the exact run date."
                             >
                               · pre-game ✓
                             </span>
+                          </p>
+                        )}
+                        {drawJoined > 0 && drawJoined < enrichedGames.length && (
+                          <p className="doubles-info" style={{ color: '#b45309' }}>
+                            🎯 Partial draw coverage ({drawJoined}/{enrichedGames.length}) — strategy score not shown.
+                            Un-joined games would default to single picks (losing their threshold-double saves) and
+                            unfairly penalize the draw strategy. Doubled games are still highlighted in the table below.
                           </p>
                         )}
                         {drawJoined === 0 && (
