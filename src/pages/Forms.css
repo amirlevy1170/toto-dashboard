@@ -170,3 +170,33 @@
   font-weight: 400;
   font-size: 12px;
 }
+
+/* Multi-variant doubles: triple row + badges */
+.triple-row {
+  background: #fff7d6;
+}
+.triple-row:hover {
+  background: #fdecb6;
+}
+.triple-marker {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #f59e0b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.85em;
+}
+.triple-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.85em;
+}
+.triple-badge-label {
+  color: #92400e;
+  font-weight: 600;
+}

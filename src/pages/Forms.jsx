@@ -5,6 +5,26 @@ import './Forms.css';
 
 const DRAW_DOUBLES = 4;
 
+// Variants the forms pipeline supports for "doubles" scoring. Each form
+// snapshot ships pre-computed scoring under all four; the dropdown below
+// just switches which one we render.
+const DOUBLE_VARIANTS = [
+  { key: 'D3',   label: '3 doubles' },
+  { key: 'D4',   label: '4 doubles' },
+  { key: 'D5',   label: '5 doubles' },
+  { key: 'D3T1', label: '3 doubles + 1 triple' },
+];
+
+// Pull the variant payload from a form_summary, falling back to the legacy
+// top-level fields when the snapshot pre-dates multi-variant scoring (in
+// that case only D4 is meaningful — the legacy fields are the D4 view).
+function getVariant(fs, key) {
+  const v = fs?.double_variants?.[key];
+  if (v) return v;
+  if (key === 'D4') return fs;  // legacy snapshots = D4 only
+  return null;
+}
+
 // Compute draw-doubles strategy score for a form's games.
 // The draw-doubles strategy REPLACES the form's threshold doubles: each game is
 // either a single pick (the league model's prediction) OR a double "{pred}X" if
@@ -61,6 +81,7 @@ export default function Forms() {
   const [drawByTeams, setDrawByTeams] = useState({});
   const [loading, setLoading] = useState(true);
   const [expandedForm, setExpandedForm] = useState(null);
+  const [variant, setVariant] = useState('D4');
 
   // Pool ALL available draw snapshots PLUS the walk-forward backtest CSV for
   // joining historical form games. Form games lack fixture_id and date, so we
@@ -133,16 +154,20 @@ export default function Forms() {
 
   // Per-form draw-double stats, computed once for header display + body reuse.
   // Map: form_id -> { drawPts, baselinePts, gain, doublesCount, total, joined, accuracy }
+  // Uses the games of the currently-selected variant so the badge stays in
+  // sync when the user switches D3/D4/D5/D3T1.
   const drawStatsByForm = useMemo(() => {
     const out = {};
     for (const fs of data?.form_summaries || []) {
-      const { games, stats } = computeDrawDoubles(fs.games || [], drawByTeams);
-      const joined = games.filter(g => g._drawPred).length;
+      const v = getVariant(fs, variant);
+      const games = v?.games || [];
+      const { games: enriched, stats } = computeDrawDoubles(games, drawByTeams);
+      const joined = enriched.filter(g => g._drawPred).length;
       const accuracy = stats.total ? (stats.drawPts / stats.total) * 100 : 0;
       out[fs.form_id] = { ...stats, joined, accuracy };
     }
     return out;
-  }, [data, drawByTeams]);
+  }, [data, drawByTeams, variant]);
 
   // Pick the doubles: top-N fixtures by P(draw) among games where the regular
   // model picks a TEAM (1 or 2). Doubling an already-X pick adds nothing — the
@@ -195,18 +220,32 @@ export default function Forms() {
     <div className="page">
       <h1>📋 Forms Walk-Forward</h1>
 
-      {/* Date picker */}
-      {dates.length > 0 && (
-        <div className="date-picker-row">
-          <label>Run date: </label>
-          <select value={selected || 'latest'} onChange={e => handleDateSelect(e.target.value)}>
-            <option value="latest">Latest</option>
-            {dates.map(d => (
-              <option key={d} value={d}>{d}</option>
-            ))}
-          </select>
-        </div>
-      )}
+      {/* Date + variant picker */}
+      <div className="date-picker-row">
+        {dates.length > 0 && (
+          <>
+            <label>Run date: </label>
+            <select value={selected || 'latest'} onChange={e => handleDateSelect(e.target.value)}>
+              <option value="latest">Latest</option>
+              {dates.map(d => (
+                <option key={d} value={d}>{d}</option>
+              ))}
+            </select>
+          </>
+        )}
+        <label style={{ marginLeft: dates.length > 0 ? 16 : 0 }}>
+          Doubles variant:{' '}
+        </label>
+        <select
+          value={variant}
+          onChange={e => setVariant(e.target.value)}
+          title="Switch how each form is scored. All four variants are pre-computed; this only re-renders the cards below."
+        >
+          {DOUBLE_VARIANTS.map(v => (
+            <option key={v.key} value={v.key}>{v.label}</option>
+          ))}
+        </select>
+      </div>
 
       <p className="generated">
         Updated: {ts} · Elapsed: {data.elapsed_minutes ?? '?'} min · {data.forms_used ?? '?'} forms evaluated
@@ -249,6 +288,31 @@ export default function Forms() {
       <div className="forms-grid">
         {form_summaries.map((fs) => {
           const isExpanded = expandedForm === fs.form_id;
+          const v = getVariant(fs, variant);
+          // Variant unavailable on this snapshot (older snapshot, non-D4 picked).
+          if (!v) {
+            return (
+              <div key={fs.form_id} className="form-card">
+                <div className="form-card-header">
+                  <div className="form-card-title">
+                    <span className={`form-type-badge ${fs.form_type}`}>{fs.form_type}</span>
+                    #{fs.form_id}
+                  </div>
+                  <div className="form-card-score">
+                    <span className="form-acc">— variant {variant} not available</span>
+                  </div>
+                </div>
+              </div>
+            );
+          }
+          const vPoints = v.points ?? 0;
+          const vTotal = v.total ?? 0;
+          const vAcc = v.accuracy ?? 0;
+          const vGames = v.games || [];
+          const vDoublesSummary = v.doubles_summary;
+          const vTripleSummary = v.triple_summary;
+          const vPerLeagueBest = v.per_league_best || {};
+          const vCloseThreshold = v.close_threshold;
           return (
             <div key={fs.form_id} className="form-card">
               <div
@@ -262,8 +326,8 @@ export default function Forms() {
                   #{fs.form_id}
                 </div>
                 <div className="form-card-score">
-                  <strong>{fs.points}/{fs.total}</strong>
-                  <span className="form-acc">({fs.accuracy}%)</span>
+                  <strong>{vPoints}/{vTotal}</strong>
+                  <span className="form-acc">({vAcc}%)</span>
                 </div>
                 {(() => {
                   const ds = drawStatsByForm[fs.form_id];
@@ -301,7 +365,7 @@ export default function Forms() {
                   );
                 })()}
                 <div className="form-card-meta">
-                  {fs.games ? [...new Set(fs.games.map(g => g.league))].length : '?'} leagues
+                  {vGames ? [...new Set(vGames.map(g => g.league))].length : '?'} leagues
                 </div>
                 <span className="expand-icon">{isExpanded ? '▲' : '▼'}</span>
               </div>
@@ -313,21 +377,30 @@ export default function Forms() {
                       Form date: <strong>{fs.form_date}</strong>
                     </p>
                   )}
-                  {fs.close_threshold != null && (
+                  {vCloseThreshold != null && (
                     <p className="doubles-info">
-                      Close threshold: <strong>{Number(fs.close_threshold).toFixed(3)}</strong>
-                      {fs.doubles_summary && (
-                        <> · Doubles: <strong>{fs.doubles_summary.correct}/{fs.doubles_summary.count}</strong> correct
-                          {fs.doubles_summary.games?.map((g, j) => (
+                      Close threshold: <strong>{Number(vCloseThreshold).toFixed(3)}</strong>
+                      {vDoublesSummary && (
+                        <> · Doubles: <strong>{vDoublesSummary.correct}/{vDoublesSummary.count}</strong> correct
+                          {vDoublesSummary.games?.map((g, j) => (
                             <span key={j} className="double-badge">{g}</span>
                           ))}
                         </>
                       )}
                     </p>
                   )}
-                  {fs.per_league_best && Object.keys(fs.per_league_best).length > 0 && (
+                  {vTripleSummary && vTripleSummary.count > 0 && (
+                    <p className="doubles-info">
+                      <span className="triple-badge-label">🎯 Triple:</span>{' '}
+                      <strong>{vTripleSummary.correct}/{vTripleSummary.count}</strong> correct
+                      {vTripleSummary.games?.map((g, j) => (
+                        <span key={j} className="triple-badge">{g}</span>
+                      ))}
+                    </p>
+                  )}
+                  {Object.keys(vPerLeagueBest).length > 0 && (
                     <div className="per-league-best">
-                      <h4 style={{margin: '12px 0 6px'}}>Best model × ensemble per league (this form)</h4>
+                      <h4 style={{margin: '12px 0 6px'}}>Best model × ensemble per league (this form, variant {variant})</h4>
                       <table className="data-table">
                         <thead>
                           <tr>
@@ -339,7 +412,7 @@ export default function Forms() {
                           </tr>
                         </thead>
                         <tbody>
-                          {Object.entries(fs.per_league_best).map(([lg, info]) => (
+                          {Object.entries(vPerLeagueBest).map(([lg, info]) => (
                             <tr key={lg}>
                               <td><strong>{leagueName(lg)}</strong></td>
                               <td>{info.model}</td>
@@ -352,8 +425,8 @@ export default function Forms() {
                       </table>
                     </div>
                   )}
-                  {fs.games?.length > 0 && (() => {
-                    const { games: enrichedGames, stats: drawStats } = computeDrawDoubles(fs.games, drawByTeams);
+                  {vGames.length > 0 && (() => {
+                    const { games: enrichedGames, stats: drawStats } = computeDrawDoubles(vGames, drawByTeams);
                     const drawJoined = enrichedGames.filter(g => g._drawPred).length;
                     return (
                       <>
@@ -395,7 +468,7 @@ export default function Forms() {
                               <th>Match</th>
                               <th>League</th>
                               <th>Pred</th>
-                              <th>Double</th>
+                              <th>Double / Triple</th>
                               <th title={`Top ${DRAW_DOUBLES} fixtures by draw model's P(X) among team picks`}>🎯 Draw Double</th>
                               <th>Actual</th>
                               <th></th>
@@ -407,14 +480,19 @@ export default function Forms() {
                               const drawPick = g._isDrawDouble ? `${g.prediction}X` : null;
                               const drawCorrect = g._isDrawDouble && g.actual != null && g.actual !== ''
                                 ? g._coveredWithDouble : null;
+                              const rowCls = g.is_triple
+                                ? 'triple-row'
+                                : (g.is_double || g._isDrawDouble ? 'double-row' : '');
                               return (
-                                <tr key={i} className={g.is_double || g._isDrawDouble ? 'double-row' : ''}>
+                                <tr key={i} className={rowCls}>
                                   <td>{g.game_number}</td>
                                   <td className="match-cell">{g.home_team} vs {g.away_team}</td>
                                   <td>{leagueName(g.league)}</td>
                                   <td className="num-cell">{g.prediction}</td>
                                   <td className="num-cell">
-                                    {g.is_double ? (
+                                    {g.is_triple ? (
+                                      <span className="triple-marker">1+X+2</span>
+                                    ) : g.is_double ? (
                                       <span className="double-marker">{g.double_prediction}</span>
                                     ) : '—'}
                                   </td>
