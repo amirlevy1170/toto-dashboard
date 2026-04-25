@@ -13,6 +13,7 @@ export default function Navbar() {
         <NavLink to="/models">Models</NavLink>
         <NavLink to="/backtest">Backtest</NavLink>
         <NavLink to="/forms">Forms</NavLink>
+        <NavLink to="/walkforward">Walk-Forward</NavLink>
       </div>
     </nav>
   );

@@ -6,6 +6,7 @@ import Leagues from './pages/Leagues';
 import Models from './pages/Models';
 import Backtest from './pages/Backtest';
 import Forms from './pages/Forms';
+import WalkForward from './pages/WalkForward';
 import Predictions from './pages/Predictions';
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/models" element={<Models />} />
         <Route path="/backtest" element={<Backtest />} />
         <Route path="/forms" element={<Forms />} />
+        <Route path="/walkforward" element={<WalkForward />} />
         <Route path="/predictions" element={<Predictions />} />
       </Routes>
     </BrowserRouter>

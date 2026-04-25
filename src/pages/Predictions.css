@@ -61,10 +61,12 @@
 .pred-table thead th.src-daily { background: #e3f2fd; color: #0c4a6e; }
 .pred-table thead th.src-draw  { background: #fff7e6; color: #7a4f01; }
 .pred-table thead th.src-forms { background: #ecfccb; color: #365314; }
+.pred-table thead th.src-wf    { background: #fce7f3; color: #831843; }
 
 .pred-table td.src-daily { border-left: 2px solid #e3f2fd; }
 .pred-table td.src-draw  { background: #fffaf0; }
 .pred-table td.src-forms { border-left: 2px solid #ecfccb; }
+.pred-table td.src-wf    { border-left: 2px solid #fce7f3; }
 
 .draw-yes { color: #b45309; font-weight: 600; }
 .draw-no  { color: #999; }
@@ -95,6 +97,7 @@
 .src-daily-chip { background: #e3f2fd; border-color: #b3e0fb; }
 .src-draw-chip  { background: #fff7e6; border-color: #ffe1b3; }
 .src-forms-chip { background: #ecfccb; border-color: #d3eaa6; }
+.src-wf-chip    { background: #fce7f3; border-color: #f9bcd5; }
 
 /* Predictions page is wide — let it use the full viewport so most
    leagues fit without horizontal scroll. */
