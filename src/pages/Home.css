@@ -235,3 +235,26 @@
   font-variant-numeric: tabular-nums;
   text-align: right;
 }
+
+.ai-accuracy-section {
+  margin: 24px 0;
+}
+
+.ai-accuracy-section .model-table-wrap {
+  max-width: 520px;
+}
+
+.ai-accuracy-table th,
+.ai-accuracy-table td {
+  padding: 8px 14px;
+  white-space: nowrap;
+}
+
+.ai-accuracy-table th:first-child,
+.ai-accuracy-table td:first-child {
+  text-align: left;
+}
+
+.ai-accuracy-table th:not(:first-child) {
+  text-align: right;
+}
