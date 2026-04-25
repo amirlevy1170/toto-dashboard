@@ -8,12 +8,17 @@ const DRAW_DOUBLES = 4;
 // Variants the forms pipeline supports for "doubles" scoring. Each form
 // snapshot ships pre-computed scoring under all four; the dropdown below
 // just switches which one we render.
+// Toto column cost = 3₪ × 2^doubles × 3^triples per form.
 const DOUBLE_VARIANTS = [
-  { key: 'D3',   label: '3 doubles' },
-  { key: 'D4',   label: '4 doubles' },
-  { key: 'D5',   label: '5 doubles' },
-  { key: 'D3T1', label: '3 doubles + 1 triple' },
+  { key: 'D3',   label: '3 doubles',            doubles: 3, triples: 0 },
+  { key: 'D4',   label: '4 doubles',            doubles: 4, triples: 0 },
+  { key: 'D5',   label: '5 doubles',            doubles: 5, triples: 0 },
+  { key: 'D3T1', label: '3 doubles + 1 triple', doubles: 3, triples: 1 },
 ];
+
+function variantCost(v) {
+  return 3 * Math.pow(2, v.doubles) * Math.pow(3, v.triples);
+}
 
 // Pull the variant payload from a form_summary, falling back to the legacy
 // top-level fields when the snapshot pre-dates multi-variant scoring (in
@@ -242,9 +247,21 @@ export default function Forms() {
           title="Switch how each form is scored. All four variants are pre-computed; this only re-renders the cards below."
         >
           {DOUBLE_VARIANTS.map(v => (
-            <option key={v.key} value={v.key}>{v.label}</option>
+            <option key={v.key} value={v.key}>
+              {v.label} — {variantCost(v)}₪ per form
+            </option>
           ))}
         </select>
+        {(() => {
+          const v = DOUBLE_VARIANTS.find(x => x.key === variant);
+          return v ? (
+            <span style={{ marginLeft: 12, color: '#666', fontSize: '0.9em' }}>
+              Cost: 3 × 2<sup>{v.doubles}</sup>
+              {v.triples > 0 ? <> × 3<sup>{v.triples}</sup></> : null}
+              {' = '}<strong>{variantCost(v)}₪</strong> per form
+            </span>
+          ) : null;
+        })()}
       </div>
 
       <p className="generated">
