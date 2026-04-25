@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { fetchFormsPredictions, fetchFormsIndex, fetchFormsSnapshot, fetchDrawSnapshot, fetchAllDrawSnapshots } from '../api';
-import { leagueName, pct, predColor, buildDrawByFixtureId, buildDrawByTeams, teamMatchKey } from '../utils';
+import { fetchFormsPredictions, fetchFormsIndex, fetchFormsSnapshot, fetchDrawSnapshot, fetchAllDrawSnapshots, fetchDrawHistoryCsv } from '../api';
+import { leagueName, pct, predColor, buildDrawByFixtureId, buildDrawByTeamsMerged, teamMatchKey } from '../utils';
 import './Forms.css';
 
 const DRAW_DOUBLES = 4;
@@ -62,12 +62,15 @@ export default function Forms() {
   const [loading, setLoading] = useState(true);
   const [expandedForm, setExpandedForm] = useState(null);
 
-  // Pool ALL available draw snapshots once for joining historical form games
-  // (form games lack fixture_id and date — only team-pair join works).
+  // Pool ALL available draw snapshots PLUS the walk-forward backtest CSV for
+  // joining historical form games. Form games lack fixture_id and date, so we
+  // join by (league, home, away) team-pair. The backtest CSV provides honest
+  // pre-game predictions for ~6 months of past games, filling the gap before
+  // the daily-snapshot window starts.
   useEffect(() => {
     let cancelled = false;
-    fetchAllDrawSnapshots().then(snaps => {
-      if (!cancelled) setDrawByTeams(buildDrawByTeams(snaps));
+    Promise.all([fetchAllDrawSnapshots(), fetchDrawHistoryCsv()]).then(([snaps, csv]) => {
+      if (!cancelled) setDrawByTeams(buildDrawByTeamsMerged(snaps, csv));
     });
     return () => { cancelled = true; };
   }, []);
@@ -417,7 +420,7 @@ export default function Forms() {
                                   </td>
                                   <td
                                     className="num-cell draw-double-cell"
-                                    title={dp ? `P(draw)=${(dp.prob_draw*100).toFixed(1)}% · ${dp.model_name} · predicted on ${dp._snapshotDate || '?'} (kickoff ${dp.date}) — pre-game, no leakage` : 'no draw prediction matched'}
+                                    title={dp ? `P(draw)=${(dp.prob_draw*100).toFixed(1)}% · ${dp.model_name} · ${dp._snapshotDate === 'backtest' ? 'walk-forward backtest (model trained only on data before kickoff — no leakage)' : `predicted on ${dp._snapshotDate || '?'} (kickoff ${dp.date}) — pre-game, no leakage`}` : 'no draw prediction matched'}
                                   >
                                     {drawPick ? (
                                       <>

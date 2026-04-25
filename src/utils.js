@@ -84,6 +84,53 @@ export function buildDrawByTeams(snapshots) {
   return map;
 }
 
+// Parse the walk-forward backtest CSV into prediction records shaped like
+// daily-snapshot entries, so the same downstream code works.
+// Schema: fixture_id,date,league,home,away,actual,prob_home,prob_draw_3c,prob_away,prob_draw_bin,draw_threshold
+function parseDrawHistoryCsv(text) {
+  if (!text) return [];
+  const lines = text.trim().split(/\r?\n/);
+  if (lines.length < 2) return [];
+  const header = lines[0].split(',');
+  const idx = name => header.indexOf(name);
+  const out = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cols = lines[i].split(',');
+    const probDraw = parseFloat(cols[idx('prob_draw_bin')]);
+    const threshold = parseFloat(cols[idx('draw_threshold')]);
+    if (Number.isNaN(probDraw) || Number.isNaN(threshold)) continue;
+    out.push({
+      fixture_id: cols[idx('fixture_id')],
+      date: cols[idx('date')],
+      league: cols[idx('league')],
+      home_team_name: cols[idx('home')],
+      away_team_name: cols[idx('away')],
+      model_type: 'per_league',
+      model_name: 'walkforward-backtest',
+      prob_draw: probDraw,
+      prob_not_draw: 1 - probDraw,
+      threshold,
+      predicted_draw: probDraw >= threshold ? 1 : 0,
+    });
+  }
+  return out;
+}
+
+// Merge daily snapshots with the backtest CSV. Daily snapshots win on overlap
+// (more current model + closer to kickoff); backtest fills the historical gap.
+// Backtest entries are tagged with _snapshotDate='backtest' so the UI can show
+// they came from the walk-forward CSV.
+export function buildDrawByTeamsMerged(snapshots, csvText) {
+  const map = buildDrawByTeams(snapshots);
+  for (const p of parseDrawHistoryCsv(csvText)) {
+    const key = `${p.league}|${p.home_team_name}|${p.away_team_name}`.toLowerCase();
+    if (!(key in map)) {
+      map[key] = { ...p, _snapshotDate: 'backtest' };
+    }
+  }
+  return map;
+}
+
 export function teamMatchKey(league, home, away) {
   return `${league}|${home}|${away}`.toLowerCase();
 }

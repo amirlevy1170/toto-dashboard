@@ -61,6 +61,19 @@ export async function fetchAllDrawSnapshots() {
   return snaps.filter(Boolean);
 }
 
+// Walk-forward backtest CSV — provides honest pre-game draw predictions
+// for ~6 months of historical games. Fills the gap for forms whose games
+// predate the daily-snapshot window. Returns null if not synced yet.
+export async function fetchDrawHistoryCsv() {
+  try {
+    const res = await fetch(`${baseUrl()}/backtest/draw_history.csv`);
+    if (!res.ok) return null;
+    return await res.text();
+  } catch {
+    return null;
+  }
+}
+
 // ── Walk-forward backtest ────────────────────────────────────────────
 // Latest run is expected at `backtest/latest_rounds.csv` + `latest_winners.json`.
 // Returns null if the files aren't there yet (graceful empty state).
