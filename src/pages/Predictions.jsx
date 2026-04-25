@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   fetchIndex, fetchSnapshot, fetchDrawSnapshot, fetchFormsPredictions,
+  fetchWalkforwardLatest,
 } from '../api';
 import { LEAGUES, leagueName, pct, predColor, predLabel, matchKey } from '../utils';
 import './Predictions.css';
@@ -21,10 +22,8 @@ function topMargin(src) {
   const probs = [src.h ?? 0, src.d ?? 0, src.a ?? 0].sort((a, b) => b - a);
   return probs[0] - probs[1];
 }
-function diffSpread(daily, forms) {
-  const md = topMargin(daily);
-  const mf = topMargin(forms);
-  const vals = [md, mf].filter((v) => v != null);
+function diffSpread(...sources) {
+  const vals = sources.map(topMargin).filter((v) => v != null);
   if (!vals.length) return null;
   return Math.max(...vals);
 }
@@ -44,6 +43,7 @@ export default function Predictions() {
   const [daily, setDaily] = useState(null);
   const [draw, setDraw] = useState(null);
   const [forms, setForms] = useState(null);
+  const [wf, setWf] = useState(null);
   const [selectedLeague, setSelectedLeague] = useState('all');
 
   useEffect(() => {
@@ -52,15 +52,17 @@ export default function Predictions() {
       try {
         const dates = await fetchIndex();
         const latestDate = dates?.[0];
-        const [dailySnap, drawSnap, formsSnap] = await Promise.all([
+        const [dailySnap, drawSnap, formsSnap, wfSnap] = await Promise.all([
           latestDate ? fetchSnapshot(latestDate) : Promise.resolve(null),
           latestDate ? fetchDrawSnapshot(latestDate) : Promise.resolve(null),
           fetchFormsPredictions(),
+          fetchWalkforwardLatest(),
         ]);
         if (cancelled) return;
         setDaily(dailySnap);
         setDraw(drawSnap);
         setForms(formsSnap);
+        setWf(wfSnap);
       } finally {
         if (!cancelled) setLoading(false);
       }
@@ -68,14 +70,14 @@ export default function Predictions() {
     return () => { cancelled = true; };
   }, []);
 
-  // Build a unified per-fixture record: { date, league, home, away, daily, draw, forms }
+  // Build a unified per-fixture record: { date, league, home, away, daily, draw, forms, wf }
   const matches = useMemo(() => {
     const map = new Map();
 
     const upsert = (date, league, home, away) => {
       const key = matchKey(date, league, home, away);
       if (!map.has(key)) {
-        map.set(key, { key, date, league, home, away, daily: null, draw: null, forms: null });
+        map.set(key, { key, date, league, home, away, daily: null, draw: null, forms: null, wf: null });
       }
       return map.get(key);
     };
@@ -108,12 +110,21 @@ export default function Predictions() {
         accuracy: p.walk_forward_accuracy,
       };
     }
+    for (const p of wf?.predictions || []) {
+      const m = upsert(p.date, p.league, p.home_team, p.away_team);
+      m.wf = {
+        h: p.prob_home, d: p.prob_draw, a: p.prob_away,
+        pick: p.prediction ?? pickFromProbs(p.prob_home, p.prob_draw, p.prob_away),
+        model: `${p.model}+${p.ensemble}`,
+        accuracy: p.walk_forward_accuracy,
+      };
+    }
 
     return [...map.values()].sort((a, b) =>
       (a.date || '').localeCompare(b.date || '') ||
       (a.league || '').localeCompare(b.league || '')
     );
-  }, [daily, draw, forms]);
+  }, [daily, draw, forms, wf]);
 
   const byLeague = useMemo(() => {
     const out = {};
@@ -157,13 +168,15 @@ export default function Predictions() {
       <h1>🔮 Predictions — Side by Side</h1>
       <p className="generated">
         Daily: {daily?.date || '—'} · Draw: {draw?.generated_at?.slice(0, 10) || '—'} ·
-        Forms: {forms?.timestamp?.slice(0, 10) || '—'}
+        Forms: {forms?.timestamp?.slice(0, 10) || '—'} ·
+        WF: {wf?.timestamp?.slice(0, 10) || '—'}
       </p>
 
       <div className="legend">
         <span className="legend-item"><b>Daily</b>: per-league 3-class model</span>
         <span className="legend-item"><b>Draw</b>: binary draw-vs-not-draw model</span>
         <span className="legend-item"><b>Forms</b>: walk-forward best model+ensemble per league</span>
+        <span className="legend-item"><b>WF</b>: standalone walk-forward daily pipeline</span>
       </div>
 
       <div className="filter-row">
@@ -182,6 +195,7 @@ export default function Predictions() {
         const dailyMeta = (daily?.per_league || []).find(x => x.league === lg);
         const drawMeta = rows.find(m => m.draw?.model)?.draw;
         const formsMeta = rows.find(m => m.forms?.model)?.forms;
+        const wfMeta = wf?.league_winners?.[lg];
         return (
         <section key={lg} className="league-block">
           <h2>
@@ -215,6 +229,15 @@ export default function Predictions() {
                 )}
               </span>
             )}
+            {wfMeta && (
+              <span className="model-chip src-wf-chip">
+                <b>WF:</b> {wfMeta.model}
+                {wfMeta.ensemble ? <span className="muted"> / {wfMeta.ensemble}</span> : null}
+                {wfMeta.accuracy != null && (
+                  <span className="acc"> · acc {wfMeta.accuracy.toFixed(1)}%</span>
+                )}
+              </span>
+            )}
           </div>
           <div className="pred-table-wrap">
             <table className="pred-table">
@@ -225,6 +248,7 @@ export default function Predictions() {
                   <th colSpan={4} className="src-daily">Daily (per-league)</th>
                   <th colSpan={2} className="src-draw">Draw model</th>
                   <th colSpan={4} className="src-forms">Forms (walk-forward)</th>
+                  <th colSpan={4} className="src-wf">Walk-Forward (standalone)</th>
                   <th rowSpan={2} title="Confidence margin (top probability − second probability). Larger = more confident pick.">Δ</th>
                   <th rowSpan={2}>Consensus</th>
                 </tr>
@@ -232,12 +256,13 @@ export default function Predictions() {
                   <th className="src-daily">Pick</th><th className="src-daily">H</th><th className="src-daily">D</th><th className="src-daily">A</th>
                   <th className="src-draw">P(D)</th><th className="src-draw">Draw?</th>
                   <th className="src-forms">Pick</th><th className="src-forms">H</th><th className="src-forms">D</th><th className="src-forms">A</th>
+                  <th className="src-wf">Pick</th><th className="src-wf">H</th><th className="src-wf">D</th><th className="src-wf">A</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map(m => {
-                  const diff = diffSpread(m.daily, m.forms);
-                  const cons = consensusBadge([m.daily?.pick, m.forms?.pick]);
+                  const diff = diffSpread(m.daily, m.forms, m.wf);
+                  const cons = consensusBadge([m.daily?.pick, m.forms?.pick, m.wf?.pick]);
                   const diffCls = diff == null
                     ? ''
                     : diff >= 0.20 ? 'diff-high'
@@ -277,6 +302,14 @@ export default function Predictions() {
                       <td className="src-forms prob">{m.forms ? pct(m.forms.h) : '—'}</td>
                       <td className="src-forms prob">{m.forms ? pct(m.forms.d) : '—'}</td>
                       <td className="src-forms prob">{m.forms ? pct(m.forms.a) : '—'}</td>
+
+                      {/* WF */}
+                      <td className="src-wf" style={{ background: predColor(m.wf?.pick) }}>
+                        {m.wf ? <strong title={`model: ${m.wf.model || ''}`}>{m.wf.pick} <span className="muted">({predLabel(m.wf.pick)})</span></strong> : '—'}
+                      </td>
+                      <td className="src-wf prob">{m.wf ? pct(m.wf.h) : '—'}</td>
+                      <td className="src-wf prob">{m.wf ? pct(m.wf.d) : '—'}</td>
+                      <td className="src-wf prob">{m.wf ? pct(m.wf.a) : '—'}</td>
 
                       <td className={`diff-cell ${diffCls}`}>
                         {diff == null ? '—' : pct(diff)}

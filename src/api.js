@@ -126,3 +126,34 @@ export async function fetchFormsSnapshot(date) {
   if (!res.ok) throw new Error(`Failed to fetch forms snapshot for ${date}`);
   return res.json();
 }
+
+// ── Walk-forward daily pipeline ──────────────────────────────────────
+// Output of `pipeline_walkforward/`: one snapshot per day with league
+// winners (best model+ensemble selected via walk-forward CV), the full
+// per-league grid of candidates, and upcoming-fixture predictions.
+export async function fetchWalkforwardLatest() {
+  try {
+    const res = await fetch(`${baseUrl()}/walkforward/latest.json`);
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchWalkforwardIndex() {
+  try {
+    const res = await fetch(`${baseUrl()}/walkforward/index.json`);
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.dates || [];
+  } catch {
+    return [];
+  }
+}
+
+export async function fetchWalkforwardSnapshot(date) {
+  const res = await fetch(`${baseUrl()}/walkforward/${date}.json`);
+  if (!res.ok) throw new Error(`Failed to fetch walkforward snapshot for ${date}`);
+  return res.json();
+}
