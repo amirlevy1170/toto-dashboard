@@ -70,8 +70,8 @@ export default function Home() {
                     <tr key={league}>
                       <td><strong>{leagueName(league)}</strong></td>
                       <td className="num-cell">{pct(m.accuracy || 0)}</td>
-                      <td className="num-cell">{(m.f1 || 0).toFixed(2)}</td>
-                      <td className="num-cell">{m.count || 0}</td>
+                      <td className="num-cell">{m.f1 ? m.f1.toFixed(2) : '—'}</td>
+                      <td className="num-cell">{m.count || '—'}</td>
                     </tr>
                   ))}
               </tbody>
