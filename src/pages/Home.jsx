@@ -52,8 +52,33 @@ export default function Home() {
       <div className="stats-row">
         <StatCard label="Leagues" value={leagues.length} sub="active leagues" color="#3a86a8" />
         <StatCard label="Predictions" value={preds.length} sub="upcoming matches" color="#7209b7" />
-        <StatCard label="AI Accuracy" value={pct(ai.accuracy || 0)} sub="Gemini evaluation" color="#f72585" />
       </div>
+
+      {ai.per_league && Object.keys(ai.per_league).length > 0 && (
+        <div className="ai-accuracy-section">
+          <h2>AI Accuracy per League</h2>
+          <p className="section-sub">Gemini evaluation accuracy on historical matches per league.</p>
+          <div className="model-table-wrap">
+            <table className="data-table ai-accuracy-table">
+              <thead>
+                <tr><th>League</th><th>Accuracy</th><th>F1</th><th>Matches</th></tr>
+              </thead>
+              <tbody>
+                {Object.entries(ai.per_league)
+                  .sort(([, a], [, b]) => (b.accuracy || 0) - (a.accuracy || 0))
+                  .map(([league, m]) => (
+                    <tr key={league}>
+                      <td><strong>{leagueName(league)}</strong></td>
+                      <td className="num-cell">{pct(m.accuracy || 0)}</td>
+                      <td className="num-cell">{(m.f1 || 0).toFixed(2)}</td>
+                      <td className="num-cell">{m.count || 0}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {latest.fallbacks && Object.keys(latest.fallbacks).length > 0 && (
         <div className="fallback-banner">
