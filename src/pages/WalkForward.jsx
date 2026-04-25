@@ -111,15 +111,20 @@ export default function WalkForward() {
       </p>
 
       <div className="filter-row">
-        {dates.length > 1 && (
-          <>
-            <label>Snapshot:&nbsp;</label>
-            <select value={selectedDate} onChange={e => setSelectedDate(e.target.value)}>
-              {dates.map(d => <option key={d} value={d}>{d}</option>)}
-            </select>
-            <span style={{ marginLeft: 16 }} />
-          </>
-        )}
+        <label>Snapshot:&nbsp;</label>
+        <select
+          value={selectedDate}
+          onChange={e => setSelectedDate(e.target.value)}
+          disabled={dates.length <= 1}
+          title={dates.length <= 1 ? 'Only one snapshot available so far' : 'Pick a historical run'}
+        >
+          {dates.length === 0 && <option value="">—</option>}
+          {dates.map(d => <option key={d} value={d}>{d}</option>)}
+        </select>
+        <span className="muted" style={{ marginLeft: 8, fontSize: '0.85em' }}>
+          ({dates.length} {dates.length === 1 ? 'run' : 'runs'} available)
+        </span>
+        <span style={{ marginLeft: 16 }} />
         <label>League:&nbsp;</label>
         <select value={selectedLeague} onChange={e => setSelectedLeague(e.target.value)}>
           <option value="all">All leagues</option>
