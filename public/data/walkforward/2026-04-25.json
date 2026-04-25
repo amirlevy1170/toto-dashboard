@@ -1,0 +1,2715 @@
+{
+  "pipeline": "walk_forward_daily",
+  "timestamp": "2026-04-25T08:48:21.345422",
+  "elapsed_minutes": 24.2,
+  "config": {
+    "train_years": 3.5,
+    "test_years": 0.5,
+    "step_years": 1.0,
+    "min_history_years": 4.0,
+    "upcoming_days": 5,
+    "models": [
+      "lightgbm",
+      "xgboost",
+      "catboost",
+      "random_forest",
+      "extra_trees",
+      "gradient_boosting"
+    ],
+    "ensembles": [
+      "E4_CLEAN_ELO_TREND_56",
+      "E3_CLEAN_ELO_45",
+      "E1_ORIGINAL_51",
+      "E2_CLEAN_42",
+      "E7_ELO_API_82",
+      "E8_COMPACT_23"
+    ]
+  },
+  "league_winners": {
+    "England1": {
+      "model": "random_forest",
+      "ensemble": "E2_CLEAN_42",
+      "accuracy": 55.2,
+      "n_test": 983,
+      "buckets": 7
+    },
+    "France1": {
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "accuracy": 51.4,
+      "n_test": 832,
+      "buckets": 7
+    },
+    "Germany1": {
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 51.4,
+      "n_test": 772,
+      "buckets": 7
+    },
+    "Israel1": {
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 50.0,
+      "n_test": 184,
+      "buckets": 3
+    },
+    "Israel2": {
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "accuracy": 49.1,
+      "n_test": 277,
+      "buckets": 3
+    },
+    "Italy1": {
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 53.5,
+      "n_test": 964,
+      "buckets": 7
+    },
+    "Spain1": {
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 52.5,
+      "n_test": 1010,
+      "buckets": 7
+    }
+  },
+  "league_grid": {
+    "England1": [
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 55.2,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 55.2,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 55.1,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 54.8,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 54.8,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 54.8,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 54.3,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 54.2,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 53.8,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 53.7,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 53.7,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 53.6,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 53.5,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 53.3,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 53.2,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 53.0,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.9,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.9,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.7,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.4,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.4,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.3,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.9,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.9,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.9,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.8,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.7,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.7,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.2,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.0,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.8,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.8,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.7,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.7,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.3,
+        "n_test": 983,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.0,
+        "n_test": 983,
+        "buckets": 7
+      }
+    ],
+    "France1": [
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.4,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.3,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.3,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.2,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.6,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.4,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.1,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.0,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.9,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.6,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.5,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.4,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.3,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.2,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.2,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.0,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.9,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.9,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.8,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.7,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.6,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.4,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.4,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.3,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.2,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.1,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.1,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.6,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.0,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.0,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.0,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.0,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.9,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.6,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.6,
+        "n_test": 832,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.4,
+        "n_test": 832,
+        "buckets": 7
+      }
+    ],
+    "Germany1": [
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.4,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.8,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.9,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.6,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.2,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.2,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.1,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.0,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.0,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.8,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.2,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.1,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.1,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.7,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.2,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.2,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.6,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 46.2,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.1,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.0,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.2,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.9,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.9,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 44.3,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 43.9,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 43.8,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 43.7,
+        "n_test": 772,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 43.0,
+        "n_test": 772,
+        "buckets": 7
+      }
+    ],
+    "Israel1": [
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.0,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.5,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.4,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.3,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.3,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.7,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.7,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.2,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.7,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.7,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.7,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.1,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.1,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.1,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.1,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 44.6,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 44.6,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.6,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.6,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.6,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 44.6,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.0,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.0,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.0,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 43.5,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 43.5,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 42.9,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 42.9,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 42.9,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 42.9,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 42.9,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 42.4,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 41.3,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 41.3,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.8,
+        "n_test": 184,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 40.2,
+        "n_test": 184,
+        "buckets": 3
+      }
+    ],
+    "Israel2": [
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.1,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.0,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.0,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.7,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.7,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.3,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.3,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.3,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.3,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.9,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.9,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.2,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.8,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.8,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.8,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.8,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.5,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.5,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.1,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.1,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 44.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 44.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 44.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.4,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.0,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.0,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.0,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 43.3,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 43.3,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 41.5,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 39.7,
+        "n_test": 277,
+        "buckets": 3
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 35.7,
+        "n_test": 277,
+        "buckets": 3
+      }
+    ],
+    "Italy1": [
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 53.5,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 53.2,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 53.2,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.9,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.8,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.7,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.6,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.5,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 52.3,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 52.2,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.1,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 52.1,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.7,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.5,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.3,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.9,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.7,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.7,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.7,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.4,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.3,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.0,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.8,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.8,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.6,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.5,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.3,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.3,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.2,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.2,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.1,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.8,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.7,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.3,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.8,
+        "n_test": 964,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.6,
+        "n_test": 964,
+        "buckets": 7
+      }
+    ],
+    "Spain1": [
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.5,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.3,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.2,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.8,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.7,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.7,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.3,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.2,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.9,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.9,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.9,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.8,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.7,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.6,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.3,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.2,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.1,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.1,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.9,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.7,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.7,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.6,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.5,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.4,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.4,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.2,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.9,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.5,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.5,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.2,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.1,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.0,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.9,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.8,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.4,
+        "n_test": 1010,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.3,
+        "n_test": 1010,
+        "buckets": 7
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture_id": 1379299,
+      "date": "2026-04-25",
+      "league": "England1",
+      "home_team": "Arsenal",
+      "away_team": "Newcastle",
+      "prediction": "1",
+      "prob_home": 0.397,
+      "prob_draw": 0.255,
+      "prob_away": 0.348,
+      "model": "random_forest",
+      "ensemble": "E2_CLEAN_42",
+      "walk_forward_accuracy": 55.2
+    },
+    {
+      "fixture_id": 1379303,
+      "date": "2026-04-25",
+      "league": "England1",
+      "home_team": "Fulham",
+      "away_team": "Aston Villa",
+      "prediction": "2",
+      "prob_home": 0.327,
+      "prob_draw": 0.267,
+      "prob_away": 0.406,
+      "model": "random_forest",
+      "ensemble": "E2_CLEAN_42",
+      "walk_forward_accuracy": 55.2
+    },
+    {
+      "fixture_id": 1379304,
+      "date": "2026-04-25",
+      "league": "England1",
+      "home_team": "Liverpool",
+      "away_team": "Crystal Palace",
+      "prediction": "1",
+      "prob_home": 0.425,
+      "prob_draw": 0.26,
+      "prob_away": 0.315,
+      "model": "random_forest",
+      "ensemble": "E2_CLEAN_42",
+      "walk_forward_accuracy": 55.2
+    },
+    {
+      "fixture_id": 1379307,
+      "date": "2026-04-25",
+      "league": "England1",
+      "home_team": "West Ham",
+      "away_team": "Everton",
+      "prediction": "2",
+      "prob_home": 0.28,
+      "prob_draw": 0.309,
+      "prob_away": 0.411,
+      "model": "random_forest",
+      "ensemble": "E2_CLEAN_42",
+      "walk_forward_accuracy": 55.2
+    },
+    {
+      "fixture_id": 1379308,
+      "date": "2026-04-25",
+      "league": "England1",
+      "home_team": "Wolves",
+      "away_team": "Tottenham",
+      "prediction": "2",
+      "prob_home": 0.355,
+      "prob_draw": 0.215,
+      "prob_away": 0.429,
+      "model": "random_forest",
+      "ensemble": "E2_CLEAN_42",
+      "walk_forward_accuracy": 55.2
+    },
+    {
+      "fixture_id": 1387968,
+      "date": "2026-04-25",
+      "league": "France1",
+      "home_team": "Angers",
+      "away_team": "Paris Saint Germain",
+      "prediction": "2",
+      "prob_home": 0.114,
+      "prob_draw": 0.17,
+      "prob_away": 0.716,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1387972,
+      "date": "2026-04-25",
+      "league": "France1",
+      "home_team": "Lyon",
+      "away_team": "Auxerre",
+      "prediction": "1",
+      "prob_home": 0.595,
+      "prob_draw": 0.216,
+      "prob_away": 0.189,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1387976,
+      "date": "2026-04-25",
+      "league": "France1",
+      "home_team": "Toulouse",
+      "away_team": "Monaco",
+      "prediction": "X",
+      "prob_home": 0.278,
+      "prob_draw": 0.365,
+      "prob_away": 0.358,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388578,
+      "date": "2026-04-25",
+      "league": "Germany1",
+      "home_team": "FC Augsburg",
+      "away_team": "Eintracht Frankfurt",
+      "prediction": "X",
+      "prob_home": 0.327,
+      "prob_draw": 0.339,
+      "prob_away": 0.334,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388580,
+      "date": "2026-04-25",
+      "league": "Germany1",
+      "home_team": "1. FC K\u00f6ln",
+      "away_team": "Bayer Leverkusen",
+      "prediction": "2",
+      "prob_home": 0.208,
+      "prob_draw": 0.314,
+      "prob_away": 0.478,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388581,
+      "date": "2026-04-25",
+      "league": "Germany1",
+      "home_team": "Hamburger SV",
+      "away_team": "1899 Hoffenheim",
+      "prediction": "2",
+      "prob_home": 0.218,
+      "prob_draw": 0.36,
+      "prob_away": 0.422,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388582,
+      "date": "2026-04-25",
+      "league": "Germany1",
+      "home_team": "1. FC Heidenheim",
+      "away_team": "FC St. Pauli",
+      "prediction": "1",
+      "prob_home": 0.369,
+      "prob_draw": 0.316,
+      "prob_away": 0.315,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388583,
+      "date": "2026-04-25",
+      "league": "Germany1",
+      "home_team": "FSV Mainz 05",
+      "away_team": "Bayern M\u00fcnchen",
+      "prediction": "2",
+      "prob_home": 0.14,
+      "prob_draw": 0.316,
+      "prob_away": 0.544,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388586,
+      "date": "2026-04-25",
+      "league": "Germany1",
+      "home_team": "VfL Wolfsburg",
+      "away_team": "Borussia M\u00f6nchengladbach",
+      "prediction": "1",
+      "prob_home": 0.402,
+      "prob_draw": 0.263,
+      "prob_away": 0.336,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1540680,
+      "date": "2026-04-25",
+      "league": "Israel1",
+      "home_team": "Maccabi Netanya",
+      "away_team": "Bnei Sakhnin",
+      "prediction": "2",
+      "prob_home": 0.344,
+      "prob_draw": 0.217,
+      "prob_away": 0.438,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540681,
+      "date": "2026-04-25",
+      "league": "Israel1",
+      "home_team": "Ashdod",
+      "away_team": "Maccabi Bnei Raina",
+      "prediction": "2",
+      "prob_home": 0.363,
+      "prob_draw": 0.244,
+      "prob_away": 0.393,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540705,
+      "date": "2026-04-25",
+      "league": "Israel1",
+      "home_team": "Hapoel Petah Tikva",
+      "away_team": "Hapoel Tel Aviv",
+      "prediction": "X",
+      "prob_home": 0.24,
+      "prob_draw": 0.415,
+      "prob_away": 0.345,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540706,
+      "date": "2026-04-25",
+      "league": "Israel1",
+      "home_team": "Hapoel Beer Sheva",
+      "away_team": "Beitar Jerusalem",
+      "prediction": "1",
+      "prob_home": 0.433,
+      "prob_draw": 0.284,
+      "prob_away": 0.283,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540707,
+      "date": "2026-04-25",
+      "league": "Israel1",
+      "home_team": "Maccabi Haifa",
+      "away_team": "Maccabi Tel Aviv",
+      "prediction": "2",
+      "prob_home": 0.304,
+      "prob_draw": 0.207,
+      "prob_away": 0.489,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1378194,
+      "date": "2026-04-25",
+      "league": "Italy1",
+      "home_team": "Bologna",
+      "away_team": "AS Roma",
+      "prediction": "1",
+      "prob_home": 0.36,
+      "prob_draw": 0.308,
+      "prob_away": 0.332,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1378201,
+      "date": "2026-04-25",
+      "league": "Italy1",
+      "home_team": "Parma",
+      "away_team": "Pisa",
+      "prediction": "1",
+      "prob_home": 0.406,
+      "prob_draw": 0.276,
+      "prob_away": 0.318,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1378203,
+      "date": "2026-04-25",
+      "league": "Italy1",
+      "home_team": "Hellas Verona",
+      "away_team": "Lecce",
+      "prediction": "2",
+      "prob_home": 0.196,
+      "prob_draw": 0.346,
+      "prob_away": 0.458,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1391129,
+      "date": "2026-04-25",
+      "league": "Spain1",
+      "home_team": "Alaves",
+      "away_team": "Mallorca",
+      "prediction": "1",
+      "prob_home": 0.456,
+      "prob_draw": 0.321,
+      "prob_away": 0.223,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1391130,
+      "date": "2026-04-25",
+      "league": "Spain1",
+      "home_team": "Atletico Madrid",
+      "away_team": "Athletic Club",
+      "prediction": "1",
+      "prob_home": 0.509,
+      "prob_draw": 0.261,
+      "prob_away": 0.23,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1391133,
+      "date": "2026-04-25",
+      "league": "Spain1",
+      "home_team": "Getafe",
+      "away_team": "Barcelona",
+      "prediction": "X",
+      "prob_home": 0.318,
+      "prob_draw": 0.342,
+      "prob_away": 0.34,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1391137,
+      "date": "2026-04-25",
+      "league": "Spain1",
+      "home_team": "Valencia",
+      "away_team": "Girona",
+      "prediction": "1",
+      "prob_home": 0.38,
+      "prob_draw": 0.302,
+      "prob_away": 0.318,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1387970,
+      "date": "2026-04-26",
+      "league": "France1",
+      "home_team": "Le Havre",
+      "away_team": "Metz",
+      "prediction": "1",
+      "prob_home": 0.475,
+      "prob_draw": 0.256,
+      "prob_away": 0.27,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1387971,
+      "date": "2026-04-26",
+      "league": "France1",
+      "home_team": "Lorient",
+      "away_team": "Strasbourg",
+      "prediction": "2",
+      "prob_home": 0.333,
+      "prob_draw": 0.29,
+      "prob_away": 0.377,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1387973,
+      "date": "2026-04-26",
+      "league": "France1",
+      "home_team": "Marseille",
+      "away_team": "Nice",
+      "prediction": "1",
+      "prob_home": 0.482,
+      "prob_draw": 0.293,
+      "prob_away": 0.225,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1387974,
+      "date": "2026-04-26",
+      "league": "France1",
+      "home_team": "Paris FC",
+      "away_team": "Lille",
+      "prediction": "2",
+      "prob_home": 0.293,
+      "prob_draw": 0.296,
+      "prob_away": 0.411,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1387975,
+      "date": "2026-04-26",
+      "league": "France1",
+      "home_team": "Rennes",
+      "away_team": "Nantes",
+      "prediction": "1",
+      "prob_home": 0.603,
+      "prob_draw": 0.277,
+      "prob_away": 0.12,
+      "model": "extra_trees",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388579,
+      "date": "2026-04-26",
+      "league": "Germany1",
+      "home_team": "Borussia Dortmund",
+      "away_team": "SC Freiburg",
+      "prediction": "1",
+      "prob_home": 0.58,
+      "prob_draw": 0.216,
+      "prob_away": 0.204,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1388585,
+      "date": "2026-04-26",
+      "league": "Germany1",
+      "home_team": "VfB Stuttgart",
+      "away_team": "Werder Bremen",
+      "prediction": "1",
+      "prob_home": 0.649,
+      "prob_draw": 0.168,
+      "prob_away": 0.183,
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.4
+    },
+    {
+      "fixture_id": 1540678,
+      "date": "2026-04-26",
+      "league": "Israel1",
+      "home_team": "Hapoel Katamon",
+      "away_team": "Hapoel Haifa",
+      "prediction": "2",
+      "prob_home": 0.211,
+      "prob_draw": 0.343,
+      "prob_away": 0.446,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540679,
+      "date": "2026-04-26",
+      "league": "Israel1",
+      "home_team": "Ironi Tiberias",
+      "away_team": "Ironi Kiryat Shmona",
+      "prediction": "2",
+      "prob_home": 0.225,
+      "prob_draw": 0.346,
+      "prob_away": 0.429,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1378196,
+      "date": "2026-04-26",
+      "league": "Italy1",
+      "home_team": "Fiorentina",
+      "away_team": "Sassuolo",
+      "prediction": "1",
+      "prob_home": 0.434,
+      "prob_draw": 0.271,
+      "prob_away": 0.295,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1378197,
+      "date": "2026-04-26",
+      "league": "Italy1",
+      "home_team": "Genoa",
+      "away_team": "Como",
+      "prediction": "2",
+      "prob_home": 0.356,
+      "prob_draw": 0.205,
+      "prob_away": 0.439,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1378199,
+      "date": "2026-04-26",
+      "league": "Italy1",
+      "home_team": "AC Milan",
+      "away_team": "Juventus",
+      "prediction": "1",
+      "prob_home": 0.407,
+      "prob_draw": 0.289,
+      "prob_away": 0.303,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1378202,
+      "date": "2026-04-26",
+      "league": "Italy1",
+      "home_team": "Torino",
+      "away_team": "Inter",
+      "prediction": "2",
+      "prob_home": 0.288,
+      "prob_draw": 0.241,
+      "prob_away": 0.471,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1391134,
+      "date": "2026-04-26",
+      "league": "Spain1",
+      "home_team": "Osasuna",
+      "away_team": "Sevilla",
+      "prediction": "1",
+      "prob_home": 0.518,
+      "prob_draw": 0.232,
+      "prob_away": 0.25,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1391135,
+      "date": "2026-04-26",
+      "league": "Spain1",
+      "home_team": "Rayo Vallecano",
+      "away_team": "Real Sociedad",
+      "prediction": "1",
+      "prob_home": 0.435,
+      "prob_draw": 0.287,
+      "prob_away": 0.279,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1391136,
+      "date": "2026-04-26",
+      "league": "Spain1",
+      "home_team": "Oviedo",
+      "away_team": "Elche",
+      "prediction": "1",
+      "prob_home": 0.487,
+      "prob_draw": 0.269,
+      "prob_away": 0.244,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1391138,
+      "date": "2026-04-26",
+      "league": "Spain1",
+      "home_team": "Villarreal",
+      "away_team": "Celta Vigo",
+      "prediction": "1",
+      "prob_home": 0.474,
+      "prob_draw": 0.299,
+      "prob_away": 0.226,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1379305,
+      "date": "2026-04-27",
+      "league": "England1",
+      "home_team": "Manchester United",
+      "away_team": "Brentford",
+      "prediction": "1",
+      "prob_home": 0.443,
+      "prob_draw": 0.227,
+      "prob_away": 0.33,
+      "model": "random_forest",
+      "ensemble": "E2_CLEAN_42",
+      "walk_forward_accuracy": 55.2
+    },
+    {
+      "fixture_id": 1541876,
+      "date": "2026-04-27",
+      "league": "Israel2",
+      "home_team": "Hapoel Ramat Gan",
+      "away_team": "Bnei Yehuda",
+      "prediction": "1",
+      "prob_home": 0.53,
+      "prob_draw": 0.165,
+      "prob_away": 0.306,
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 49.1
+    },
+    {
+      "fixture_id": 1541877,
+      "date": "2026-04-27",
+      "league": "Israel2",
+      "home_team": "Hapoel Rishon LeZion",
+      "away_team": "Hapoel Kfar Saba",
+      "prediction": "1",
+      "prob_home": 0.481,
+      "prob_draw": 0.211,
+      "prob_away": 0.308,
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 49.1
+    },
+    {
+      "fixture_id": 1541878,
+      "date": "2026-04-27",
+      "league": "Israel2",
+      "home_team": "Maccabi Herzliya",
+      "away_team": "Kiryat Yam SC",
+      "prediction": "1",
+      "prob_home": 0.503,
+      "prob_draw": 0.21,
+      "prob_away": 0.287,
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 49.1
+    },
+    {
+      "fixture_id": 1378195,
+      "date": "2026-04-27",
+      "league": "Italy1",
+      "home_team": "Cagliari",
+      "away_team": "Atalanta",
+      "prediction": "2",
+      "prob_home": 0.26,
+      "prob_draw": 0.267,
+      "prob_away": 0.473,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1378198,
+      "date": "2026-04-27",
+      "league": "Italy1",
+      "home_team": "Lazio",
+      "away_team": "Udinese",
+      "prediction": "1",
+      "prob_home": 0.406,
+      "prob_draw": 0.28,
+      "prob_away": 0.313,
+      "model": "extra_trees",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 53.5
+    },
+    {
+      "fixture_id": 1391132,
+      "date": "2026-04-27",
+      "league": "Spain1",
+      "home_team": "Espanyol",
+      "away_team": "Levante",
+      "prediction": "1",
+      "prob_home": 0.387,
+      "prob_draw": 0.38,
+      "prob_away": 0.234,
+      "model": "random_forest",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.5
+    },
+    {
+      "fixture_id": 1540685,
+      "date": "2026-04-28",
+      "league": "Israel1",
+      "home_team": "Bnei Sakhnin",
+      "away_team": "Ashdod",
+      "prediction": "1",
+      "prob_home": 0.381,
+      "prob_draw": 0.28,
+      "prob_away": 0.338,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540708,
+      "date": "2026-04-28",
+      "league": "Israel1",
+      "home_team": "Beitar Jerusalem",
+      "away_team": "Hapoel Petah Tikva",
+      "prediction": "1",
+      "prob_home": 0.604,
+      "prob_draw": 0.146,
+      "prob_away": 0.25,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540710,
+      "date": "2026-04-28",
+      "league": "Israel1",
+      "home_team": "Maccabi Tel Aviv",
+      "away_team": "Hapoel Beer Sheva",
+      "prediction": "2",
+      "prob_home": 0.402,
+      "prob_draw": 0.142,
+      "prob_away": 0.457,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540682,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Hapoel Haifa",
+      "away_team": "Ironi Tiberias",
+      "prediction": "2",
+      "prob_home": 0.282,
+      "prob_draw": 0.345,
+      "prob_away": 0.373,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540683,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Ironi Kiryat Shmona",
+      "away_team": "Maccabi Netanya",
+      "prediction": "2",
+      "prob_home": 0.294,
+      "prob_draw": 0.224,
+      "prob_away": 0.482,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540684,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Maccabi Bnei Raina",
+      "away_team": "Hapoel Katamon",
+      "prediction": "X",
+      "prob_home": 0.35,
+      "prob_draw": 0.439,
+      "prob_away": 0.211,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1540709,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Hapoel Tel Aviv",
+      "away_team": "Maccabi Haifa",
+      "prediction": "1",
+      "prob_home": 0.537,
+      "prob_draw": 0.204,
+      "prob_away": 0.259,
+      "model": "random_forest",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 50.0
+    },
+    {
+      "fixture_id": 1541879,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Acre",
+      "away_team": "Hapoel Afula",
+      "prediction": "X",
+      "prob_home": 0.321,
+      "prob_draw": 0.479,
+      "prob_away": 0.201,
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 49.1
+    },
+    {
+      "fixture_id": 1541880,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Nazareth Illit",
+      "away_team": "Hapoel Hadera",
+      "prediction": "1",
+      "prob_home": 0.535,
+      "prob_draw": 0.266,
+      "prob_away": 0.2,
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 49.1
+    },
+    {
+      "fixture_id": 1541881,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Kfar Shalem",
+      "away_team": "Hapoel Kfar Saba",
+      "prediction": "1",
+      "prob_home": 0.417,
+      "prob_draw": 0.216,
+      "prob_away": 0.367,
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 49.1
+    },
+    {
+      "fixture_id": 1541882,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Ra'anana",
+      "away_team": "Maccabi Kabilio Jaffa",
+      "prediction": "X",
+      "prob_home": 0.291,
+      "prob_draw": 0.391,
+      "prob_away": 0.317,
+      "model": "random_forest",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 49.1
+    }
+  ]
+}
