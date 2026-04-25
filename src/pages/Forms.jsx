@@ -166,6 +166,11 @@ export default function Forms() {
 
               {isExpanded && (
                 <div className="form-card-body">
+                  {fs.form_date && (
+                    <p className="doubles-info">
+                      Form date: <strong>{fs.form_date}</strong>
+                    </p>
+                  )}
                   {fs.close_threshold != null && (
                     <p className="doubles-info">
                       Close threshold: <strong>{Number(fs.close_threshold).toFixed(3)}</strong>
