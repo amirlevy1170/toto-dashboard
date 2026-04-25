@@ -57,6 +57,25 @@ export function buildDrawByFixtureId(drawData) {
   return map;
 }
 
+// Pool many draw snapshots into one (league|home|away) -> prediction lookup.
+// Verified zero collisions in current data — same team pair never repeats across
+// the available 8-snapshot window. First match wins.
+export function buildDrawByTeams(snapshots) {
+  const map = {};
+  for (const s of snapshots || []) {
+    for (const p of s?.predictions || []) {
+      if (p.model_type !== 'per_league') continue;
+      const key = `${p.league}|${p.home_team_name}|${p.away_team_name}`.toLowerCase();
+      if (!(key in map)) map[key] = p;
+    }
+  }
+  return map;
+}
+
+export function teamMatchKey(league, home, away) {
+  return `${league}|${home}|${away}`.toLowerCase();
+}
+
 // A match is a "disagreement" when the 3-class picks a team (1 or 2) but
 // the draw model flags X above the league's tuned threshold.
 export function isDisagreement(threeClassPred, drawPrediction) {

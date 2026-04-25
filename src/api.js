@@ -53,6 +53,14 @@ export async function fetchDrawSnapshot(date) {
   }
 }
 
+// Pool all available draw snapshots in parallel — used for joining
+// historical form games (which lack fixture_id and date) by team-pair.
+export async function fetchAllDrawSnapshots() {
+  const dates = await fetchIndex().catch(() => []);
+  const snaps = await Promise.all(dates.map(d => fetchDrawSnapshot(d)));
+  return snaps.filter(Boolean);
+}
+
 // ── Walk-forward backtest ────────────────────────────────────────────
 // Latest run is expected at `backtest/latest_rounds.csv` + `latest_winners.json`.
 // Returns null if the files aren't there yet (graceful empty state).

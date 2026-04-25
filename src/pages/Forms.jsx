@@ -1,17 +1,65 @@
 import { useEffect, useMemo, useState } from 'react';
-import { fetchFormsPredictions, fetchFormsIndex, fetchFormsSnapshot, fetchDrawSnapshot } from '../api';
-import { leagueName, pct, predColor, buildDrawByFixtureId } from '../utils';
+import { fetchFormsPredictions, fetchFormsIndex, fetchFormsSnapshot, fetchDrawSnapshot, fetchAllDrawSnapshots } from '../api';
+import { leagueName, pct, predColor, buildDrawByFixtureId, buildDrawByTeams, teamMatchKey } from '../utils';
 import './Forms.css';
 
 const DRAW_DOUBLES = 4;
+
+// Compute draw-doubles overlay for a form's games.
+// Returns { games: [{...g, _drawPred, _isDrawDouble, _coveredWithDouble}], stats }.
+// stats.points / stats.gain only meaningful when actuals are present (historical forms).
+function computeDrawDoubles(games, drawByTeams) {
+  if (!games?.length) return { games: [], stats: null };
+  const enriched = games.map(g => {
+    const dp = drawByTeams[teamMatchKey(g.league, g.home_team, g.away_team)] || null;
+    return { ...g, _drawPred: dp };
+  });
+  const eligibleIdx = enriched
+    .map((g, idx) => ({ idx, prob: g._drawPred?.prob_draw }))
+    .filter(x => x.prob != null && (enriched[x.idx].prediction === '1' || enriched[x.idx].prediction === '2'))
+    .sort((a, b) => b.prob - a.prob)
+    .slice(0, DRAW_DOUBLES)
+    .map(x => x.idx);
+  const top = new Set(eligibleIdx);
+  let baselinePts = 0;
+  let drawPts = 0;
+  let hasActuals = false;
+  const out = enriched.map((g, i) => {
+    const isDouble = top.has(i);
+    const baselineCorrect = g.correct === true;
+    let coveredByDouble = baselineCorrect;
+    if (isDouble && g.actual === 'X' && g.prediction !== 'X') coveredByDouble = true;
+    if (g.actual != null && g.actual !== '') {
+      hasActuals = true;
+      if (baselineCorrect) baselinePts += 1;
+      if (coveredByDouble) drawPts += 1;
+    }
+    return { ...g, _isDrawDouble: isDouble, _coveredWithDouble: coveredByDouble };
+  });
+  const stats = hasActuals
+    ? { baselinePts, drawPts, gain: drawPts - baselinePts, doublesCount: eligibleIdx.length, total: out.length }
+    : { baselinePts: 0, drawPts: 0, gain: 0, doublesCount: eligibleIdx.length, total: out.length };
+  return { games: out, stats };
+}
 
 export default function Forms() {
   const [dates, setDates] = useState([]);
   const [selected, setSelected] = useState(null);
   const [data, setData] = useState(null);
   const [drawData, setDrawData] = useState(null);
+  const [drawByTeams, setDrawByTeams] = useState({});
   const [loading, setLoading] = useState(true);
   const [expandedForm, setExpandedForm] = useState(null);
+
+  // Pool ALL available draw snapshots once for joining historical form games
+  // (form games lack fixture_id and date — only team-pair join works).
+  useEffect(() => {
+    let cancelled = false;
+    fetchAllDrawSnapshots().then(snaps => {
+      if (!cancelled) setDrawByTeams(buildDrawByTeams(snaps));
+    });
+    return () => { cancelled = true; };
+  }, []);
 
   // Load index + latest on mount
   useEffect(() => {
@@ -242,38 +290,87 @@ export default function Forms() {
                       </table>
                     </div>
                   )}
-                  {fs.games?.length > 0 && (
-                    <table className="data-table games-table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Match</th>
-                          <th>League</th>
-                          <th>Pred</th>
-                          <th>Double</th>
-                          <th>Actual</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {fs.games.map((g, i) => (
-                          <tr key={i} className={g.is_double ? 'double-row' : ''}>
-                            <td>{g.game_number}</td>
-                            <td className="match-cell">{g.home_team} vs {g.away_team}</td>
-                            <td>{leagueName(g.league)}</td>
-                            <td className="num-cell">{g.prediction}</td>
-                            <td className="num-cell">
-                              {g.is_double ? (
-                                <span className="double-marker">{g.double_prediction}</span>
-                              ) : '—'}
-                            </td>
-                            <td className="num-cell">{g.actual}</td>
-                            <td>{g.correct ? '✅' : '❌'}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  )}
+                  {fs.games?.length > 0 && (() => {
+                    const { games: enrichedGames, stats: drawStats } = computeDrawDoubles(fs.games, drawByTeams);
+                    const drawJoined = enrichedGames.filter(g => g._drawPred).length;
+                    const partialCoverage = drawJoined > 0 && drawJoined < enrichedGames.length;
+                    return (
+                      <>
+                        {drawJoined > 0 && drawStats && (
+                          <p className="doubles-info">
+                            <strong>🎯 With draw doubles ({drawStats.doublesCount}):</strong>{' '}
+                            <strong>{drawStats.drawPts}/{drawStats.total}</strong>
+                            <span style={{ color: '#666' }}> (baseline {drawStats.baselinePts}/{drawStats.total},{' '}
+                              <span style={{ color: drawStats.gain > 0 ? '#16a34a' : drawStats.gain < 0 ? '#dc2626' : '#666', fontWeight: 700 }}>
+                                {drawStats.gain >= 0 ? '+' : ''}{drawStats.gain}
+                              </span>)
+                            </span>
+                            <span style={{ color: '#888', marginLeft: 8 }}>· joined {drawJoined}/{enrichedGames.length}</span>
+                            {partialCoverage && (
+                              <span style={{ color: '#b45309', marginLeft: 8 }}>(only fixtures within the recent draw-snapshot window can be matched)</span>
+                            )}
+                          </p>
+                        )}
+                        {drawJoined === 0 && (
+                          <p className="doubles-info" style={{ color: '#888' }}>
+                            🎯 No draw predictions matched for this form's games — they predate the available draw-snapshot window.
+                          </p>
+                        )}
+                        <table className="data-table games-table">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Match</th>
+                              <th>League</th>
+                              <th>Pred</th>
+                              <th>Double</th>
+                              <th title={`Top ${DRAW_DOUBLES} fixtures by draw model's P(X) among team picks`}>🎯 Draw Double</th>
+                              <th>Actual</th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {enrichedGames.map((g, i) => {
+                              const dp = g._drawPred;
+                              const drawPick = g._isDrawDouble ? `${g.prediction}X` : null;
+                              const drawCorrect = g._isDrawDouble && g.actual != null && g.actual !== ''
+                                ? g._coveredWithDouble : null;
+                              return (
+                                <tr key={i} className={g.is_double || g._isDrawDouble ? 'double-row' : ''}>
+                                  <td>{g.game_number}</td>
+                                  <td className="match-cell">{g.home_team} vs {g.away_team}</td>
+                                  <td>{leagueName(g.league)}</td>
+                                  <td className="num-cell">{g.prediction}</td>
+                                  <td className="num-cell">
+                                    {g.is_double ? (
+                                      <span className="double-marker">{g.double_prediction}</span>
+                                    ) : '—'}
+                                  </td>
+                                  <td
+                                    className="num-cell draw-double-cell"
+                                    title={dp ? `P(draw)=${(dp.prob_draw*100).toFixed(1)}% · ${dp.model_name}` : 'no draw prediction matched'}
+                                  >
+                                    {drawPick ? (
+                                      <>
+                                        <span className="double-marker">{drawPick}</span>
+                                        {drawCorrect != null && (
+                                          <span style={{ marginLeft: 4 }}>{drawCorrect ? '✅' : '❌'}</span>
+                                        )}
+                                      </>
+                                    ) : (
+                                      dp ? <span className="draw-dim">{pct(dp.prob_draw)}</span> : '—'
+                                    )}
+                                  </td>
+                                  <td className="num-cell">{g.actual}</td>
+                                  <td>{g.correct ? '✅' : '❌'}</td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </>
+                    );
+                  })()}
                 </div>
               )}
             </div>
