@@ -281,13 +281,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Newcastle vs Bournemouth: 2+X (actual: 2, ✓)",
-          "AS Roma vs Atalanta: X+2 (actual: X, ✓)",
-          "Union Berlin vs VfL Wolfsburg: X+2 (actual: 2, ✓)",
-          "Angers vs Le Havre: 2+X (actual: X, ✓)"
+          "Newcastle vs Bournemouth: 2+X (actual: 2, \u2713)",
+          "AS Roma vs Atalanta: X+2 (actual: X, \u2713)",
+          "Union Berlin vs VfL Wolfsburg: X+2 (actual: 2, \u2713)",
+          "Angers vs Le Havre: 2+X (actual: X, \u2713)"
         ]
-      },
-      "form_date": "18.04.2026"
+      }
     },
     {
       "form_id": "261501",
@@ -491,7 +490,7 @@
         },
         {
           "game_number": 11,
-          "home_team": "1. FC Köln",
+          "home_team": "1. FC K\u00f6ln",
           "away_team": "Werder Bremen",
           "league": "Germany1",
           "home_odds": 2.1,
@@ -584,13 +583,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Mallorca vs Rayo Vallecano: 1+X (actual: 1, ✓)",
-          "Como vs Inter: 2+X (actual: 2, ✓)",
-          "Toulouse vs Lille: 2+X (actual: 2, ✓)",
-          "Angers vs Le Havre: 2+X (actual: X, ✓)"
+          "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)",
+          "Como vs Inter: 2+X (actual: 2, \u2713)",
+          "Toulouse vs Lille: 2+X (actual: 2, \u2713)",
+          "Angers vs Le Havre: 2+X (actual: X, \u2713)"
         ]
-      },
-      "form_date": "12.04.2026"
+      }
     },
     {
       "form_id": "261405",
@@ -833,7 +831,7 @@
         {
           "game_number": 14,
           "home_team": "RB Leipzig",
-          "away_team": "Borussia Mönchengladbach",
+          "away_team": "Borussia M\u00f6nchengladbach",
           "league": "Germany1",
           "home_odds": 1.3,
           "draw_odds": 4.65,
@@ -848,7 +846,7 @@
         {
           "game_number": 15,
           "home_team": "FC St. Pauli",
-          "away_team": "Bayern München",
+          "away_team": "Bayern M\u00fcnchen",
           "league": "Germany1",
           "home_odds": 6.6,
           "draw_odds": 4.9,
@@ -865,13 +863,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Brentford vs Everton: 1+X (actual: X, ✓)",
-          "Liverpool vs Fulham: 1+X (actual: 1, ✓)",
-          "Atalanta vs Juventus: 2+X (actual: 2, ✓)",
-          "Borussia Dortmund vs Bayer Leverkusen: 2+X (actual: 2, ✓)"
+          "Brentford vs Everton: 1+X (actual: X, \u2713)",
+          "Liverpool vs Fulham: 1+X (actual: 1, \u2713)",
+          "Atalanta vs Juventus: 2+X (actual: 2, \u2713)",
+          "Borussia Dortmund vs Bayer Leverkusen: 2+X (actual: 2, \u2713)"
         ]
-      },
-      "form_date": "11.04.2026"
+      }
     },
     {
       "form_id": "261105",
@@ -1068,7 +1065,7 @@
         },
         {
           "game_number": 11,
-          "home_team": "Bayern München",
+          "home_team": "Bayern M\u00fcnchen",
           "away_team": "Union Berlin",
           "league": "Germany1",
           "home_odds": 1.05,
@@ -1113,8 +1110,8 @@
         },
         {
           "game_number": 14,
-          "home_team": "1. FC Köln",
-          "away_team": "Borussia Mönchengladbach",
+          "home_team": "1. FC K\u00f6ln",
+          "away_team": "Borussia M\u00f6nchengladbach",
           "league": "Germany1",
           "home_odds": 2.1,
           "draw_odds": 2.95,
@@ -1146,13 +1143,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Everton vs Chelsea: 1+X (actual: 1, ✓)",
-          "Osasuna vs Girona: 1+X (actual: 1, ✓)",
-          "Levante vs Oviedo: 1+X (actual: 1, ✓)",
-          "1. FC Köln vs Borussia Mönchengladbach: 1+X (actual: X, ✓)"
+          "Everton vs Chelsea: 1+X (actual: 1, \u2713)",
+          "Osasuna vs Girona: 1+X (actual: 1, \u2713)",
+          "Levante vs Oviedo: 1+X (actual: 1, \u2713)",
+          "1. FC K\u00f6ln vs Borussia M\u00f6nchengladbach: 1+X (actual: X, \u2713)"
         ]
-      },
-      "form_date": "21.03.2026"
+      }
     },
     {
       "form_id": "261101",
@@ -1434,13 +1430,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Sassuolo vs Bologna: X+2 (actual: 2, ✓)",
-          "Pisa vs Cagliari: 1+X (actual: 1, ✓)",
-          "Werder Bremen vs FSV Mainz 05: X+2 (actual: 2, ✓)",
-          "SC Freiburg vs Union Berlin: X+2 (actual: 2, ✓)"
+          "Sassuolo vs Bologna: X+2 (actual: 2, \u2713)",
+          "Pisa vs Cagliari: 1+X (actual: 1, \u2713)",
+          "Werder Bremen vs FSV Mainz 05: X+2 (actual: 2, \u2713)",
+          "SC Freiburg vs Union Berlin: X+2 (actual: 2, \u2713)"
         ]
-      },
-      "form_date": "15.03.2026"
+      }
     },
     {
       "form_id": "261401",
@@ -1715,13 +1710,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Ironi Tiberias vs Ashdod: X+2 (actual: X, ✓)",
-          "Maccabi Netanya vs Hapoel Haifa: X+2 (actual: X, ✓)",
-          "Brentford vs Everton: 1+X (actual: X, ✓)",
-          "Mallorca vs Rayo Vallecano: 1+X (actual: 1, ✓)"
+          "Ironi Tiberias vs Ashdod: X+2 (actual: X, \u2713)",
+          "Maccabi Netanya vs Hapoel Haifa: X+2 (actual: X, \u2713)",
+          "Brentford vs Everton: 1+X (actual: X, \u2713)",
+          "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)"
         ]
-      },
-      "form_date": "11.04.2026"
+      }
     },
     {
       "form_id": "261001",
@@ -1941,7 +1935,7 @@
         {
           "game_number": 12,
           "home_team": "Hamburger SV",
-          "away_team": "1. FC Köln",
+          "away_team": "1. FC K\u00f6ln",
           "league": "Germany1",
           "home_odds": 2.1,
           "draw_odds": 3.05,
@@ -2018,13 +2012,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Sunderland vs Brighton: 2+X (actual: 2, ✓)",
-          "Mallorca vs Espanyol: 1+X (actual: 1, ✓)",
-          "Pisa vs Cagliari: 1+X (actual: 1, ✓)",
-          "Werder Bremen vs FSV Mainz 05: X+2 (actual: 2, ✓)"
+          "Sunderland vs Brighton: 2+X (actual: 2, \u2713)",
+          "Mallorca vs Espanyol: 1+X (actual: 1, \u2713)",
+          "Pisa vs Cagliari: 1+X (actual: 1, \u2713)",
+          "Werder Bremen vs FSV Mainz 05: X+2 (actual: 2, \u2713)"
         ]
-      },
-      "form_date": "14.03.2026"
+      }
     },
     {
       "form_id": "254301",
@@ -2306,13 +2299,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Everton vs Tottenham: X+2 (actual: 2, ✓)",
-          "Valencia vs Villarreal: 2+X (actual: 2, ✓)",
-          "Osasuna vs Celta Vigo: X+2 (actual: 2, ✓)",
-          "Fiorentina vs Bologna: X+2 (actual: X, ✓)"
+          "Everton vs Tottenham: X+2 (actual: 2, \u2713)",
+          "Valencia vs Villarreal: 2+X (actual: 2, \u2713)",
+          "Osasuna vs Celta Vigo: X+2 (actual: 2, \u2713)",
+          "Fiorentina vs Bologna: X+2 (actual: X, \u2713)"
         ]
-      },
-      "form_date": "25.10.2025"
+      }
     },
     {
       "form_id": "251501",
@@ -2538,7 +2530,7 @@
         },
         {
           "game_number": 12,
-          "home_team": "Borussia Mönchengladbach",
+          "home_team": "Borussia M\u00f6nchengladbach",
           "away_team": "SC Freiburg",
           "league": "Germany1",
           "home_odds": 2.05,
@@ -2616,13 +2608,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Osasuna vs Girona: 1+X (actual: 1, ✓)",
-          "Real Betis vs Villarreal: X+2 (actual: 2, ✓)",
-          "Hellas Verona vs Genoa: X+1 (actual: X, ✓)",
-          "Holstein Kiel vs FC St. Pauli: 2+X (actual: 2, ✓)"
+          "Osasuna vs Girona: 1+X (actual: 1, \u2713)",
+          "Real Betis vs Villarreal: X+2 (actual: 2, \u2713)",
+          "Hellas Verona vs Genoa: X+1 (actual: X, \u2713)",
+          "Holstein Kiel vs FC St. Pauli: 2+X (actual: 2, \u2713)"
         ]
-      },
-      "form_date": "12.04.2025"
+      }
     },
     {
       "form_id": "251401",
@@ -2897,13 +2888,12 @@
         "count": 4,
         "correct": 4,
         "games": [
-          "Hapoel Hadera vs Bnei Sakhnin: 2+X (actual: 2, ✓)",
-          "Aston Villa vs Nottingham Forest: 1+X (actual: 1, ✓)",
-          "Las Palmas vs Real Sociedad: 2+X (actual: 2, ✓)",
-          "Empoli vs Cagliari: X+2 (actual: X, ✓)"
+          "Hapoel Hadera vs Bnei Sakhnin: 2+X (actual: 2, \u2713)",
+          "Aston Villa vs Nottingham Forest: 1+X (actual: 1, \u2713)",
+          "Las Palmas vs Real Sociedad: 2+X (actual: 2, \u2713)",
+          "Empoli vs Cagliari: X+2 (actual: X, \u2713)"
         ]
-      },
-      "form_date": "05.04.2025"
+      }
     }
   ],
   "overall_ranking": [
@@ -3337,7 +3327,7 @@
       "fixture_id": 1388580,
       "date": "2026-04-25",
       "league": "Germany1",
-      "home_team": "1. FC Köln",
+      "home_team": "1. FC K\u00f6ln",
       "away_team": "Bayer Leverkusen",
       "prediction": "2",
       "prob_home": 0.196,
@@ -3380,7 +3370,7 @@
       "date": "2026-04-25",
       "league": "Germany1",
       "home_team": "FSV Mainz 05",
-      "away_team": "Bayern München",
+      "away_team": "Bayern M\u00fcnchen",
       "prediction": "2",
       "prob_home": 0.151,
       "prob_draw": 0.406,
@@ -3394,7 +3384,7 @@
       "date": "2026-04-25",
       "league": "Germany1",
       "home_team": "VfL Wolfsburg",
-      "away_team": "Borussia Mönchengladbach",
+      "away_team": "Borussia M\u00f6nchengladbach",
       "prediction": "2",
       "prob_home": 0.33,
       "prob_draw": 0.257,
