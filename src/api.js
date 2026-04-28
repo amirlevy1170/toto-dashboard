@@ -127,13 +127,17 @@ export async function fetchFormsSnapshot(date) {
   return res.json();
 }
 
-// ── Walk-forward daily pipeline ──────────────────────────────────────
-// Output of `pipeline_walkforward/`: one snapshot per day with league
-// winners (best model+ensemble selected via walk-forward CV), the full
-// per-league grid of candidates, and upcoming-fixture predictions.
+// ── Walk-forward daily pipeline (parallel, per-league matrix) ────────
+// Output of the parallel WF pipeline (toto-runner workflow
+// `walkforward_parallel.yml` → merger in `pipeline_walkforward/merge.py`):
+// one snapshot per day with league winners (best model+ensemble selected
+// via walk-forward CV), the full per-league grid of candidates, and
+// upcoming-fixture predictions. Same JSON shape as the legacy serial
+// pipeline (kept around in `walkforward/` for diffing) but produced ~3×
+// faster by sharding the per-league grid across parallel jobs.
 export async function fetchWalkforwardLatest() {
   try {
-    const res = await fetch(`${baseUrl()}/walkforward/latest.json`);
+    const res = await fetch(`${baseUrl()}/walkforward_parallel/latest.json`);
     if (!res.ok) return null;
     return await res.json();
   } catch {
@@ -143,7 +147,7 @@ export async function fetchWalkforwardLatest() {
 
 export async function fetchWalkforwardIndex() {
   try {
-    const res = await fetch(`${baseUrl()}/walkforward/index.json`);
+    const res = await fetch(`${baseUrl()}/walkforward_parallel/index.json`);
     if (!res.ok) return [];
     const data = await res.json();
     return data.dates || [];
@@ -153,7 +157,7 @@ export async function fetchWalkforwardIndex() {
 }
 
 export async function fetchWalkforwardSnapshot(date) {
-  const res = await fetch(`${baseUrl()}/walkforward/${date}.json`);
+  const res = await fetch(`${baseUrl()}/walkforward_parallel/${date}.json`);
   if (!res.ok) throw new Error(`Failed to fetch walkforward snapshot for ${date}`);
   return res.json();
 }

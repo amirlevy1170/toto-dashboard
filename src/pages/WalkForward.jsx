@@ -6,7 +6,7 @@ import './Predictions.css';
 // Walk-forward pipeline page. Shows the per-league winner (best
 // model+ensemble selected via walk-forward CV), upcoming predictions,
 // and the top-N grid candidates per league. Data source:
-// `output/walkforward/<date>.json` (mirrored to `public/data/walkforward/`).
+// `output/walkforward_parallel/<date>.json` (mirrored to `public/data/walkforward_parallel/`).
 export default function WalkForward() {
   const [loading, setLoading] = useState(true);
   const [snap, setSnap] = useState(null);
