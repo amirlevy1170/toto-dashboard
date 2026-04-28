@@ -1,0 +1,5103 @@
+{
+  "pipeline": "walk_forward_daily",
+  "timestamp": "2026-04-28T13:26:54.836206",
+  "elapsed_minutes": 43.4,
+  "config": {
+    "train_years": 2.5,
+    "test_years": 0.5,
+    "step_years": 0.5,
+    "min_history_years": 4.0,
+    "upcoming_days": 5,
+    "models": [
+      "lightgbm",
+      "xgboost",
+      "catboost",
+      "random_forest",
+      "extra_trees",
+      "gradient_boosting",
+      "perceptron",
+      "knn",
+      "mlp_small",
+      "mlp_large",
+      "calibrated_lgbm",
+      "calibrated_rf",
+      "neural_network",
+      "tabnet"
+    ],
+    "ensembles": [
+      "E4_CLEAN_ELO_TREND_56",
+      "E3_CLEAN_ELO_45",
+      "E1_ORIGINAL_51",
+      "E2_CLEAN_42",
+      "E7_ELO_API_82",
+      "E8_COMPACT_23"
+    ]
+  },
+  "league_winners": {
+    "England1": {
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 53.1,
+      "n_test": 2738,
+      "buckets": 15
+    },
+    "France1": {
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 51.7,
+      "n_test": 2458,
+      "buckets": 15
+    },
+    "Germany1": {
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "accuracy": 52.9,
+      "n_test": 2227,
+      "buckets": 15
+    },
+    "Israel1": {
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 50.6,
+      "n_test": 747,
+      "buckets": 7
+    },
+    "Israel2": {
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 45.8,
+      "n_test": 926,
+      "buckets": 7
+    },
+    "Italy1": {
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "accuracy": 53.4,
+      "n_test": 2761,
+      "buckets": 15
+    },
+    "Spain1": {
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 52.1,
+      "n_test": 2750,
+      "buckets": 15
+    }
+  },
+  "league_grid": {
+    "England1": [
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 53.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 53.0,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 53.0,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 53.0,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 52.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 52.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.4,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.4,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.3,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 52.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.0,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.9,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.9,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.3,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.3,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.0,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.9,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.9,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.4,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.3,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.0,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.9,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.4,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.4,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.9,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.7,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.4,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.1,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.0,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.8,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.6,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.5,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.2,
+        "n_test": 2738,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.1,
+        "n_test": 2738,
+        "buckets": 15
+      }
+    ],
+    "France1": [
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.6,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.0,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.8,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.8,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.6,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.0,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.9,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.8,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.6,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.0,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.9,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.8,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.6,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 46.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.6,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.5,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.4,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.3,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.2,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.1,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 44.9,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 44.9,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.9,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.7,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.0,
+        "n_test": 2458,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 42.4,
+        "n_test": 2458,
+        "buckets": 15
+      }
+    ],
+    "Germany1": [
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.9,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.4,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.4,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.2,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.5,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.2,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.2,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.4,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.4,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.2,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.9,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.9,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.4,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.6,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.5,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.5,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.4,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.2,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.1,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.9,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.9,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.5,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.5,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.3,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.0,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.8,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.7,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.5,
+        "n_test": 2227,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.4,
+        "n_test": 2227,
+        "buckets": 15
+      }
+    ],
+    "Israel1": [
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.6,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.8,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.5,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.4,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.9,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.9,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.6,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.5,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.5,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.9,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.9,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.8,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.8,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.5,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.9,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 46.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 46.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.9,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.8,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.8,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.6,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.4,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.4,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.0,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 43.9,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 43.8,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 43.5,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 43.5,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 43.4,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 43.4,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 43.1,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 42.8,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 42.7,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 42.6,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 42.3,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 41.2,
+        "n_test": 747,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 40.0,
+        "n_test": 747,
+        "buckets": 7
+      }
+    ],
+    "Israel2": [
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.1,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 43.7,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 43.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 43.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 43.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 43.1,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 43.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 42.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 42.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 42.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 42.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 42.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 42.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 42.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 42.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 42.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 42.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 42.3,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 42.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 42.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 41.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 41.7,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 41.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 41.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 41.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 41.3,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 41.3,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 41.1,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 41.1,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 41.1,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 41.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 40.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 40.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 40.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 40.7,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 40.7,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 40.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 40.3,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 40.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 40.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 40.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 39.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 39.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 39.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 39.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 39.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 39.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 39.7,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 39.7,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 39.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 39.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 39.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 39.3,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 39.1,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 39.1,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 39.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 39.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 39.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 38.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 38.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 38.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 38.6,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 38.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 38.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 38.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 38.2,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 38.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 38.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 38.0,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 37.8,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 37.5,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 37.4,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 36.9,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 36.7,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 36.6,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 36.6,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 36.6,
+        "n_test": 926,
+        "buckets": 7
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 36.4,
+        "n_test": 926,
+        "buckets": 7
+      }
+    ],
+    "Italy1": [
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 53.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 53.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 53.1,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 53.1,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 53.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 52.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 52.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 52.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.7,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.7,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.6,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.1,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.6,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.1,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.1,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.1,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.7,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.9,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.7,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.6,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.5,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.4,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.0,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.8,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.6,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.3,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.2,
+        "n_test": 2761,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.1,
+        "n_test": 2761,
+        "buckets": 15
+      }
+    ],
+    "Spain1": [
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 52.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 52.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 52.0,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 51.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 51.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.2,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 51.2,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 51.2,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 51.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 51.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.8,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.4,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.4,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 50.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 50.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.2,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 50.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 50.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.0,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.8,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 49.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 49.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.2,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 49.2,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.8,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.8,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.4,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.4,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 48.3,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.2,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 48.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.0,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.9,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.8,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.7,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.6,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 47.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.5,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.4,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.4,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.4,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.1,
+        "n_test": 2750,
+        "buckets": 15
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.2,
+        "n_test": 2750,
+        "buckets": 15
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture_id": 1540708,
+      "date": "2026-04-28",
+      "league": "Israel1",
+      "home_team": "Beitar Jerusalem",
+      "away_team": "Hapoel Petah Tikva",
+      "prediction": "1",
+      "prob_home": 0.777,
+      "prob_draw": 0.081,
+      "prob_away": 0.142,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540685,
+      "date": "2026-04-28",
+      "league": "Israel1",
+      "home_team": "Bnei Sakhnin",
+      "away_team": "Ashdod",
+      "prediction": "2",
+      "prob_home": 0.347,
+      "prob_draw": 0.199,
+      "prob_away": 0.453,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540710,
+      "date": "2026-04-28",
+      "league": "Israel1",
+      "home_team": "Maccabi Tel Aviv",
+      "away_team": "Hapoel Beer Sheva",
+      "prediction": "2",
+      "prob_home": 0.334,
+      "prob_draw": 0.191,
+      "prob_away": 0.475,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540682,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Hapoel Haifa",
+      "away_team": "Ironi Tiberias",
+      "prediction": "1",
+      "prob_home": 0.508,
+      "prob_draw": 0.204,
+      "prob_away": 0.289,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540709,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Hapoel Tel Aviv",
+      "away_team": "Maccabi Haifa",
+      "prediction": "1",
+      "prob_home": 0.581,
+      "prob_draw": 0.088,
+      "prob_away": 0.33,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540683,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Ironi Kiryat Shmona",
+      "away_team": "Maccabi Netanya",
+      "prediction": "2",
+      "prob_home": 0.379,
+      "prob_draw": 0.082,
+      "prob_away": 0.539,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540684,
+      "date": "2026-04-29",
+      "league": "Israel1",
+      "home_team": "Maccabi Bnei Raina",
+      "away_team": "Hapoel Katamon",
+      "prediction": "1",
+      "prob_home": 0.43,
+      "prob_draw": 0.326,
+      "prob_away": 0.244,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1541879,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Acre",
+      "away_team": "Hapoel Afula",
+      "prediction": "X",
+      "prob_home": 0.274,
+      "prob_draw": 0.369,
+      "prob_away": 0.356,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1541881,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Kfar Shalem",
+      "away_team": "Hapoel Kfar Saba",
+      "prediction": "1",
+      "prob_home": 0.412,
+      "prob_draw": 0.307,
+      "prob_away": 0.281,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1541880,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Nazareth Illit",
+      "away_team": "Hapoel Hadera",
+      "prediction": "1",
+      "prob_home": 0.412,
+      "prob_draw": 0.307,
+      "prob_away": 0.281,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1541882,
+      "date": "2026-04-30",
+      "league": "Israel2",
+      "home_team": "Hapoel Ra'anana",
+      "away_team": "Maccabi Kabilio Jaffa",
+      "prediction": "1",
+      "prob_home": 0.412,
+      "prob_draw": 0.307,
+      "prob_away": 0.281,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1379315,
+      "date": "2026-05-01",
+      "league": "England1",
+      "home_team": "Leeds",
+      "away_team": "Burnley",
+      "prediction": "1",
+      "prob_home": 0.387,
+      "prob_draw": 0.303,
+      "prob_away": 0.311,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1541884,
+      "date": "2026-05-01",
+      "league": "Israel2",
+      "home_team": "Bnei Yehuda",
+      "away_team": "Hapoel Rishon LeZion",
+      "prediction": "1",
+      "prob_home": 0.412,
+      "prob_draw": 0.307,
+      "prob_away": 0.281,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1541886,
+      "date": "2026-05-01",
+      "league": "Israel2",
+      "home_team": "Ironi Modi'in",
+      "away_team": "Kafr Qasim",
+      "prediction": "X",
+      "prob_home": 0.274,
+      "prob_draw": 0.369,
+      "prob_away": 0.356,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1541883,
+      "date": "2026-05-01",
+      "league": "Israel2",
+      "home_team": "Kiryat Yam SC",
+      "away_team": "Hapoel Ramat Gan",
+      "prediction": "1",
+      "prob_home": 0.412,
+      "prob_draw": 0.307,
+      "prob_away": 0.281,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1541885,
+      "date": "2026-05-01",
+      "league": "Israel2",
+      "home_team": "Maccabi Petah Tikva",
+      "away_team": "Maccabi Herzliya",
+      "prediction": "1",
+      "prob_home": 0.462,
+      "prob_draw": 0.337,
+      "prob_away": 0.2,
+      "model": "mlp_large",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 45.8
+    },
+    {
+      "fixture_id": 1378210,
+      "date": "2026-05-01",
+      "league": "Italy1",
+      "home_team": "Pisa",
+      "away_team": "Lecce",
+      "prediction": "2",
+      "prob_home": 0.336,
+      "prob_draw": 0.273,
+      "prob_away": 0.391,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1391154,
+      "date": "2026-05-01",
+      "league": "Spain1",
+      "home_team": "Girona",
+      "away_team": "Mallorca",
+      "prediction": "1",
+      "prob_home": 0.507,
+      "prob_draw": 0.345,
+      "prob_away": 0.148,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1379309,
+      "date": "2026-05-02",
+      "league": "England1",
+      "home_team": "Arsenal",
+      "away_team": "Fulham",
+      "prediction": "1",
+      "prob_home": 0.462,
+      "prob_draw": 0.265,
+      "prob_away": 0.272,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1379312,
+      "date": "2026-05-02",
+      "league": "England1",
+      "home_team": "Brentford",
+      "away_team": "West Ham",
+      "prediction": "2",
+      "prob_home": 0.342,
+      "prob_draw": 0.308,
+      "prob_away": 0.351,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1379317,
+      "date": "2026-05-02",
+      "league": "England1",
+      "home_team": "Newcastle",
+      "away_team": "Brighton",
+      "prediction": "2",
+      "prob_home": 0.318,
+      "prob_draw": 0.318,
+      "prob_away": 0.363,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1379318,
+      "date": "2026-05-02",
+      "league": "England1",
+      "home_team": "Wolves",
+      "away_team": "Sunderland",
+      "prediction": "2",
+      "prob_home": 0.318,
+      "prob_draw": 0.318,
+      "prob_away": 0.363,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1387980,
+      "date": "2026-05-02",
+      "league": "France1",
+      "home_team": "Metz",
+      "away_team": "Monaco",
+      "prediction": "2",
+      "prob_home": 0.3,
+      "prob_draw": 0.271,
+      "prob_away": 0.429,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1387981,
+      "date": "2026-05-02",
+      "league": "France1",
+      "home_team": "Nantes",
+      "away_team": "Marseille",
+      "prediction": "2",
+      "prob_home": 0.3,
+      "prob_draw": 0.271,
+      "prob_away": 0.429,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1387982,
+      "date": "2026-05-02",
+      "league": "France1",
+      "home_team": "Nice",
+      "away_team": "Lens",
+      "prediction": "2",
+      "prob_home": 0.3,
+      "prob_draw": 0.271,
+      "prob_away": 0.429,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1387984,
+      "date": "2026-05-02",
+      "league": "France1",
+      "home_team": "Paris Saint Germain",
+      "away_team": "Lorient",
+      "prediction": "1",
+      "prob_home": 0.563,
+      "prob_draw": 0.276,
+      "prob_away": 0.161,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1388592,
+      "date": "2026-05-02",
+      "league": "Germany1",
+      "home_team": "1899 Hoffenheim",
+      "away_team": "VfB Stuttgart",
+      "prediction": "1",
+      "prob_home": 0.48,
+      "prob_draw": 0.317,
+      "prob_away": 0.204,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1388587,
+      "date": "2026-05-02",
+      "league": "Germany1",
+      "home_team": "Bayer Leverkusen",
+      "away_team": "RB Leipzig",
+      "prediction": "2",
+      "prob_home": 0.354,
+      "prob_draw": 0.234,
+      "prob_away": 0.413,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1388588,
+      "date": "2026-05-02",
+      "league": "Germany1",
+      "home_team": "Bayern M\u00fcnchen",
+      "away_team": "1. FC Heidenheim",
+      "prediction": "1",
+      "prob_home": 0.553,
+      "prob_draw": 0.313,
+      "prob_away": 0.135,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1388590,
+      "date": "2026-05-02",
+      "league": "Germany1",
+      "home_team": "Eintracht Frankfurt",
+      "away_team": "Hamburger SV",
+      "prediction": "1",
+      "prob_home": 0.503,
+      "prob_draw": 0.302,
+      "prob_away": 0.194,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1388594,
+      "date": "2026-05-02",
+      "league": "Germany1",
+      "home_team": "Union Berlin",
+      "away_team": "1. FC K\u00f6ln",
+      "prediction": "1",
+      "prob_home": 0.43,
+      "prob_draw": 0.284,
+      "prob_away": 0.286,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1388595,
+      "date": "2026-05-02",
+      "league": "Germany1",
+      "home_team": "Werder Bremen",
+      "away_team": "FC Augsburg",
+      "prediction": "2",
+      "prob_home": 0.108,
+      "prob_draw": 0.305,
+      "prob_away": 0.587,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1540711,
+      "date": "2026-05-02",
+      "league": "Israel1",
+      "home_team": "Beitar Jerusalem",
+      "away_team": "Maccabi Tel Aviv",
+      "prediction": "1",
+      "prob_home": 0.485,
+      "prob_draw": 0.074,
+      "prob_away": 0.441,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540713,
+      "date": "2026-05-02",
+      "league": "Israel1",
+      "home_team": "Hapoel Beer Sheva",
+      "away_team": "Hapoel Tel Aviv",
+      "prediction": "1",
+      "prob_home": 0.671,
+      "prob_draw": 0.197,
+      "prob_away": 0.132,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540712,
+      "date": "2026-05-02",
+      "league": "Israel1",
+      "home_team": "Hapoel Petah Tikva",
+      "away_team": "Maccabi Haifa",
+      "prediction": "2",
+      "prob_home": 0.288,
+      "prob_draw": 0.205,
+      "prob_away": 0.507,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1378204,
+      "date": "2026-05-02",
+      "league": "Italy1",
+      "home_team": "Atalanta",
+      "away_team": "Genoa",
+      "prediction": "1",
+      "prob_home": 0.488,
+      "prob_draw": 0.25,
+      "prob_away": 0.262,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1378206,
+      "date": "2026-05-02",
+      "league": "Italy1",
+      "home_team": "Como",
+      "away_team": "Napoli",
+      "prediction": "1",
+      "prob_home": 0.44,
+      "prob_draw": 0.226,
+      "prob_away": 0.335,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1378213,
+      "date": "2026-05-02",
+      "league": "Italy1",
+      "home_team": "Udinese",
+      "away_team": "Torino",
+      "prediction": "1",
+      "prob_home": 0.44,
+      "prob_draw": 0.226,
+      "prob_away": 0.335,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1391149,
+      "date": "2026-05-02",
+      "league": "Spain1",
+      "home_team": "Alaves",
+      "away_team": "Athletic Club",
+      "prediction": "1",
+      "prob_home": 0.495,
+      "prob_draw": 0.281,
+      "prob_away": 0.225,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1391155,
+      "date": "2026-05-02",
+      "league": "Spain1",
+      "home_team": "Osasuna",
+      "away_team": "Barcelona",
+      "prediction": "1",
+      "prob_home": 0.396,
+      "prob_draw": 0.257,
+      "prob_away": 0.347,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1391157,
+      "date": "2026-05-02",
+      "league": "Spain1",
+      "home_team": "Valencia",
+      "away_team": "Atletico Madrid",
+      "prediction": "1",
+      "prob_home": 0.554,
+      "prob_draw": 0.195,
+      "prob_away": 0.251,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1391158,
+      "date": "2026-05-02",
+      "league": "Spain1",
+      "home_team": "Villarreal",
+      "away_team": "Levante",
+      "prediction": "1",
+      "prob_home": 0.569,
+      "prob_draw": 0.285,
+      "prob_away": 0.146,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1379310,
+      "date": "2026-05-03",
+      "league": "England1",
+      "home_team": "Aston Villa",
+      "away_team": "Tottenham",
+      "prediction": "1",
+      "prob_home": 0.478,
+      "prob_draw": 0.274,
+      "prob_away": 0.247,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1379311,
+      "date": "2026-05-03",
+      "league": "England1",
+      "home_team": "Bournemouth",
+      "away_team": "Crystal Palace",
+      "prediction": "1",
+      "prob_home": 0.478,
+      "prob_draw": 0.274,
+      "prob_away": 0.247,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1379316,
+      "date": "2026-05-03",
+      "league": "England1",
+      "home_team": "Manchester United",
+      "away_team": "Liverpool",
+      "prediction": "1",
+      "prob_home": 0.462,
+      "prob_draw": 0.265,
+      "prob_away": 0.272,
+      "model": "calibrated_rf",
+      "ensemble": "E7_ELO_API_82",
+      "walk_forward_accuracy": 53.1
+    },
+    {
+      "fixture_id": 1387977,
+      "date": "2026-05-03",
+      "league": "France1",
+      "home_team": "Auxerre",
+      "away_team": "Angers",
+      "prediction": "1",
+      "prob_home": 0.375,
+      "prob_draw": 0.34,
+      "prob_away": 0.285,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1387978,
+      "date": "2026-05-03",
+      "league": "France1",
+      "home_team": "Lille",
+      "away_team": "Le Havre",
+      "prediction": "1",
+      "prob_home": 0.563,
+      "prob_draw": 0.276,
+      "prob_away": 0.161,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1387979,
+      "date": "2026-05-03",
+      "league": "France1",
+      "home_team": "Lyon",
+      "away_team": "Rennes",
+      "prediction": "2",
+      "prob_home": 0.3,
+      "prob_draw": 0.271,
+      "prob_away": 0.429,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1387983,
+      "date": "2026-05-03",
+      "league": "France1",
+      "home_team": "Paris FC",
+      "away_team": "Stade Brestois 29",
+      "prediction": "1",
+      "prob_home": 0.375,
+      "prob_draw": 0.34,
+      "prob_away": 0.285,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1387985,
+      "date": "2026-05-03",
+      "league": "France1",
+      "home_team": "Strasbourg",
+      "away_team": "Toulouse",
+      "prediction": "1",
+      "prob_home": 0.563,
+      "prob_draw": 0.276,
+      "prob_away": 0.161,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 51.7
+    },
+    {
+      "fixture_id": 1388589,
+      "date": "2026-05-03",
+      "league": "Germany1",
+      "home_team": "Borussia M\u00f6nchengladbach",
+      "away_team": "Borussia Dortmund",
+      "prediction": "1",
+      "prob_home": 0.43,
+      "prob_draw": 0.284,
+      "prob_away": 0.286,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1388593,
+      "date": "2026-05-03",
+      "league": "Germany1",
+      "home_team": "FC St. Pauli",
+      "away_team": "FSV Mainz 05",
+      "prediction": "1",
+      "prob_home": 0.43,
+      "prob_draw": 0.284,
+      "prob_away": 0.286,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1388591,
+      "date": "2026-05-03",
+      "league": "Germany1",
+      "home_team": "SC Freiburg",
+      "away_team": "VfL Wolfsburg",
+      "prediction": "1",
+      "prob_home": 0.518,
+      "prob_draw": 0.293,
+      "prob_away": 0.188,
+      "model": "calibrated_rf",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 52.9
+    },
+    {
+      "fixture_id": 1540697,
+      "date": "2026-05-03",
+      "league": "Israel1",
+      "home_team": "Ashdod",
+      "away_team": "Ironi Tiberias",
+      "prediction": "1",
+      "prob_home": 0.508,
+      "prob_draw": 0.204,
+      "prob_away": 0.289,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1540694,
+      "date": "2026-05-03",
+      "league": "Israel1",
+      "home_team": "Ironi Kiryat Shmona",
+      "away_team": "Hapoel Haifa",
+      "prediction": "1",
+      "prob_home": 0.485,
+      "prob_draw": 0.074,
+      "prob_away": 0.441,
+      "model": "calibrated_rf",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "walk_forward_accuracy": 50.6
+    },
+    {
+      "fixture_id": 1378205,
+      "date": "2026-05-03",
+      "league": "Italy1",
+      "home_team": "Bologna",
+      "away_team": "Cagliari",
+      "prediction": "1",
+      "prob_home": 0.483,
+      "prob_draw": 0.257,
+      "prob_away": 0.26,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1378208,
+      "date": "2026-05-03",
+      "league": "Italy1",
+      "home_team": "Inter",
+      "away_team": "Parma",
+      "prediction": "1",
+      "prob_home": 0.483,
+      "prob_draw": 0.257,
+      "prob_away": 0.26,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1378209,
+      "date": "2026-05-03",
+      "league": "Italy1",
+      "home_team": "Juventus",
+      "away_team": "Hellas Verona",
+      "prediction": "1",
+      "prob_home": 0.483,
+      "prob_draw": 0.257,
+      "prob_away": 0.26,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1378212,
+      "date": "2026-05-03",
+      "league": "Italy1",
+      "home_team": "Sassuolo",
+      "away_team": "AC Milan",
+      "prediction": "2",
+      "prob_home": 0.252,
+      "prob_draw": 0.205,
+      "prob_away": 0.543,
+      "model": "calibrated_rf",
+      "ensemble": "E8_COMPACT_23",
+      "walk_forward_accuracy": 53.4
+    },
+    {
+      "fixture_id": 1391151,
+      "date": "2026-05-03",
+      "league": "Spain1",
+      "home_team": "Celta Vigo",
+      "away_team": "Elche",
+      "prediction": "1",
+      "prob_home": 0.554,
+      "prob_draw": 0.195,
+      "prob_away": 0.251,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1391152,
+      "date": "2026-05-03",
+      "league": "Spain1",
+      "home_team": "Espanyol",
+      "away_team": "Real Madrid",
+      "prediction": "1",
+      "prob_home": 0.396,
+      "prob_draw": 0.257,
+      "prob_away": 0.347,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1391153,
+      "date": "2026-05-03",
+      "league": "Spain1",
+      "home_team": "Getafe",
+      "away_team": "Rayo Vallecano",
+      "prediction": "1",
+      "prob_home": 0.435,
+      "prob_draw": 0.339,
+      "prob_away": 0.226,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    },
+    {
+      "fixture_id": 1391150,
+      "date": "2026-05-03",
+      "league": "Spain1",
+      "home_team": "Real Betis",
+      "away_team": "Oviedo",
+      "prediction": "1",
+      "prob_home": 0.586,
+      "prob_draw": 0.264,
+      "prob_away": 0.151,
+      "model": "calibrated_rf",
+      "ensemble": "E1_ORIGINAL_51",
+      "walk_forward_accuracy": 52.1
+    }
+  ]
+}
