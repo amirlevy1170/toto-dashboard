@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import {
   fetchAllSnapshots,
+  fetchAllDrawSnapshots,
   fetchFormsIndex, fetchFormsSnapshot,
   fetchWalkforwardIndex, fetchWalkforwardSnapshot,
 } from '../api';
+import { classifyScope } from '../utils';
 
 // Normalised "selection" record:
 // { source: 'daily'|'forms'|'walkforward', type: 'league'|'cup'|'national',
@@ -35,16 +37,29 @@ function flattenLeagueWinnersDict(snap, source) {
   const out = [];
   const lw = snap?.league_winners;
   if (!lw || typeof lw !== 'object') return out;
-  for (const [league, w] of Object.entries(lw)) {
+  for (const [scope, w] of Object.entries(lw)) {
     if (!w?.model) continue;
-    out.push({ source, type: 'league',
-               league, model: w.model, ensemble: w.ensemble });
+    out.push({ source, type: classifyScope(scope),
+               league: scope, model: w.model, ensemble: w.ensemble });
+  }
+  return out;
+}
+
+// Daily draw snapshot: { models: [{scope, model, ensemble, ...}] }.
+// `scope` may be a league, cup, or national-team competition.
+function flattenDailyDraw(snap) {
+  const out = [];
+  for (const m of snap?.models || []) {
+    if (!m?.model || !m?.scope) continue;
+    out.push({ source: 'daily-draw', type: classifyScope(m.scope),
+               league: m.scope, model: m.model, ensemble: m.ensemble });
   }
   return out;
 }
 
 export function useAllSelections() {
   const [daily, setDaily] = useState([]);
+  const [drawDaily, setDrawDaily] = useState([]);
   const [forms, setForms] = useState([]);
   const [wf, setWf] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -54,8 +69,9 @@ export function useAllSelections() {
     let cancelled = false;
     async function load() {
       try {
-        const [dailySnaps, formsDates, wfDates] = await Promise.all([
+        const [dailySnaps, drawSnaps, formsDates, wfDates] = await Promise.all([
           fetchAllSnapshots(),
+          fetchAllDrawSnapshots(),
           fetchFormsIndex(),
           fetchWalkforwardIndex(),
         ]);
@@ -67,6 +83,7 @@ export function useAllSelections() {
         ]);
         if (cancelled) return;
         setDaily(dailySnaps.filter(Boolean));
+        setDrawDaily(drawSnaps.filter(Boolean));
         setForms(formsSnaps.filter(Boolean));
         setWf(wfSnaps.filter(Boolean));
       } catch (e) {
@@ -80,13 +97,24 @@ export function useAllSelections() {
   }, []);
 
   // Flatten lazily — cheap enough to do every render and avoids stale memo.
-  const dailySel = daily.flatMap(flattenDaily);
-  const formsSel = forms.flatMap(s => flattenLeagueWinnersDict(s, 'forms'));
-  const wfSel    = wf.flatMap(s => flattenLeagueWinnersDict(s, 'walkforward'));
+  const dailySel     = daily.flatMap(flattenDaily);
+  const drawDailySel = drawDaily.flatMap(flattenDailyDraw);
+  const formsSel     = forms.flatMap(s => flattenLeagueWinnersDict(s, 'forms'));
+  const wfSel        = wf.flatMap(s => flattenLeagueWinnersDict(s, 'walkforward'));
 
   return {
     loading, error,
-    runCounts: { daily: daily.length, forms: forms.length, walkforward: wf.length },
-    selections: { daily: dailySel, forms: formsSel, walkforward: wfSel },
+    runCounts: {
+      daily: daily.length,
+      'daily-draw': drawDaily.length,
+      forms: forms.length,
+      walkforward: wf.length,
+    },
+    selections: {
+      daily: dailySel,
+      'daily-draw': drawDailySel,
+      forms: formsSel,
+      walkforward: wfSel,
+    },
   };
 }

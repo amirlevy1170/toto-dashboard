@@ -8,7 +8,31 @@ export const LEAGUES = [
   { id: 'Israel2', flag: '🇮🇱', name: 'Liga Leumit' },
 ];
 
-export const LEAGUE_MAP = Object.fromEntries(LEAGUES.map(l => [l.id, l]));
+export const CUPS = [
+  { id: 'Champions',  flag: '🏆', name: 'Champions League' },
+  { id: 'Europa',     flag: '🥈', name: 'Europa League' },
+  { id: 'Conference', flag: '🥉', name: 'Conference League' },
+];
+
+export const NATIONALS = [
+  { id: 'WorldCup',        flag: '🌍', name: 'World Cup' },
+  { id: 'WC_Qual_Europe',  flag: '🌍', name: 'WC Qualifiers (Europe)' },
+  { id: 'Euro',            flag: '🇪🇺', name: 'Euro' },
+  { id: 'Euro_Qual',       flag: '🇪🇺', name: 'Euro Qualifiers' },
+];
+
+export const LEAGUE_MAP = Object.fromEntries(
+  [...LEAGUES, ...CUPS, ...NATIONALS].map(l => [l.id, l])
+);
+
+const _CUPS_SET = new Set(CUPS.map(c => c.id));
+const _NATIONALS_SET = new Set(NATIONALS.map(n => n.id));
+
+export function classifyScope(scope) {
+  if (_CUPS_SET.has(scope)) return 'cup';
+  if (_NATIONALS_SET.has(scope)) return 'national';
+  return 'league';
+}
 
 export function leagueName(id) {
   return LEAGUE_MAP[id] ? `${LEAGUE_MAP[id].flag} ${LEAGUE_MAP[id].name}` : id;

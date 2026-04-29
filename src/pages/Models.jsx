@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useAllSelections } from '../hooks/useAllSelections';
-import { LEAGUES } from '../utils';
+import { LEAGUES, CUPS, NATIONALS } from '../utils';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
 import './Home.css';
 
@@ -8,12 +8,19 @@ const COLORS = ['#4361ee', '#3a86a8', '#7209b7', '#f72585', '#4cc9f0', '#80ed99'
                 '#f4a261', '#e76f51', '#2a9d8f', '#264653', '#e9c46a', '#606c38',
                 '#bc6c25', '#dda15e', '#283618', '#6d6875'];
 
-const ALL_SOURCES = ['daily', 'forms', 'walkforward'];
+const ALL_SOURCES = ['daily', 'daily-draw', 'forms', 'walkforward'];
 const SOURCE_LABEL = {
-  daily: 'Daily',
+  daily: 'Daily (1X2)',
+  'daily-draw': 'Daily (Draw)',
   forms: 'Forms',
   walkforward: 'Walk-forward',
 };
+
+const BREAKDOWN_GROUPS = [
+  { title: 'Leagues',         items: LEAGUES },
+  { title: 'Cup Competitions', items: CUPS },
+  { title: 'National Teams',   items: NATIONALS },
+];
 
 function tally(selections, key) {
   const counts = {};
@@ -51,15 +58,15 @@ export default function Models() {
 
   const leagueBreakdown = useMemo(() => {
     const result = {};
-    for (const league of LEAGUES) {
+    const allScopes = [...LEAGUES, ...CUPS, ...NATIONALS];
+    for (const scope of allScopes) {
       const counts = {};
       for (const sel of filtered) {
-        if (sel.type !== 'league') continue;
-        if (sel.league !== league.id) continue;
+        if (sel.league !== scope.id) continue;
         counts[sel.model] = (counts[sel.model] || 0) + 1;
       }
       if (Object.keys(counts).length > 0) {
-        result[league.id] = Object.entries(counts)
+        result[scope.id] = Object.entries(counts)
           .sort((a, b) => b[1] - a[1])
           .map(([name, count]) => ({ name, count }));
       }
@@ -148,29 +155,36 @@ export default function Models() {
         </div>
       </div>
 
-      <h2>Per-League Model Breakdown</h2>
-      <div className="breakdown-grid">
-        {LEAGUES.map(league => {
-          const data = leagueBreakdown[league.id];
-          if (!data) return null;
-          return (
-            <div key={league.id} className="breakdown-card">
-              <h3>{league.flag} {league.name}</h3>
-              {data.map((m, i) => (
-                <div key={m.name} className="win-row">
-                  <span className="win-model">{m.name}</span>
-                  <div className="win-bar-wrap">
-                    <div className="win-bar"
-                         style={{ width: `${(m.count / leagueBarMax) * 100}%`,
-                                  background: COLORS[i % COLORS.length] }} />
+      {BREAKDOWN_GROUPS.map(group => {
+        const visible = group.items.filter(it => leagueBreakdown[it.id]);
+        if (visible.length === 0) return null;
+        return (
+          <div key={group.title}>
+            <h2>{group.title} — Model Breakdown</h2>
+            <div className="breakdown-grid">
+              {visible.map(scope => {
+                const data = leagueBreakdown[scope.id];
+                return (
+                  <div key={scope.id} className="breakdown-card">
+                    <h3>{scope.flag} {scope.name}</h3>
+                    {data.map((m, i) => (
+                      <div key={m.name} className="win-row">
+                        <span className="win-model">{m.name}</span>
+                        <div className="win-bar-wrap">
+                          <div className="win-bar"
+                               style={{ width: `${(m.count / leagueBarMax) * 100}%`,
+                                        background: COLORS[i % COLORS.length] }} />
+                        </div>
+                        <span className="win-count">{m.count}×</span>
+                      </div>
+                    ))}
                   </div>
-                  <span className="win-count">{m.count}×</span>
-                </div>
-              ))}
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
