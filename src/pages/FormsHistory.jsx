@@ -1,5 +1,12 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useCallback } from 'react';
+import {
+  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+  LineChart, Line, Legend, Cell,
+} from 'recharts';
 import { fetchAllSnapshots } from '../api';
+import {
+  cloudPull, cloudPush, getToken, setToken, getGistId, setGistId, isConfigured,
+} from '../cloudSync';
 import './FormsHistory.css';
 
 const STORAGE_KEY = 'toto-forms-history-v1';
@@ -29,14 +36,10 @@ function uid() {
   return `fh_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 }
 
-// Auto-derive 1/X/2 from a finished game's score. Returns null for unfinished
-// or unknown.
+// Auto-derive 1/X/2 from a finished game's score.
 function actualFromScore(g) {
   if (!g) return null;
   const sh = g.score_home, sa = g.score_away;
-  // Treat as finished only when status is 'finished' OR scores look meaningful
-  // with a clearly non-default status. Use kickoff text fallback for Hebrew
-  // "הסתיים" (finished) sometimes returned by the form source.
   const looksFinished =
     g.status === 'finished' ||
     (typeof g.kickoff === 'string' && g.kickoff.includes('הסתיים'));
@@ -69,7 +72,6 @@ function entryStats(entry) {
   return { total: entry.games.length, scored, hits, missing };
 }
 
-// ── Form catalogue: dedupe by kind+form_number, keep latest snapshot ─
 function buildFormCatalogue(snapshots) {
   const map = new Map();
   for (const snap of snapshots || []) {
@@ -82,18 +84,13 @@ function buildFormCatalogue(snapshots) {
       if (games.length === 0) continue;
       const key = `${kind}-${fn}`;
       const existing = map.get(key);
-      if (!existing || (snapDate && existing.snapshotDate &&
-                       snapDate > existing.snapshotDate) ||
+      if (!existing ||
+          (snapDate && existing.snapshotDate && snapDate > existing.snapshotDate) ||
           (snapDate && !existing.snapshotDate)) {
-        map.set(key, {
-          key, kind, formNumber: fn,
-          snapshotDate: snapDate,
-          games,
-        });
+        map.set(key, { key, kind, formNumber: fn, snapshotDate: snapDate, games });
       }
     }
   }
-  // Newest first.
   return [...map.values()].sort((a, b) => {
     if (a.snapshotDate && b.snapshotDate && a.snapshotDate !== b.snapshotDate) {
       return a.snapshotDate < b.snapshotDate ? 1 : -1;
@@ -108,14 +105,25 @@ function kindLabel(kind) {
          kind;
 }
 
+// Deep-ish equality on JSON-serializable values. Good enough for entry diffs.
+function deepEqual(a, b) {
+  return JSON.stringify(a) === JSON.stringify(b);
+}
+
 // ── Component ────────────────────────────────────────────────────────
 export default function FormsHistory() {
   const [entries, setEntries] = useState(loadEntries);
   const [editingId, setEditingId] = useState(null);
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [showStats, setShowStats] = useState(true);
 
-  // Snapshots are needed both for the picker AND to refresh actual scores
-  // on existing entries when the form is opened later. Loaded once.
+  // Cloud sync state.
+  const [syncStatus, setSyncStatus] = useState('idle');  // idle|busy|ok|err
+  const [syncMsg, setSyncMsg] = useState('');
+  const [lastSyncedSnapshot, setLastSyncedSnapshot] = useState(null);
+
+  // Snapshots needed for picker + score refresh.
   const [snapshots, setSnapshots] = useState(null);
   const [loadError, setLoadError] = useState(null);
   useEffect(() => {
@@ -126,18 +134,79 @@ export default function FormsHistory() {
     return () => { cancelled = true; };
   }, []);
 
+  // Auto-persist locally on every change.
   useEffect(() => { saveEntries(entries); }, [entries]);
 
-  const catalogue = useMemo(() => buildFormCatalogue(snapshots), [snapshots]);
+  // On mount: try cloud pull if configured. Merge strategy is "cloud wins
+  // unless local has newer updatedAt".
+  useEffect(() => {
+    if (!isConfigured() || !getGistId()) return;
+    let cancelled = false;
+    // Run the pull asynchronously so we don't trigger a cascading render
+    // inside the mount effect itself.
+    Promise.resolve().then(() => {
+      if (cancelled) return;
+      setSyncStatus('busy'); setSyncMsg('Pulling cloud copy…');
+    });
+    cloudPull()
+      .then(cloud => {
+        if (cancelled || !cloud) return;
+        const byId = new Map(entries.map(e => [e.id, e]));
+        for (const c of cloud) {
+          const local = byId.get(c.id);
+          if (!local) byId.set(c.id, c);
+          else {
+            const localTs = local.updatedAt || '';
+            const cloudTs = c.updatedAt || '';
+            if (cloudTs > localTs) byId.set(c.id, c);
+          }
+        }
+        const merged = [...byId.values()].sort((a, b) =>
+          (b.updatedAt || '').localeCompare(a.updatedAt || ''));
+        setEntries(merged);
+        setLastSyncedSnapshot(JSON.stringify(merged));
+        setSyncStatus('ok'); setSyncMsg('Pulled from cloud');
+      })
+      .catch(err => {
+        if (cancelled) return;
+        setSyncStatus('err'); setSyncMsg(err.message || 'Pull failed');
+      });
+    return () => { cancelled = true; };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  const catalogue = useMemo(() => buildFormCatalogue(snapshots), [snapshots]);
   const editing = useMemo(
     () => entries.find(e => e.id === editingId) || null,
     [entries, editingId]
   );
 
+  const hasUnsyncedChanges = useMemo(() => {
+    if (!lastSyncedSnapshot) return entries.length > 0 && isConfigured();
+    return JSON.stringify(entries) !== lastSyncedSnapshot;
+  }, [entries, lastSyncedSnapshot]);
+
+  const pushToCloud = useCallback(async () => {
+    if (!isConfigured()) {
+      setSyncStatus('err');
+      setSyncMsg('Add a GitHub token in Settings to enable cloud sync.');
+      return false;
+    }
+    setSyncStatus('busy'); setSyncMsg('Saving to cloud…');
+    try {
+      await cloudPush(entries);
+      setLastSyncedSnapshot(JSON.stringify(entries));
+      setSyncStatus('ok');
+      setSyncMsg(`Saved ${new Date().toLocaleTimeString()}`);
+      return true;
+    } catch (err) {
+      setSyncStatus('err');
+      setSyncMsg(err.message || 'Push failed');
+      return false;
+    }
+  }, [entries]);
+
   function addEntryFromForm(formMeta) {
-    // Drop user picks etc. — pull the FULL game payload so we can show
-    // kickoff/league/scores. User-editable bits start empty.
     const games = formMeta.games.map(g => ({
       home: g.home, away: g.away, league: g.league,
       kickoff: g.kickoff, status: g.status,
@@ -170,19 +239,13 @@ export default function FormsHistory() {
     if (editingId === id) setEditingId(null);
   }
 
-  // When opening an entry for editing, refresh game scores/status from the
-  // latest snapshot (so newly-finished games auto-fill). Preserves the user's
-  // predictions and actualOverride.
   function openEntry(id) {
     const entry = entries.find(e => e.id === id);
     if (!entry) return;
     const fresh = catalogue.find(f =>
       f.kind === entry.kind && f.formNumber === entry.formNumber);
     if (fresh) {
-      const byPair = new Map();
-      for (const fg of fresh.games) {
-        byPair.set(`${fg.home}|${fg.away}`, fg);
-      }
+      const byPair = new Map(fresh.games.map(fg => [`${fg.home}|${fg.away}`, fg]));
       const refreshed = entry.games.map(g => {
         const fg = byPair.get(`${g.home}|${g.away}`);
         if (!fg) return g;
@@ -192,14 +255,7 @@ export default function FormsHistory() {
           score_home: fg.score_home, score_away: fg.score_away,
         };
       });
-      // Only update if any score/status actually changed — avoids touching
-      // updatedAt on every open.
-      const changed = refreshed.some((g, i) => {
-        const o = entry.games[i];
-        return g.status !== o.status || g.score_home !== o.score_home ||
-               g.score_away !== o.score_away || g.kickoff !== o.kickoff;
-      });
-      if (changed) {
+      if (!deepEqual(refreshed, entry.games)) {
         updateEntry(id, { games: refreshed, snapshotDate: fresh.snapshotDate });
       }
     }
@@ -213,6 +269,11 @@ export default function FormsHistory() {
         onChange={patch => updateEntry(editing.id, patch)}
         onBack={() => setEditingId(null)}
         onDelete={() => deleteEntry(editing.id)}
+        onSave={pushToCloud}
+        syncStatus={syncStatus}
+        syncMsg={syncMsg}
+        hasUnsynced={hasUnsyncedChanges}
+        cloudConfigured={isConfigured()}
       />
     );
   }
@@ -222,20 +283,39 @@ export default function FormsHistory() {
       <h1>Forms History</h1>
       <p className="fh-sub">
         Pick a Toto form by its ID, record what you guessed, and the actual results.
-        Saved in your browser (localStorage) — useful for tracking your real-life betting.
+        Saves to your browser plus an optional private GitHub Gist for cross-device sync.
       </p>
+
       <div className="fh-toolbar">
         <button className="fh-btn" onClick={() => setPickerOpen(true)}
                 disabled={!snapshots}>
-          + Add form from history
+          + Add form
         </button>
+        <button className="fh-btn fh-btn-save" onClick={pushToCloud}
+                disabled={!hasUnsyncedChanges || syncStatus === 'busy'}
+                title={isConfigured()
+                  ? 'Save to GitHub Gist (cross-device)'
+                  : 'Configure GitHub token first'}>
+          💾 Save
+        </button>
+        <button className="fh-btn fh-btn-secondary fh-btn-icon"
+                onClick={() => setSettingsOpen(true)}
+                title="Cloud sync settings">⚙</button>
+        <SyncStatus status={syncStatus} msg={syncMsg}
+                    hasUnsynced={hasUnsyncedChanges}
+                    configured={isConfigured()} />
         {!snapshots && !loadError && <span className="fh-msg">Loading forms…</span>}
         {loadError && <span className="fh-err">{loadError}</span>}
       </div>
 
+      {entries.length > 0 && (
+        <StatsPanel entries={entries} expanded={showStats}
+                    onToggle={() => setShowStats(s => !s)} />
+      )}
+
       {entries.length === 0 ? (
         <div className="fh-empty">
-          No entries yet. Click <strong>+ Add form from history</strong> to pick a form by ID.
+          No entries yet. Click <strong>+ Add form</strong> to pick a form by ID.
         </div>
       ) : (
         <div className="fh-list">
@@ -267,8 +347,243 @@ export default function FormsHistory() {
           existing={entries.map(e => `${e.kind}-${e.formNumber}`)}
         />
       )}
+      {settingsOpen && (
+        <SettingsModal onClose={() => setSettingsOpen(false)}
+                       onSync={pushToCloud} />
+      )}
     </div>
   );
+}
+
+// ── Sync status text ─────────────────────────────────────────────────
+function SyncStatus({ status, msg, hasUnsynced, configured }) {
+  if (!configured) {
+    return (
+      <span className="fh-sync-status">
+        <span className="fh-sync-dot idle" /> Local only
+      </span>
+    );
+  }
+  let label = msg || 'Idle';
+  if (status === 'idle' && hasUnsynced) label = 'Unsaved changes';
+  else if (status === 'idle') label = 'Synced';
+  return (
+    <span className="fh-sync-status">
+      <span className={`fh-sync-dot ${status}`} /> {label}
+    </span>
+  );
+}
+
+// ── Stats panel ──────────────────────────────────────────────────────
+function StatsPanel({ entries, expanded, onToggle }) {
+  const stats = useMemo(() => computeStats(entries), [entries]);
+
+  return (
+    <div className="fh-stats">
+      <div className="fh-stats-header">
+        <h2>📊 Your performance</h2>
+        <button className="fh-stats-toggle" onClick={onToggle}>
+          {expanded ? 'Hide' : 'Show'}
+        </button>
+      </div>
+      {expanded && (
+        <>
+          <div className="fh-kpi-grid">
+            <KPI label="Forms played" value={stats.formsPlayed}
+                 sub={`${stats.formsScored} with results`} color="blue" />
+            <KPI label="Total picks" value={stats.totalPicks}
+                 sub={`${stats.scored} scored`} color="gold" />
+            <KPI label="Correct" value={stats.hits}
+                 sub={`out of ${stats.scored}`} color="green" />
+            <KPI label="Accuracy"
+                 value={stats.scored ? `${(100 * stats.hits / stats.scored).toFixed(1)}%` : '—'}
+                 sub={stats.bestStreak ? `best streak ${stats.bestStreak}` : ''}
+                 color="red" />
+          </div>
+          <div className="fh-charts-grid">
+            <ChartCard title="Accuracy by form type">
+              <ResponsiveContainer width="100%" height={220}>
+                <BarChart data={stats.byKind}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+                  <XAxis dataKey="label" />
+                  <YAxis domain={[0, 100]} unit="%" />
+                  <Tooltip formatter={(v, n) => n === 'acc' ? `${v.toFixed(1)}%` : v}
+                           labelFormatter={l => l} />
+                  <Bar dataKey="acc" name="Accuracy" radius={[6, 6, 0, 0]}>
+                    {stats.byKind.map((d, i) => (
+                      <Cell key={i} fill={d.color} />
+                    ))}
+                  </Bar>
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
+
+            <ChartCard title="Accuracy by league (top 10 by volume)">
+              <ResponsiveContainer width="100%" height={220}>
+                <BarChart data={stats.byLeague} layout="vertical"
+                          margin={{ left: 80 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+                  <XAxis type="number" domain={[0, 100]} unit="%" />
+                  <YAxis type="category" dataKey="league" width={80}
+                         tick={{ fontSize: 11 }} />
+                  <Tooltip formatter={(v) => `${v.toFixed(1)}%`} />
+                  <Bar dataKey="acc" name="Accuracy" radius={[0, 6, 6, 0]} fill="#0d6efd" />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
+
+            <ChartCard title="Accuracy over forms (chronological)">
+              <ResponsiveContainer width="100%" height={220}>
+                <LineChart data={stats.byForm}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+                  <XAxis dataKey="label" tick={{ fontSize: 11 }} />
+                  <YAxis domain={[0, 100]} unit="%" />
+                  <Tooltip formatter={(v) => `${v.toFixed(1)}%`} />
+                  <Legend />
+                  <Line type="monotone" dataKey="acc" name="Form accuracy"
+                        stroke="#137333" strokeWidth={2}
+                        dot={{ r: 3 }} activeDot={{ r: 5 }} />
+                  <Line type="monotone" dataKey="rolling" name="Rolling avg"
+                        stroke="#b58105" strokeWidth={2} strokeDasharray="4 4"
+                        dot={false} />
+                </LineChart>
+              </ResponsiveContainer>
+            </ChartCard>
+
+            <ChartCard title="Hits vs misses by form type">
+              <ResponsiveContainer width="100%" height={220}>
+                <BarChart data={stats.byKindHits}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
+                  <XAxis dataKey="label" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="hits" name="Hits" stackId="a"
+                       fill="#137333" radius={[0, 0, 0, 0]} />
+                  <Bar dataKey="misses" name="Misses" stackId="a"
+                       fill="#d33b3b" radius={[6, 6, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </ChartCard>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function KPI({ label, value, sub, color }) {
+  return (
+    <div className={`fh-kpi ${color || ''}`}>
+      <div className="fh-kpi-label">{label}</div>
+      <div className="fh-kpi-value">{value}</div>
+      {sub && <div className="fh-kpi-sub">{sub}</div>}
+    </div>
+  );
+}
+
+function ChartCard({ title, children }) {
+  return (
+    <div className="fh-chart">
+      <h3>{title}</h3>
+      {children}
+    </div>
+  );
+}
+
+function computeStats(entries) {
+  const out = {
+    formsPlayed: entries.length,
+    formsScored: 0,
+    totalPicks: 0,
+    scored: 0,
+    hits: 0,
+    bestStreak: 0,
+    byKind: [],
+    byKindHits: [],
+    byLeague: [],
+    byForm: [],
+  };
+  const kindAgg = { toto16: { hits: 0, scored: 0 }, world: { hits: 0, scored: 0 } };
+  const leagueAgg = new Map();
+  const formsRows = [];
+  let curStreak = 0, bestStreak = 0;
+
+  // Sort chronologically by snapshotDate for the timeline.
+  const sorted = [...entries].sort((a, b) =>
+    (a.snapshotDate || '').localeCompare(b.snapshotDate || '') ||
+    (a.createdAt || '').localeCompare(b.createdAt || ''));
+
+  for (const e of sorted) {
+    let eHits = 0, eScored = 0;
+    for (const g of e.games || []) {
+      if (!g.predictions || g.predictions.length === 0) continue;
+      out.totalPicks += 1;
+      const h = isHit(g);
+      if (h === null) continue;
+      out.scored += 1;
+      eScored += 1;
+      const k = kindAgg[e.kind];
+      if (k) k.scored += 1;
+      const lg = g.league || 'Unknown';
+      if (!leagueAgg.has(lg)) leagueAgg.set(lg, { hits: 0, scored: 0 });
+      const la = leagueAgg.get(lg);
+      la.scored += 1;
+      if (h) {
+        out.hits += 1; eHits += 1;
+        if (k) k.hits += 1;
+        la.hits += 1;
+        curStreak += 1;
+        bestStreak = Math.max(bestStreak, curStreak);
+      } else {
+        curStreak = 0;
+      }
+    }
+    if (eScored > 0) {
+      out.formsScored += 1;
+      formsRows.push({
+        label: `${kindLabel(e.kind)[0]}${String(e.formNumber).slice(-3)}`,
+        acc: 100 * eHits / eScored,
+        date: e.snapshotDate || '',
+      });
+    }
+  }
+  out.bestStreak = bestStreak;
+
+  // byKind / byKindHits
+  for (const [kind, agg] of Object.entries(kindAgg)) {
+    if (agg.scored === 0) continue;
+    out.byKind.push({
+      label: kindLabel(kind),
+      acc: 100 * agg.hits / agg.scored,
+      color: kind === 'toto16' ? '#0d6efd' : '#198754',
+    });
+    out.byKindHits.push({
+      label: kindLabel(kind),
+      hits: agg.hits,
+      misses: agg.scored - agg.hits,
+    });
+  }
+
+  // byLeague (top 10 by volume)
+  out.byLeague = [...leagueAgg.entries()]
+    .map(([league, agg]) => ({
+      league: league.length > 16 ? league.slice(0, 15) + '…' : league,
+      fullLeague: league,
+      acc: 100 * agg.hits / agg.scored,
+      scored: agg.scored,
+    }))
+    .sort((a, b) => b.scored - a.scored)
+    .slice(0, 10);
+
+  // byForm with 3-form rolling average.
+  out.byForm = formsRows.map((r, i) => {
+    const window = formsRows.slice(Math.max(0, i - 2), i + 1);
+    const rolling = window.reduce((s, x) => s + x.acc, 0) / window.length;
+    return { ...r, rolling };
+  });
+
+  return out;
 }
 
 // ── Picker ───────────────────────────────────────────────────────────
@@ -288,30 +603,28 @@ function FormPicker({ catalogue, onPick, onClose, existing }) {
   }, [catalogue, search, kindFilter]);
 
   return (
-    <div className="fh-picker-overlay" onClick={onClose}>
-      <div className="fh-picker" onClick={e => e.stopPropagation()}>
-        <div className="fh-picker-header">
+    <div className="fh-modal-overlay" onClick={onClose}>
+      <div className="fh-modal" onClick={e => e.stopPropagation()}>
+        <div className="fh-modal-header">
           <h2>Pick a form</h2>
-          <button className="fh-picker-close" onClick={onClose}>×</button>
+          <button className="fh-modal-close" onClick={onClose}>×</button>
         </div>
-        <div className="fh-picker-search">
-          <input
-            type="text"
-            placeholder="Search by form number…"
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-            autoFocus
-          />
-          <select value={kindFilter} onChange={e => setKindFilter(e.target.value)}>
-            <option value="all">All types</option>
-            <option value="toto16">Winner 16</option>
-            <option value="world">World</option>
-          </select>
-        </div>
-        <div className="fh-picker-list">
-          {filtered.length === 0 && (
-            <div className="fh-msg">No matching forms.</div>
-          )}
+        <div className="fh-modal-body">
+          <div className="fh-picker-search">
+            <input
+              type="text"
+              placeholder="Search by form number…"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+              autoFocus
+            />
+            <select value={kindFilter} onChange={e => setKindFilter(e.target.value)}>
+              <option value="all">All types</option>
+              <option value="toto16">Winner 16</option>
+              <option value="world">World</option>
+            </select>
+          </div>
+          {filtered.length === 0 && <div className="fh-msg">No matching forms.</div>}
           {filtered.map(f => (
             <div key={f.key} className="fh-picker-item"
                  onClick={() => onPick(f)}>
@@ -339,8 +652,94 @@ function FormPicker({ catalogue, onPick, onClose, existing }) {
   );
 }
 
+// ── Settings ─────────────────────────────────────────────────────────
+function SettingsModal({ onClose, onSync }) {
+  const [token, setTokenLocal] = useState(getToken());
+  const [gistId, setGistIdLocal] = useState(getGistId());
+  const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState('');
+
+  function save() {
+    setToken(token.trim());
+    setGistId(gistId.trim());
+    setMsg('Settings saved.');
+  }
+  async function saveAndSync() {
+    save();
+    setBusy(true);
+    setMsg('Syncing…');
+    const ok = await onSync();
+    setBusy(false);
+    setMsg(ok ? 'Synced ✓' : 'Sync failed — check token & try again.');
+    // Pick up newly-created gist id after first push.
+    setGistIdLocal(getGistId());
+  }
+  function clearAll() {
+    if (!confirm('Clear cloud sync settings? Local data will remain.')) return;
+    setToken(''); setGistId('');
+    setTokenLocal(''); setGistIdLocal('');
+    setMsg('Cleared.');
+  }
+
+  return (
+    <div className="fh-modal-overlay" onClick={onClose}>
+      <div className="fh-modal" onClick={e => e.stopPropagation()}>
+        <div className="fh-modal-header">
+          <h2>Cloud sync settings</h2>
+          <button className="fh-modal-close" onClick={onClose}>×</button>
+        </div>
+        <div className="fh-modal-body">
+          <div className="fh-settings-row">
+            <label>GitHub Personal Access Token</label>
+            <input
+              type="password"
+              placeholder="ghp_…"
+              value={token}
+              onChange={e => setTokenLocal(e.target.value)}
+              autoComplete="off"
+            />
+            <div className="fh-settings-help">
+              Needs <code>gist</code> scope only.{' '}
+              <a href="https://github.com/settings/tokens/new?scopes=gist&description=Toto%20Forms%20History"
+                 target="_blank" rel="noreferrer">Create one here</a>.
+              The token is stored in your browser's localStorage.
+            </div>
+          </div>
+          <div className="fh-settings-row">
+            <label>Gist ID (optional)</label>
+            <input
+              type="text"
+              placeholder="auto-created on first save"
+              value={gistId}
+              onChange={e => setGistIdLocal(e.target.value)}
+              autoComplete="off"
+            />
+            <div className="fh-settings-help">
+              Leave empty to auto-create a new private gist.
+              To use the <em>same data</em> on another device, copy this ID after
+              the first save and paste it here on the other device.
+            </div>
+          </div>
+          {msg && <div className="fh-msg">{msg}</div>}
+        </div>
+        <div className="fh-modal-footer">
+          <button className="fh-btn fh-btn-danger" onClick={clearAll}>Clear</button>
+          <button className="fh-btn fh-btn-secondary" onClick={save}>Save</button>
+          <button className="fh-btn fh-btn-save" onClick={saveAndSync}
+                  disabled={busy || !token.trim()}>
+            {busy ? 'Syncing…' : '💾 Save & sync now'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Editor ───────────────────────────────────────────────────────────
-function FormHistoryEditor({ entry, onChange, onBack, onDelete }) {
+function FormHistoryEditor({
+  entry, onChange, onBack, onDelete, onSave,
+  syncStatus, syncMsg, hasUnsynced, cloudConfigured,
+}) {
   function togglePrediction(idx, pick) {
     const next = entry.games.slice();
     const g = { ...next[idx] };
@@ -350,20 +749,27 @@ function FormHistoryEditor({ entry, onChange, onBack, onDelete }) {
     next[idx] = g;
     onChange({ games: next });
   }
-
   function setActualOverride(idx, value) {
     const next = entry.games.slice();
     const cur = next[idx].actualOverride;
     next[idx] = { ...next[idx], actualOverride: cur === value ? null : value };
     onChange({ games: next });
   }
-
   const stats = entryStats(entry);
 
   return (
     <div className="fh-container">
       <div className="fh-toolbar">
         <button className="fh-btn fh-btn-secondary" onClick={onBack}>← Back</button>
+        <button className="fh-btn fh-btn-save" onClick={onSave}
+                disabled={!hasUnsynced || syncStatus === 'busy'}
+                title={cloudConfigured
+                  ? 'Save to GitHub Gist (cross-device)'
+                  : 'Configure GitHub token first (gear icon on list view)'}>
+          💾 Save
+        </button>
+        <SyncStatus status={syncStatus} msg={syncMsg}
+                    hasUnsynced={hasUnsynced} configured={cloudConfigured} />
         <button className="fh-btn fh-btn-danger" onClick={onDelete}
                 style={{ marginLeft: 'auto' }}>Delete entry</button>
       </div>
@@ -377,6 +783,9 @@ function FormHistoryEditor({ entry, onChange, onBack, onDelete }) {
             {entry.games.length} games · last snapshot {entry.snapshotDate || '—'}
           </div>
         </div>
+        <span className={`fh-editor-status ${hasUnsynced ? 'dirty' : 'clean'}`}>
+          {hasUnsynced ? '● Unsaved changes' : '✓ All changes saved'}
+        </span>
       </div>
 
       <div className="fh-selected-wrap">
@@ -424,11 +833,8 @@ function FormHistoryEditor({ entry, onChange, onBack, onDelete }) {
                       const on = (g.predictions || []).includes(p);
                       return (
                         <label key={p} className={on ? 'on' : ''}>
-                          <input
-                            type="checkbox"
-                            checked={on}
-                            onChange={() => togglePrediction(idx, p)}
-                          />{p}
+                          <input type="checkbox" checked={on}
+                                 onChange={() => togglePrediction(idx, p)} />{p}
                         </label>
                       );
                     })}
@@ -436,20 +842,17 @@ function FormHistoryEditor({ entry, onChange, onBack, onDelete }) {
                   <td className="fh-actual-cell">
                     {PRED_OPTIONS.map(p => {
                       const on = effective === p;
-                      const isAuto = !g.actualOverride && auto === p;
                       return (
                         <label key={p} className={on ? 'on' : ''}>
-                          <input
-                            type="radio"
-                            name={`actual-${entry.id}-${idx}`}
-                            checked={on}
-                            onChange={() => setActualOverride(idx, p)}
-                          />{p}{isAuto && <span style={{marginLeft:2}} title="auto from score">·</span>}
+                          <input type="radio"
+                                 name={`actual-${entry.id}-${idx}`}
+                                 checked={on}
+                                 onChange={() => setActualOverride(idx, p)} />{p}
                         </label>
                       );
                     })}
                     {auto && !g.actualOverride && (
-                      <div className="fh-actual-auto">auto</div>
+                      <div className="fh-actual-auto">auto from score</div>
                     )}
                   </td>
                   <td>
@@ -464,9 +867,7 @@ function FormHistoryEditor({ entry, onChange, onBack, onDelete }) {
       </div>
 
       <div className="fh-summary">
-        <div className="fh-summary-item">
-          Total: <strong>{stats.total}</strong>
-        </div>
+        <div className="fh-summary-item">Total: <strong>{stats.total}</strong></div>
         <div className="fh-summary-item">
           Scored: <strong>{stats.hits}</strong> / {stats.scored}
         </div>
