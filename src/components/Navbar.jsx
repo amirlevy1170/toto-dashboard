@@ -14,6 +14,7 @@ export default function Navbar() {
         <NavLink to="/backtest">Backtest</NavLink>
         <NavLink to="/forms">Forms</NavLink>
         <NavLink to="/walkforward">Walk-Forward</NavLink>
+        <NavLink to="/custom-forms">Custom Forms</NavLink>
       </div>
     </nav>
   );
