@@ -8,7 +8,7 @@ import Backtest from './pages/Backtest';
 import Forms from './pages/Forms';
 import WalkForward from './pages/WalkForward';
 import Predictions from './pages/Predictions';
-import CustomForms from './pages/CustomForms';
+import FormsHistory from './pages/FormsHistory';
 
 export default function App() {
   return (
@@ -23,7 +23,7 @@ export default function App() {
         <Route path="/forms" element={<Forms />} />
         <Route path="/walkforward" element={<WalkForward />} />
         <Route path="/predictions" element={<Predictions />} />
-        <Route path="/custom-forms" element={<CustomForms />} />
+        <Route path="/forms-history" element={<FormsHistory />} />
       </Routes>
     </BrowserRouter>
   );
