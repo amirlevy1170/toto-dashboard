@@ -40,6 +40,13 @@ export async function cloudPull() {
   if (!token) throw new Error('No token configured.');
   if (!gid) return null;  // No gist yet — caller decides whether to seed.
   const res = await fetch(`${API}/gists/${gid}`, { headers: authHeaders(token) });
+  if (res.status === 404) {
+    // Stale or inaccessible gist id — clear it so the next save creates a new one.
+    setGistId('');
+    throw new Error(
+      `Gist ${gid} not found — it was cleared. Press Save to create a new one.`
+    );
+  }
   if (!res.ok) {
     const body = await res.text().catch(() => '');
     throw new Error(`Pull failed (${res.status}): ${body.slice(0, 120)}`);
@@ -62,7 +69,8 @@ export async function cloudPull() {
 }
 
 // Push entries to cloud. Creates a new gist if none yet, else PATCHes.
-// Returns the gist id on success.
+// If the stored gist id is stale (404), drops it and creates a fresh gist
+// automatically. Returns the gist id on success.
 export async function cloudPush(entries) {
   const token = getToken();
   if (!token) throw new Error('No token configured.');
@@ -71,21 +79,31 @@ export async function cloudPush(entries) {
     description: 'Toto Forms History — auto-managed by toto-dashboard',
     files: { [FILE_NAME]: { content } },
   };
-  let gid = getGistId();
-  let url, method;
-  if (gid) {
-    url = `${API}/gists/${gid}`;
-    method = 'PATCH';
-  } else {
-    url = `${API}/gists`;
-    method = 'POST';
-    body.public = false;
+
+  async function doRequest(method, url, includePublic) {
+    const payload = includePublic ? { ...body, public: false } : body;
+    return fetch(url, {
+      method,
+      headers: { ...authHeaders(token), 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
   }
-  const res = await fetch(url, {
-    method,
-    headers: { ...authHeaders(token), 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
+
+  let gid = getGistId();
+  let res;
+  if (gid) {
+    res = await doRequest('PATCH', `${API}/gists/${gid}`, false);
+    if (res.status === 404) {
+      // Stored gist id is unreachable for this token — fall back to creating
+      // a fresh private gist and persist the new id.
+      setGistId('');
+      gid = '';
+      res = await doRequest('POST', `${API}/gists`, true);
+    }
+  } else {
+    res = await doRequest('POST', `${API}/gists`, true);
+  }
+
   if (!res.ok) {
     const txt = await res.text().catch(() => '');
     throw new Error(`Push failed (${res.status}): ${txt.slice(0, 160)}`);
