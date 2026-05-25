@@ -1,0 +1,1526 @@
+{
+  "date": "2026-05-25",
+  "generated_at": "2026-05-25 05:32",
+  "per_league": [
+    {
+      "model": "tabnet",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.52,
+      "league": "France1"
+    },
+    {
+      "model": "knn",
+      "ensemble": "E9_MATCHUP_18",
+      "accuracy": 0.56,
+      "league": "England1"
+    },
+    {
+      "model": "tabnet",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.6,
+      "league": "Spain1"
+    },
+    {
+      "model": "tabnet",
+      "ensemble": "E8_COMPACT_23",
+      "accuracy": 0.6,
+      "league": "Italy1"
+    },
+    {
+      "model": "mlp_small",
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 0.54,
+      "league": "Germany1"
+    },
+    {
+      "model": "lightgbm",
+      "ensemble": "E8_COMPACT_23",
+      "accuracy": 0.48,
+      "league": "Israel2"
+    },
+    {
+      "model": "tabnet",
+      "ensemble": "E8_COMPACT_23",
+      "accuracy": 0.6,
+      "league": "Israel1"
+    }
+  ],
+  "cup_models": [
+    {
+      "model": "tabnet",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.64,
+      "league": "Champions"
+    },
+    {
+      "model": "tabnet",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.62,
+      "league": "Europa"
+    },
+    {
+      "model": "calibrated_lgbm",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.62,
+      "league": "Conference"
+    }
+  ],
+  "national_models": [
+    {
+      "model": "lightgbm",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.64,
+      "league": "WorldCup"
+    },
+    {
+      "model": "calibrated_rf",
+      "ensemble": "E2_CLEAN_42",
+      "accuracy": 0.58,
+      "league": "Euro"
+    },
+    {
+      "model": "extra_trees",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.7,
+      "league": "WC_Qual_Europe"
+    },
+    {
+      "model": "gradient_boosting",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.7,
+      "league": "Euro_Qual"
+    }
+  ],
+  "fallbacks": {
+    "France1": {
+      "original": "tabnet",
+      "replaced_by": "gradient_boosting*"
+    }
+  },
+  "test_review": {
+    "France1": {
+      "model": "tabnet",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.52,
+      "games": [
+        {
+          "date": "2026-05-13",
+          "home": "Stade Brestois 29",
+          "away": "Strasbourg",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.301,
+          "prob_d": 0.3,
+          "prob_a": 0.398,
+          "correct": true
+        },
+        {
+          "date": "2026-05-13",
+          "home": "Lens",
+          "away": "Paris Saint Germain",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.209,
+          "prob_d": 0.248,
+          "prob_a": 0.543,
+          "correct": true
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Stade Brestois 29",
+          "away": "Angers",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.553,
+          "prob_d": 0.23,
+          "prob_a": 0.217,
+          "correct": false
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Lille",
+          "away": "Auxerre",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.643,
+          "prob_d": 0.241,
+          "prob_a": 0.116,
+          "correct": false
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Lorient",
+          "away": "Le Havre",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.317,
+          "prob_d": 0.308,
+          "prob_a": 0.375,
+          "correct": true
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Lyon",
+          "away": "Lens",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.413,
+          "prob_d": 0.303,
+          "prob_a": 0.284,
+          "correct": false
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Marseille",
+          "away": "Rennes",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.532,
+          "prob_d": 0.22,
+          "prob_a": 0.248,
+          "correct": true
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Nice",
+          "away": "Metz",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.547,
+          "prob_d": 0.217,
+          "prob_a": 0.235,
+          "correct": false
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Paris FC",
+          "away": "Paris Saint Germain",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.306,
+          "prob_d": 0.239,
+          "prob_a": 0.455,
+          "correct": false
+        },
+        {
+          "date": "2026-05-17",
+          "home": "Strasbourg",
+          "away": "Monaco",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.462,
+          "prob_d": 0.239,
+          "prob_a": 0.299,
+          "correct": true
+        }
+      ]
+    },
+    "England1": {
+      "model": "knn",
+      "ensemble": "E9_MATCHUP_18",
+      "accuracy": 0.56,
+      "games": [
+        {
+          "date": "2026-05-24",
+          "home": "Brighton",
+          "away": "Manchester United",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.462,
+          "prob_d": 0.196,
+          "prob_a": 0.342,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Burnley",
+          "away": "Wolves",
+          "pred": "X",
+          "actual": "X",
+          "prob_h": 0.195,
+          "prob_d": 0.458,
+          "prob_a": 0.346,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Crystal Palace",
+          "away": "Arsenal",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.098,
+          "prob_d": 0.27,
+          "prob_a": 0.632,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Fulham",
+          "away": "Newcastle",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.516,
+          "prob_d": 0.346,
+          "prob_a": 0.138,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Liverpool",
+          "away": "Brentford",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.544,
+          "prob_d": 0.271,
+          "prob_a": 0.185,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Manchester City",
+          "away": "Aston Villa",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.663,
+          "prob_d": 0.21,
+          "prob_a": 0.126,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Nottingham Forest",
+          "away": "Bournemouth",
+          "pred": "X",
+          "actual": "X",
+          "prob_h": 0.332,
+          "prob_d": 0.341,
+          "prob_a": 0.327,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Sunderland",
+          "away": "Chelsea",
+          "pred": "X",
+          "actual": "1",
+          "prob_h": 0.35,
+          "prob_d": 0.386,
+          "prob_a": 0.264,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Tottenham",
+          "away": "Everton",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.403,
+          "prob_d": 0.197,
+          "prob_a": 0.4,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "West Ham",
+          "away": "Leeds",
+          "pred": "X",
+          "actual": "1",
+          "prob_h": 0.399,
+          "prob_d": 0.411,
+          "prob_a": 0.19,
+          "correct": false
+        }
+      ]
+    },
+    "Spain1": {
+      "model": "tabnet",
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 0.6,
+      "games": [
+        {
+          "date": "2026-05-23",
+          "home": "Alaves",
+          "away": "Rayo Vallecano",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.319,
+          "prob_d": 0.277,
+          "prob_a": 0.404,
+          "correct": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Real Betis",
+          "away": "Levante",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.426,
+          "prob_d": 0.249,
+          "prob_a": 0.325,
+          "correct": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Celta Vigo",
+          "away": "Sevilla",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.554,
+          "prob_d": 0.273,
+          "prob_a": 0.174,
+          "correct": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Espanyol",
+          "away": "Real Sociedad",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.404,
+          "prob_d": 0.325,
+          "prob_a": 0.272,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Getafe",
+          "away": "Osasuna",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.407,
+          "prob_d": 0.267,
+          "prob_a": 0.325,
+          "correct": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Girona",
+          "away": "Elche",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.491,
+          "prob_d": 0.297,
+          "prob_a": 0.212,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Mallorca",
+          "away": "Oviedo",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.643,
+          "prob_d": 0.238,
+          "prob_a": 0.119,
+          "correct": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Real Madrid",
+          "away": "Athletic Club",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.695,
+          "prob_d": 0.174,
+          "prob_a": 0.131,
+          "correct": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Valencia",
+          "away": "Barcelona",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.201,
+          "prob_d": 0.266,
+          "prob_a": 0.533,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Villarreal",
+          "away": "Atletico Madrid",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.365,
+          "prob_d": 0.317,
+          "prob_a": 0.319,
+          "correct": true
+        }
+      ]
+    },
+    "Italy1": {
+      "model": "tabnet",
+      "ensemble": "E8_COMPACT_23",
+      "accuracy": 0.6,
+      "games": [
+        {
+          "date": "2026-05-22",
+          "home": "Fiorentina",
+          "away": "Atalanta",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.298,
+          "prob_d": 0.35,
+          "prob_a": 0.352,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Bologna",
+          "away": "Inter",
+          "pred": "X",
+          "actual": "X",
+          "prob_h": 0.333,
+          "prob_d": 0.406,
+          "prob_a": 0.261,
+          "correct": true
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Lazio",
+          "away": "Pisa",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.511,
+          "prob_d": 0.367,
+          "prob_a": 0.122,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Cremonese",
+          "away": "Como",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.185,
+          "prob_d": 0.316,
+          "prob_a": 0.498,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Lecce",
+          "away": "Genoa",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.521,
+          "prob_d": 0.315,
+          "prob_a": 0.164,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "AC Milan",
+          "away": "Cagliari",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.534,
+          "prob_d": 0.329,
+          "prob_a": 0.136,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Napoli",
+          "away": "Udinese",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.551,
+          "prob_d": 0.237,
+          "prob_a": 0.213,
+          "correct": true
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Parma",
+          "away": "Sassuolo",
+          "pred": "X",
+          "actual": "1",
+          "prob_h": 0.167,
+          "prob_d": 0.42,
+          "prob_a": 0.413,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Torino",
+          "away": "Juventus",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.298,
+          "prob_d": 0.289,
+          "prob_a": 0.413,
+          "correct": false
+        },
+        {
+          "date": "2026-05-24",
+          "home": "Hellas Verona",
+          "away": "AS Roma",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.233,
+          "prob_d": 0.294,
+          "prob_a": 0.473,
+          "correct": true
+        }
+      ]
+    },
+    "Germany1": {
+      "model": "mlp_small",
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 0.54,
+      "games": [
+        {
+          "date": "2026-05-16",
+          "home": "Bayer Leverkusen",
+          "away": "Hamburger SV",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.823,
+          "prob_d": 0.113,
+          "prob_a": 0.064,
+          "correct": false
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Bayern München",
+          "away": "1. FC Köln",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.94,
+          "prob_d": 0.03,
+          "prob_a": 0.03,
+          "correct": true
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Borussia Mönchengladbach",
+          "away": "1899 Hoffenheim",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.166,
+          "prob_d": 0.399,
+          "prob_a": 0.435,
+          "correct": false
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Eintracht Frankfurt",
+          "away": "VfB Stuttgart",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.371,
+          "prob_d": 0.204,
+          "prob_a": 0.426,
+          "correct": false
+        },
+        {
+          "date": "2026-05-16",
+          "home": "SC Freiburg",
+          "away": "RB Leipzig",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.274,
+          "prob_d": 0.203,
+          "prob_a": 0.523,
+          "correct": false
+        },
+        {
+          "date": "2026-05-16",
+          "home": "1. FC Heidenheim",
+          "away": "FSV Mainz 05",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.332,
+          "prob_d": 0.259,
+          "prob_a": 0.41,
+          "correct": true
+        },
+        {
+          "date": "2026-05-16",
+          "home": "FC St. Pauli",
+          "away": "VfL Wolfsburg",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.339,
+          "prob_d": 0.18,
+          "prob_a": 0.481,
+          "correct": true
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Union Berlin",
+          "away": "FC Augsburg",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.262,
+          "prob_d": 0.233,
+          "prob_a": 0.505,
+          "correct": false
+        },
+        {
+          "date": "2026-05-16",
+          "home": "Werder Bremen",
+          "away": "Borussia Dortmund",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.357,
+          "prob_d": 0.189,
+          "prob_a": 0.454,
+          "correct": true
+        },
+        {
+          "date": "2026-05-21",
+          "home": "VfL Wolfsburg",
+          "away": "SC Paderborn 07",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.414,
+          "prob_d": 0.075,
+          "prob_a": 0.511,
+          "correct": false
+        }
+      ]
+    },
+    "Israel2": {
+      "model": "lightgbm",
+      "ensemble": "E8_COMPACT_23",
+      "accuracy": 0.48,
+      "games": [
+        {
+          "date": "2026-05-15",
+          "home": "Hapoel Rishon LeZion",
+          "away": "Maccabi Herzliya",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.358,
+          "prob_d": 0.076,
+          "prob_a": 0.566,
+          "correct": true
+        },
+        {
+          "date": "2026-05-15",
+          "home": "Hapoel Afula",
+          "away": "Hapoel Nazareth Illit",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.434,
+          "prob_d": 0.248,
+          "prob_a": 0.318,
+          "correct": true
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Maccabi Kabilio Jaffa",
+          "away": "Hapoel Afula",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.439,
+          "prob_d": 0.168,
+          "prob_a": 0.393,
+          "correct": true
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Hapoel Acre",
+          "away": "Hapoel Hadera",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.932,
+          "prob_d": 0.038,
+          "prob_a": 0.03,
+          "correct": false
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Hapoel Nazareth Illit",
+          "away": "Ironi Modi'in",
+          "pred": "X",
+          "actual": "2",
+          "prob_h": 0.256,
+          "prob_d": 0.383,
+          "prob_a": 0.361,
+          "correct": false
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Hapoel Ra'anana",
+          "away": "Kafr Qasim",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.394,
+          "prob_d": 0.092,
+          "prob_a": 0.514,
+          "correct": false
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Maccabi Petah Tikva",
+          "away": "Bnei Yehuda",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.804,
+          "prob_d": 0.05,
+          "prob_a": 0.146,
+          "correct": false
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Maccabi Herzliya",
+          "away": "Hapoel Kfar Saba",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.831,
+          "prob_d": 0.029,
+          "prob_a": 0.139,
+          "correct": false
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Hapoel Ramat Gan",
+          "away": "Hapoel Rishon LeZion",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.943,
+          "prob_d": 0.029,
+          "prob_a": 0.029,
+          "correct": true
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Hapoel Kfar Shalem",
+          "away": "Kiryat Yam SC",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.825,
+          "prob_d": 0.029,
+          "prob_a": 0.146,
+          "correct": true
+        }
+      ]
+    },
+    "Israel1": {
+      "model": "tabnet",
+      "ensemble": "E8_COMPACT_23",
+      "accuracy": 0.6,
+      "games": [
+        {
+          "date": "2026-05-18",
+          "home": "Hapoel Haifa",
+          "away": "Bnei Sakhnin",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.519,
+          "prob_d": 0.214,
+          "prob_a": 0.267,
+          "correct": true
+        },
+        {
+          "date": "2026-05-18",
+          "home": "Hapoel Katamon",
+          "away": "Ironi Tiberias",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.247,
+          "prob_d": 0.321,
+          "prob_a": 0.432,
+          "correct": true
+        },
+        {
+          "date": "2026-05-18",
+          "home": "Ironi Kiryat Shmona",
+          "away": "Ashdod",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.107,
+          "prob_d": 0.307,
+          "prob_a": 0.586,
+          "correct": true
+        },
+        {
+          "date": "2026-05-18",
+          "home": "Maccabi Bnei Raina",
+          "away": "Maccabi Netanya",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.033,
+          "prob_d": 0.242,
+          "prob_a": 0.726,
+          "correct": true
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Hapoel Petah Tikva",
+          "away": "Beitar Jerusalem",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.057,
+          "prob_d": 0.423,
+          "prob_a": 0.521,
+          "correct": false
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Hapoel Beer Sheva",
+          "away": "Maccabi Tel Aviv",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.685,
+          "prob_d": 0.136,
+          "prob_a": 0.179,
+          "correct": true
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Maccabi Haifa",
+          "away": "Hapoel Tel Aviv",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.276,
+          "prob_d": 0.299,
+          "prob_a": 0.425,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Beitar Jerusalem",
+          "away": "Hapoel Tel Aviv",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.797,
+          "prob_d": 0.171,
+          "prob_a": 0.032,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Hapoel Petah Tikva",
+          "away": "Maccabi Tel Aviv",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.181,
+          "prob_d": 0.382,
+          "prob_a": 0.437,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Hapoel Beer Sheva",
+          "away": "Maccabi Haifa",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.85,
+          "prob_d": 0.12,
+          "prob_a": 0.03,
+          "correct": false
+        }
+      ]
+    }
+  },
+  "ai_metrics": {
+    "accuracy": 0.4257,
+    "f1": 0.394,
+    "per_league": {
+      "England1": {
+        "accuracy": 0.38,
+        "f1": 0.3203,
+        "count": 50
+      },
+      "France1": {
+        "accuracy": 0.34,
+        "f1": 0.3169,
+        "count": 50
+      },
+      "Germany1": {
+        "accuracy": 0.4,
+        "f1": 0.3441,
+        "count": 50
+      },
+      "Israel1": {
+        "accuracy": 0.44,
+        "f1": 0.4074,
+        "count": 50
+      },
+      "Israel2": {
+        "accuracy": 0.4,
+        "f1": 0.4004,
+        "count": 50
+      },
+      "Italy1": {
+        "accuracy": 0.48,
+        "f1": 0.4317,
+        "count": 50
+      },
+      "Spain1": {
+        "accuracy": 0.54,
+        "f1": 0.5107,
+        "count": 50
+      }
+    }
+  },
+  "predictions": [
+    {
+      "date": "2026-05-15",
+      "home": "Saint Etienne",
+      "away": "Rodez",
+      "league": "France1",
+      "league_pred": "2",
+      "ai_pred": "X",
+      "league_prob_h": 0.166,
+      "league_prob_d": 0.372,
+      "league_prob_a": 0.462,
+      "ai_prob_h": 0.35,
+      "ai_prob_d": 0.4,
+      "ai_prob_a": 0.25,
+      "tabpfn_draw_prob": 0.347,
+      "league_model": "gradient_boosting*"
+    },
+    {
+      "date": "2026-05-17",
+      "home": "Nantes",
+      "away": "Toulouse",
+      "league": "France1",
+      "league_pred": "X",
+      "ai_pred": "2",
+      "league_prob_h": 0.158,
+      "league_prob_d": 0.529,
+      "league_prob_a": 0.313,
+      "ai_prob_h": 0.15,
+      "ai_prob_d": 0.3,
+      "ai_prob_a": 0.55,
+      "tabpfn_draw_prob": 0.344,
+      "league_model": "gradient_boosting*"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Hapoel Nazareth Illit",
+      "away": "Hapoel Acre",
+      "league": "Israel2",
+      "league_pred": "X",
+      "ai_pred": "1",
+      "league_prob_h": 0.044,
+      "league_prob_d": 0.523,
+      "league_prob_a": 0.433,
+      "ai_prob_h": 0.45,
+      "ai_prob_d": 0.35,
+      "ai_prob_a": 0.2,
+      "tabpfn_draw_prob": 0.347,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Maccabi Kabilio Jaffa",
+      "away": "Hapoel Hadera",
+      "league": "Israel2",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.942,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.029,
+      "ai_prob_h": 0.7,
+      "ai_prob_d": 0.2,
+      "ai_prob_a": 0.1,
+      "tabpfn_draw_prob": 0.208,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Hapoel Rishon LeZion",
+      "away": "Hapoel Kfar Shalem",
+      "league": "Israel2",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.415,
+      "league_prob_d": 0.169,
+      "league_prob_a": 0.417,
+      "ai_prob_h": 0.15,
+      "ai_prob_d": 0.3,
+      "ai_prob_a": 0.55,
+      "tabpfn_draw_prob": 0.35,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Hapoel Kfar Saba",
+      "away": "Hapoel Ramat Gan",
+      "league": "Israel2",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.029,
+      "league_prob_d": 0.384,
+      "league_prob_a": 0.587,
+      "ai_prob_h": 0.1,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.65,
+      "tabpfn_draw_prob": 0.321,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Hapoel Ra'anana",
+      "away": "Ironi Modi'in",
+      "league": "Israel2",
+      "league_pred": "X",
+      "ai_pred": "1",
+      "league_prob_h": 0.066,
+      "league_prob_d": 0.598,
+      "league_prob_a": 0.335,
+      "ai_prob_h": 0.5,
+      "ai_prob_d": 0.35,
+      "ai_prob_a": 0.15,
+      "tabpfn_draw_prob": 0.341,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Kiryat Yam SC",
+      "away": "Maccabi Petah Tikva",
+      "league": "Israel2",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.029,
+      "league_prob_d": 0.368,
+      "league_prob_a": 0.602,
+      "ai_prob_h": 0.1,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.65,
+      "tabpfn_draw_prob": 0.293,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Bnei Yehuda",
+      "away": "Maccabi Herzliya",
+      "league": "Israel2",
+      "league_pred": "2",
+      "ai_pred": "1",
+      "league_prob_h": 0.302,
+      "league_prob_d": 0.163,
+      "league_prob_a": 0.536,
+      "ai_prob_h": 0.55,
+      "ai_prob_d": 0.3,
+      "ai_prob_a": 0.15,
+      "tabpfn_draw_prob": 0.34,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "Hapoel Afula",
+      "away": "Kafr Qasim",
+      "league": "Israel2",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.047,
+      "league_prob_d": 0.406,
+      "league_prob_a": 0.548,
+      "ai_prob_h": 0.15,
+      "ai_prob_d": 0.35,
+      "ai_prob_a": 0.5,
+      "tabpfn_draw_prob": 0.349,
+      "league_model": "lightgbm"
+    },
+    {
+      "date": "2026-05-25",
+      "home": "SC Paderborn 07",
+      "away": "VfL Wolfsburg",
+      "league": "Germany1",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.22,
+      "league_prob_d": 0.284,
+      "league_prob_a": 0.496,
+      "ai_prob_h": 0.05,
+      "ai_prob_d": 0.15,
+      "ai_prob_a": 0.8,
+      "tabpfn_draw_prob": 0.292,
+      "league_model": "mlp_small"
+    },
+    {
+      "date": "2026-05-26",
+      "home": "Saint Etienne",
+      "away": "Nice",
+      "league": "France1",
+      "league_pred": "X",
+      "ai_pred": "2",
+      "league_prob_h": 0.21,
+      "league_prob_d": 0.449,
+      "league_prob_a": 0.342,
+      "ai_prob_h": 0.1,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.65,
+      "tabpfn_draw_prob": 0.363,
+      "league_model": "gradient_boosting*"
+    },
+    {
+      "date": "2026-05-29",
+      "home": "Nice",
+      "away": "Saint Etienne",
+      "league": "France1",
+      "league_pred": "2",
+      "ai_pred": "X",
+      "league_prob_h": 0.274,
+      "league_prob_d": 0.349,
+      "league_prob_a": 0.378,
+      "ai_prob_h": 0.3,
+      "ai_prob_d": 0.45,
+      "ai_prob_a": 0.25,
+      "tabpfn_draw_prob": 0.333,
+      "league_model": "gradient_boosting*"
+    },
+    {
+      "date": "2026-05-27",
+      "home": "Crystal Palace",
+      "away": "Rayo Vallecano",
+      "league": "Conference",
+      "league_pred": "1",
+      "ai_pred": "X",
+      "league_prob_h": 0.474,
+      "league_prob_d": 0.161,
+      "league_prob_a": 0.366,
+      "ai_prob_h": 0.35,
+      "ai_prob_d": 0.4,
+      "ai_prob_a": 0.25,
+      "tabpfn_draw_prob": 0.293,
+      "league_model": "calibrated_lgbm"
+    },
+    {
+      "date": "2026-05-30",
+      "home": "Paris Saint Germain",
+      "away": "Arsenal",
+      "league": "Champions",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.477,
+      "league_prob_d": 0.268,
+      "league_prob_a": 0.254,
+      "ai_prob_h": 0.6,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.15,
+      "tabpfn_draw_prob": 0.311,
+      "league_model": "tabnet"
+    }
+  ],
+  "toto_forms": {
+    "toto16": {
+      "form_number": 262001,
+      "games": [
+        {
+          "home": "ברייטון",
+          "away": "מנצ'סטר יונייטד",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 0,
+          "score_away": 3,
+          "result": "2"
+        },
+        {
+          "home": "ברנלי",
+          "away": "וולבס",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 1,
+          "result": "X"
+        },
+        {
+          "home": "נוטינגהאם",
+          "away": "בורנמות'",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 1,
+          "result": "X"
+        },
+        {
+          "home": "סנדרלנד",
+          "away": "צ'לסי",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 2,
+          "score_away": 1,
+          "result": "1"
+        },
+        {
+          "home": "פולהאם",
+          "away": "ניוקאסל",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 2,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "אלאבס",
+          "away": "ראיו ואייקאנו",
+          "league": "ספרד - לה ליגה",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 2,
+          "result": "2"
+        },
+        {
+          "home": "אספניול",
+          "away": "ריאל סוסיאדד",
+          "league": "ספרד - לה ליגה",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 1,
+          "result": "X"
+        },
+        {
+          "home": "חטאפה",
+          "away": "אוסאסונה",
+          "league": "ספרד - לה ליגה",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "ויאריאל",
+          "away": "אתלטיקו מדריד",
+          "league": "ספרד - לה ליגה",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 5,
+          "score_away": 1,
+          "result": "1"
+        },
+        {
+          "home": "ויטוריה",
+          "away": "אינטרנסיונאל",
+          "league": "ברזיל - ליגה ברזילאית",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 2,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "גרמיו",
+          "away": "סאנטוס",
+          "league": "ברזיל - ליגה ברזילאית",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 3,
+          "score_away": 2,
+          "result": "1"
+        },
+        {
+          "home": "מיראסול",
+          "away": "פלומיננזה",
+          "league": "ברזיל - ליגה ברזילאית",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "רמו",
+          "away": "אתלטיקו פארננסה",
+          "league": "ברזיל - ליגה ברזילאית",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 2,
+          "result": "2"
+        },
+        {
+          "home": "סטארט",
+          "away": "ולרנגה",
+          "league": "נורבגיה - ליגה נורבגית",
+          "kickoff": "25/05 15:30",
+          "status": "not_started",
+          "score_home": 0,
+          "score_away": 0,
+          "result": null
+        },
+        {
+          "home": "סארפסבורג",
+          "away": "מולדה",
+          "league": "נורבגיה - ליגה נורבגית",
+          "kickoff": "25/05 18:00",
+          "status": "not_started",
+          "score_home": 0,
+          "score_away": 0,
+          "result": null
+        },
+        {
+          "home": "קפום",
+          "away": "רוזנבורג",
+          "league": "נורבגיה - ליגה נורבגית",
+          "kickoff": "25/05 18:00",
+          "status": "not_started",
+          "score_home": 0,
+          "score_away": 0,
+          "result": null
+        }
+      ]
+    },
+    "world": {
+      "form_number": 262101,
+      "games": [
+        {
+          "home": "ברייטון",
+          "away": "מנצ'סטר יונייטד",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 0,
+          "score_away": 3,
+          "result": "2"
+        },
+        {
+          "home": "ברנלי",
+          "away": "וולבס",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 1,
+          "result": "X"
+        },
+        {
+          "home": "ווסטהאם",
+          "away": "לידס",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 3,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "טוטנהאם",
+          "away": "אברטון",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "ליברפול",
+          "away": "ברנטפורד",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 1,
+          "result": "X"
+        },
+        {
+          "home": "מנצ'סטר סיטי",
+          "away": "אסטון וילה",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 2,
+          "result": "2"
+        },
+        {
+          "home": "נוטינגהאם",
+          "away": "בורנמות'",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 1,
+          "result": "X"
+        },
+        {
+          "home": "סנדרלנד",
+          "away": "צ'לסי",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 2,
+          "score_away": 1,
+          "result": "1"
+        },
+        {
+          "home": "פולהאם",
+          "away": "ניוקאסל",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 2,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "קריסטל פאלאס",
+          "away": "ארסנל",
+          "league": "אנגליה - פרמייר ליג",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 2,
+          "result": "2"
+        },
+        {
+          "home": "ויאריאל",
+          "away": "אתלטיקו מדריד",
+          "league": "ספרד - לה ליגה",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 5,
+          "score_away": 1,
+          "result": "1"
+        },
+        {
+          "home": "טורינו",
+          "away": "יובנטוס",
+          "league": "איטליה - סרייה א'",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 2,
+          "score_away": 2,
+          "result": "X"
+        },
+        {
+          "home": "קרמונזה",
+          "away": "קומו",
+          "league": "איטליה - סרייה א'",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 4,
+          "result": "2"
+        },
+        {
+          "home": "לצ'ה",
+          "away": "גנואה",
+          "league": "איטליה - סרייה א'",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 0,
+          "result": "1"
+        },
+        {
+          "home": "לצ'ה",
+          "away": "גנואה",
+          "league": "איטליה - סרייה א'",
+          "kickoff": "הסתיים",
+          "status": "finished",
+          "score_home": 1,
+          "score_away": 0,
+          "result": null
+        }
+      ]
+    }
+  }
+}
