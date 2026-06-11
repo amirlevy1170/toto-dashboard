@@ -1,0 +1,176 @@
+{
+  "generated_at": "2026-06-11T06:02:42",
+  "training_rows": 28827,
+  "models": [
+    {
+      "scope": "France1",
+      "model": "tabnet",
+      "ensemble": "E5_API_CORE_45",
+      "auc": 0.6780952380952381,
+      "threshold": 0.22,
+      "accuracy": 0.7
+    },
+    {
+      "scope": "England1",
+      "model": "tabnet",
+      "ensemble": "E9_MATCHUP_18",
+      "auc": 0.7771428571428572,
+      "threshold": 0.21,
+      "accuracy": 0.78
+    },
+    {
+      "scope": "Spain1",
+      "model": "tabnet",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "auc": 0.8475,
+      "threshold": 0.3,
+      "accuracy": 0.84
+    },
+    {
+      "scope": "Italy1",
+      "model": "tabnet",
+      "ensemble": "E5_API_CORE_45",
+      "auc": 0.7142857142857143,
+      "threshold": 0.21,
+      "accuracy": 0.52
+    },
+    {
+      "scope": "Germany1",
+      "model": "perceptron",
+      "ensemble": "E5_API_CORE_45",
+      "auc": 0.7149122807017544,
+      "threshold": 0.24,
+      "accuracy": 0.28
+    },
+    {
+      "scope": "Israel2",
+      "model": "tabnet",
+      "ensemble": "E2_CLEAN_42",
+      "auc": 0.7465277777777777,
+      "threshold": 0.25,
+      "accuracy": 0.7
+    },
+    {
+      "scope": "Israel1",
+      "model": "tabnet",
+      "ensemble": "E5_API_CORE_45",
+      "auc": 0.6907894736842105,
+      "threshold": 0.33,
+      "accuracy": 0.8
+    },
+    {
+      "scope": "Champions",
+      "model": "tabnet",
+      "ensemble": "E2_CLEAN_42",
+      "auc": 0.7321428571428572,
+      "threshold": 0.2,
+      "accuracy": 0.68
+    },
+    {
+      "scope": "Europa",
+      "model": "tabnet",
+      "ensemble": "E2_CLEAN_42",
+      "auc": 0.8712121212121213,
+      "threshold": 0.26,
+      "accuracy": 0.86
+    },
+    {
+      "scope": "Conference",
+      "model": "tabnet",
+      "ensemble": "E1_ORIGINAL_51",
+      "auc": 0.8073089700996677,
+      "threshold": 0.38,
+      "accuracy": 0.86
+    },
+    {
+      "scope": "WorldCup",
+      "model": "perceptron",
+      "ensemble": "E1_ORIGINAL_51",
+      "auc": 0.8295454545454546,
+      "threshold": 0.25,
+      "accuracy": 0.78
+    },
+    {
+      "scope": "Euro",
+      "model": "gradient_boosting",
+      "ensemble": "E8_COMPACT_23",
+      "auc": 0.8075396825396826,
+      "threshold": 0.41,
+      "accuracy": 0.74
+    },
+    {
+      "scope": "WC_Qual_Europe",
+      "model": "tabnet",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "auc": 0.7827380952380952,
+      "threshold": 0.19,
+      "accuracy": 0.64
+    },
+    {
+      "scope": "Euro_Qual",
+      "model": "catboost",
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "auc": 0.8179824561403509,
+      "threshold": 0.1,
+      "accuracy": 0.74
+    }
+  ],
+  "predictions": [
+    {
+      "fixture_id": 1544972,
+      "date": "2026-05-15",
+      "league": "France1",
+      "home_team_name": "Saint Etienne",
+      "away_team_name": "Rodez",
+      "model_type": "per_league",
+      "model_name": "tabnet:E5_API_CORE_45",
+      "prob_draw": 0.27830347418785095,
+      "prob_not_draw": 0.7216964960098267,
+      "threshold": 0.22,
+      "predicted_draw": 1,
+      "roc_auc": 0.6780952380952381
+    },
+    {
+      "fixture_id": 1388000,
+      "date": "2026-05-17",
+      "league": "France1",
+      "home_team_name": "Nantes",
+      "away_team_name": "Toulouse",
+      "model_type": "per_league",
+      "model_name": "tabnet:E5_API_CORE_45",
+      "prob_draw": 0.11120366305112839,
+      "prob_not_draw": 0.888796329498291,
+      "threshold": 0.22,
+      "predicted_draw": 0,
+      "roc_auc": 0.6780952380952381
+    },
+    {
+      "fixture_id": 1545418,
+      "date": "2026-05-25",
+      "league": "Germany1",
+      "home_team_name": "SC Paderborn 07",
+      "away_team_name": "VfL Wolfsburg",
+      "model_type": "per_league",
+      "model_name": "perceptron:E5_API_CORE_45",
+      "prob_draw": 0.27295119389850214,
+      "prob_not_draw": 0.7270488061014979,
+      "threshold": 0.24,
+      "predicted_draw": 1,
+      "roc_auc": 0.7149122807017544
+    },
+    {
+      "fixture_id": 1544371,
+      "date": "2026-05-30",
+      "league": "Champions",
+      "home_team_name": "Paris Saint Germain",
+      "away_team_name": "Arsenal",
+      "model_type": "per_league",
+      "model_name": "tabnet:E2_CLEAN_42",
+      "prob_draw": 0.3417941927909851,
+      "prob_not_draw": 0.6582058072090149,
+      "threshold": 0.2,
+      "predicted_draw": 1,
+      "roc_auc": 0.7321428571428572
+    }
+  ]
+}
