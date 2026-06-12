@@ -1,6 +1,6 @@
 {
   "date": "2026-06-12",
-  "generated_at": "2026-06-12 05:42",
+  "generated_at": "2026-06-12 14:30",
   "per_league": [
     {
       "model": "random_forest",
@@ -22,27 +22,27 @@
     },
     {
       "model": "tabnet",
-      "ensemble": "E8_COMPACT_23",
-      "accuracy": 0.6,
-      "league": "Italy1"
-    },
-    {
-      "model": "mlp_small",
-      "ensemble": "E7_ELO_API_82",
-      "accuracy": 0.54,
-      "league": "Germany1"
-    },
-    {
-      "model": "tabnet",
-      "ensemble": "E8_COMPACT_23",
-      "accuracy": 0.52,
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.48,
       "league": "Israel2"
     },
     {
       "model": "tabnet",
       "ensemble": "E8_COMPACT_23",
       "accuracy": 0.6,
+      "league": "Italy1"
+    },
+    {
+      "model": "tabnet",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.6,
       "league": "Israel1"
+    },
+    {
+      "model": "mlp_small",
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 0.54,
+      "league": "Germany1"
     }
   ],
   "cup_models": [
@@ -67,15 +67,15 @@
   ],
   "national_models": [
     {
-      "model": "lightgbm",
-      "ensemble": "E1_ORIGINAL_51",
-      "accuracy": 0.64,
+      "model": "xgboost",
+      "ensemble": "E2_CLEAN_42",
+      "accuracy": 0.62,
       "league": "WorldCup"
     },
     {
-      "model": "calibrated_rf",
+      "model": "neural_network",
       "ensemble": "E2_CLEAN_42",
-      "accuracy": 0.58,
+      "accuracy": 0.6,
       "league": "Euro"
     },
     {
@@ -444,6 +444,123 @@
         }
       ]
     },
+    "Israel2": {
+      "model": "tabnet",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.48,
+      "games": [
+        {
+          "date": "2026-05-20",
+          "home": "Hapoel Ramat Gan",
+          "away": "Hapoel Rishon LeZion",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.367,
+          "prob_d": 0.302,
+          "prob_a": 0.331,
+          "correct": true
+        },
+        {
+          "date": "2026-05-20",
+          "home": "Hapoel Kfar Shalem",
+          "away": "Kiryat Yam SC",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.347,
+          "prob_d": 0.313,
+          "prob_a": 0.34,
+          "correct": true
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Hapoel Nazareth Illit",
+          "away": "Hapoel Acre",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.345,
+          "prob_d": 0.311,
+          "prob_a": 0.344,
+          "correct": false
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Maccabi Kabilio Jaffa",
+          "away": "Hapoel Hadera",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.372,
+          "prob_d": 0.323,
+          "prob_a": 0.305,
+          "correct": true
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Hapoel Rishon LeZion",
+          "away": "Hapoel Kfar Shalem",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.336,
+          "prob_d": 0.286,
+          "prob_a": 0.378,
+          "correct": true
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Hapoel Kfar Saba",
+          "away": "Hapoel Ramat Gan",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.279,
+          "prob_d": 0.305,
+          "prob_a": 0.416,
+          "correct": false
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Hapoel Ra'anana",
+          "away": "Ironi Modi'in",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.36,
+          "prob_d": 0.299,
+          "prob_a": 0.341,
+          "correct": true
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Kiryat Yam SC",
+          "away": "Maccabi Petah Tikva",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.36,
+          "prob_d": 0.316,
+          "prob_a": 0.324,
+          "correct": false
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Bnei Yehuda",
+          "away": "Maccabi Herzliya",
+          "pred": "X",
+          "actual": "X",
+          "prob_h": 0.343,
+          "prob_d": 0.378,
+          "prob_a": 0.279,
+          "correct": true
+        },
+        {
+          "date": "2026-05-25",
+          "home": "Hapoel Afula",
+          "away": "Kafr Qasim",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.307,
+          "prob_d": 0.281,
+          "prob_a": 0.412,
+          "correct": false
+        }
+      ]
+    },
     "Italy1": {
       "model": "tabnet",
       "ensemble": "E8_COMPACT_23",
@@ -558,6 +675,123 @@
           "prob_d": 0.294,
           "prob_a": 0.473,
           "correct": true
+        }
+      ]
+    },
+    "Israel1": {
+      "model": "tabnet",
+      "ensemble": "E3_CLEAN_ELO_45",
+      "accuracy": 0.6,
+      "games": [
+        {
+          "date": "2026-05-18",
+          "home": "Hapoel Haifa",
+          "away": "Bnei Sakhnin",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.493,
+          "prob_d": 0.264,
+          "prob_a": 0.243,
+          "correct": true
+        },
+        {
+          "date": "2026-05-18",
+          "home": "Hapoel Katamon",
+          "away": "Ironi Tiberias",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.35,
+          "prob_d": 0.255,
+          "prob_a": 0.395,
+          "correct": true
+        },
+        {
+          "date": "2026-05-18",
+          "home": "Ironi Kiryat Shmona",
+          "away": "Ashdod",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.524,
+          "prob_d": 0.265,
+          "prob_a": 0.211,
+          "correct": false
+        },
+        {
+          "date": "2026-05-18",
+          "home": "Maccabi Bnei Raina",
+          "away": "Maccabi Netanya",
+          "pred": "2",
+          "actual": "2",
+          "prob_h": 0.193,
+          "prob_d": 0.243,
+          "prob_a": 0.564,
+          "correct": true
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Hapoel Petah Tikva",
+          "away": "Beitar Jerusalem",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.245,
+          "prob_d": 0.313,
+          "prob_a": 0.442,
+          "correct": false
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Hapoel Beer Sheva",
+          "away": "Maccabi Tel Aviv",
+          "pred": "1",
+          "actual": "1",
+          "prob_h": 0.565,
+          "prob_d": 0.221,
+          "prob_a": 0.215,
+          "correct": true
+        },
+        {
+          "date": "2026-05-19",
+          "home": "Maccabi Haifa",
+          "away": "Hapoel Tel Aviv",
+          "pred": "2",
+          "actual": "1",
+          "prob_h": 0.176,
+          "prob_d": 0.197,
+          "prob_a": 0.627,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Beitar Jerusalem",
+          "away": "Hapoel Tel Aviv",
+          "pred": "1",
+          "actual": "X",
+          "prob_h": 0.552,
+          "prob_d": 0.28,
+          "prob_a": 0.168,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Hapoel Petah Tikva",
+          "away": "Maccabi Tel Aviv",
+          "pred": "2",
+          "actual": "X",
+          "prob_h": 0.117,
+          "prob_d": 0.168,
+          "prob_a": 0.715,
+          "correct": false
+        },
+        {
+          "date": "2026-05-23",
+          "home": "Hapoel Beer Sheva",
+          "away": "Maccabi Haifa",
+          "pred": "1",
+          "actual": "2",
+          "prob_h": 0.583,
+          "prob_d": 0.252,
+          "prob_a": 0.165,
+          "correct": false
         }
       ]
     },
@@ -677,279 +911,45 @@
           "correct": false
         }
       ]
-    },
-    "Israel2": {
-      "model": "tabnet",
-      "ensemble": "E8_COMPACT_23",
-      "accuracy": 0.52,
-      "games": [
-        {
-          "date": "2026-05-20",
-          "home": "Hapoel Ramat Gan",
-          "away": "Hapoel Rishon LeZion",
-          "pred": "1",
-          "actual": "1",
-          "prob_h": 0.654,
-          "prob_d": 0.22,
-          "prob_a": 0.126,
-          "correct": true
-        },
-        {
-          "date": "2026-05-20",
-          "home": "Hapoel Kfar Shalem",
-          "away": "Kiryat Yam SC",
-          "pred": "1",
-          "actual": "1",
-          "prob_h": 0.358,
-          "prob_d": 0.354,
-          "prob_a": 0.288,
-          "correct": true
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Hapoel Nazareth Illit",
-          "away": "Hapoel Acre",
-          "pred": "X",
-          "actual": "X",
-          "prob_h": 0.324,
-          "prob_d": 0.338,
-          "prob_a": 0.338,
-          "correct": true
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Maccabi Kabilio Jaffa",
-          "away": "Hapoel Hadera",
-          "pred": "1",
-          "actual": "1",
-          "prob_h": 0.469,
-          "prob_d": 0.279,
-          "prob_a": 0.252,
-          "correct": true
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Hapoel Rishon LeZion",
-          "away": "Hapoel Kfar Shalem",
-          "pred": "2",
-          "actual": "2",
-          "prob_h": 0.319,
-          "prob_d": 0.306,
-          "prob_a": 0.375,
-          "correct": true
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Hapoel Kfar Saba",
-          "away": "Hapoel Ramat Gan",
-          "pred": "X",
-          "actual": "X",
-          "prob_h": 0.293,
-          "prob_d": 0.359,
-          "prob_a": 0.348,
-          "correct": true
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Hapoel Ra'anana",
-          "away": "Ironi Modi'in",
-          "pred": "1",
-          "actual": "1",
-          "prob_h": 0.383,
-          "prob_d": 0.265,
-          "prob_a": 0.352,
-          "correct": true
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Kiryat Yam SC",
-          "away": "Maccabi Petah Tikva",
-          "pred": "1",
-          "actual": "X",
-          "prob_h": 0.41,
-          "prob_d": 0.262,
-          "prob_a": 0.328,
-          "correct": false
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Bnei Yehuda",
-          "away": "Maccabi Herzliya",
-          "pred": "1",
-          "actual": "X",
-          "prob_h": 0.379,
-          "prob_d": 0.328,
-          "prob_a": 0.293,
-          "correct": false
-        },
-        {
-          "date": "2026-05-25",
-          "home": "Hapoel Afula",
-          "away": "Kafr Qasim",
-          "pred": "2",
-          "actual": "1",
-          "prob_h": 0.337,
-          "prob_d": 0.312,
-          "prob_a": 0.351,
-          "correct": false
-        }
-      ]
-    },
-    "Israel1": {
-      "model": "tabnet",
-      "ensemble": "E8_COMPACT_23",
-      "accuracy": 0.6,
-      "games": [
-        {
-          "date": "2026-05-18",
-          "home": "Hapoel Haifa",
-          "away": "Bnei Sakhnin",
-          "pred": "1",
-          "actual": "1",
-          "prob_h": 0.519,
-          "prob_d": 0.214,
-          "prob_a": 0.267,
-          "correct": true
-        },
-        {
-          "date": "2026-05-18",
-          "home": "Hapoel Katamon",
-          "away": "Ironi Tiberias",
-          "pred": "2",
-          "actual": "2",
-          "prob_h": 0.247,
-          "prob_d": 0.321,
-          "prob_a": 0.432,
-          "correct": true
-        },
-        {
-          "date": "2026-05-18",
-          "home": "Ironi Kiryat Shmona",
-          "away": "Ashdod",
-          "pred": "2",
-          "actual": "2",
-          "prob_h": 0.107,
-          "prob_d": 0.307,
-          "prob_a": 0.586,
-          "correct": true
-        },
-        {
-          "date": "2026-05-18",
-          "home": "Maccabi Bnei Raina",
-          "away": "Maccabi Netanya",
-          "pred": "2",
-          "actual": "2",
-          "prob_h": 0.033,
-          "prob_d": 0.242,
-          "prob_a": 0.726,
-          "correct": true
-        },
-        {
-          "date": "2026-05-19",
-          "home": "Hapoel Petah Tikva",
-          "away": "Beitar Jerusalem",
-          "pred": "2",
-          "actual": "X",
-          "prob_h": 0.057,
-          "prob_d": 0.423,
-          "prob_a": 0.521,
-          "correct": false
-        },
-        {
-          "date": "2026-05-19",
-          "home": "Hapoel Beer Sheva",
-          "away": "Maccabi Tel Aviv",
-          "pred": "1",
-          "actual": "1",
-          "prob_h": 0.685,
-          "prob_d": 0.136,
-          "prob_a": 0.179,
-          "correct": true
-        },
-        {
-          "date": "2026-05-19",
-          "home": "Maccabi Haifa",
-          "away": "Hapoel Tel Aviv",
-          "pred": "2",
-          "actual": "1",
-          "prob_h": 0.276,
-          "prob_d": 0.299,
-          "prob_a": 0.425,
-          "correct": false
-        },
-        {
-          "date": "2026-05-23",
-          "home": "Beitar Jerusalem",
-          "away": "Hapoel Tel Aviv",
-          "pred": "1",
-          "actual": "X",
-          "prob_h": 0.797,
-          "prob_d": 0.171,
-          "prob_a": 0.032,
-          "correct": false
-        },
-        {
-          "date": "2026-05-23",
-          "home": "Hapoel Petah Tikva",
-          "away": "Maccabi Tel Aviv",
-          "pred": "2",
-          "actual": "X",
-          "prob_h": 0.181,
-          "prob_d": 0.382,
-          "prob_a": 0.437,
-          "correct": false
-        },
-        {
-          "date": "2026-05-23",
-          "home": "Hapoel Beer Sheva",
-          "away": "Maccabi Haifa",
-          "pred": "1",
-          "actual": "2",
-          "prob_h": 0.85,
-          "prob_d": 0.12,
-          "prob_a": 0.03,
-          "correct": false
-        }
-      ]
     }
   },
   "ai_metrics": {
-    "accuracy": 0.4257,
-    "f1": 0.3975,
+    "accuracy": 0.4343,
+    "f1": 0.4077,
     "per_league": {
       "England1": {
-        "accuracy": 0.34,
-        "f1": 0.2929,
+        "accuracy": 0.38,
+        "f1": 0.3399,
         "count": 50
       },
       "France1": {
-        "accuracy": 0.38,
-        "f1": 0.3428,
+        "accuracy": 0.4,
+        "f1": 0.3441,
         "count": 50
       },
       "Germany1": {
         "accuracy": 0.46,
-        "f1": 0.4461,
+        "f1": 0.4477,
         "count": 50
       },
       "Israel1": {
-        "accuracy": 0.4,
-        "f1": 0.3726,
+        "accuracy": 0.44,
+        "f1": 0.4155,
         "count": 50
       },
       "Israel2": {
-        "accuracy": 0.38,
-        "f1": 0.3607,
+        "accuracy": 0.4,
+        "f1": 0.3998,
         "count": 50
       },
       "Italy1": {
-        "accuracy": 0.48,
-        "f1": 0.4593,
+        "accuracy": 0.46,
+        "f1": 0.4167,
         "count": 50
       },
       "Spain1": {
-        "accuracy": 0.54,
-        "f1": 0.4959,
+        "accuracy": 0.5,
+        "f1": 0.4388,
         "count": 50
       }
     }
@@ -961,13 +961,13 @@
       "away": "Rodez",
       "league": "France1",
       "league_pred": "1",
-      "ai_pred": "1",
+      "ai_pred": "X",
       "league_prob_h": 0.41,
       "league_prob_d": 0.274,
       "league_prob_a": 0.316,
-      "ai_prob_h": 0.5,
-      "ai_prob_d": 0.35,
-      "ai_prob_a": 0.15,
+      "ai_prob_h": 0.4,
+      "ai_prob_d": 0.5,
+      "ai_prob_a": 0.1,
       "tabpfn_draw_prob": 0.35,
       "league_model": "random_forest"
     },
@@ -981,8 +981,8 @@
       "league_prob_h": 0.31,
       "league_prob_d": 0.383,
       "league_prob_a": 0.307,
-      "ai_prob_h": 0.1,
-      "ai_prob_d": 0.4,
+      "ai_prob_h": 0.15,
+      "ai_prob_d": 0.35,
       "ai_prob_a": 0.5,
       "tabpfn_draw_prob": 0.344,
       "league_model": "random_forest"
@@ -997,9 +997,9 @@
       "league_prob_h": 0.238,
       "league_prob_d": 0.307,
       "league_prob_a": 0.455,
-      "ai_prob_h": 0.05,
+      "ai_prob_h": 0.1,
       "ai_prob_d": 0.25,
-      "ai_prob_a": 0.7,
+      "ai_prob_a": 0.65,
       "tabpfn_draw_prob": 0.249,
       "league_model": "mlp_small"
     },
@@ -1009,15 +1009,351 @@
       "away": "Arsenal",
       "league": "Champions",
       "league_pred": "2",
-      "ai_pred": "1",
+      "ai_pred": "X",
       "league_prob_h": 0.137,
       "league_prob_d": 0.188,
       "league_prob_a": 0.675,
-      "ai_prob_h": 0.4,
-      "ai_prob_d": 0.35,
-      "ai_prob_a": 0.25,
+      "ai_prob_h": 0.3,
+      "ai_prob_d": 0.4,
+      "ai_prob_a": 0.3,
       "tabpfn_draw_prob": 0.316,
       "league_model": "tabnet"
+    },
+    {
+      "date": "2026-06-12",
+      "home": "Canada",
+      "away": "Bosnia & Herzegovina",
+      "league": "WorldCup",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.167,
+      "league_prob_d": 0.094,
+      "league_prob_a": 0.739,
+      "ai_prob_h": 0.15,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.6,
+      "tabpfn_draw_prob": 0.313,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-13",
+      "home": "USA",
+      "away": "Paraguay",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.918,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.053,
+      "ai_prob_h": 0.6,
+      "ai_prob_d": 0.3,
+      "ai_prob_a": 0.1,
+      "tabpfn_draw_prob": 0.27,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-13",
+      "home": "Brazil",
+      "away": "Morocco",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.943,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.029,
+      "ai_prob_h": 0.45,
+      "ai_prob_d": 0.3,
+      "ai_prob_a": 0.25,
+      "tabpfn_draw_prob": 0.318,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-13",
+      "home": "Qatar",
+      "away": "Switzerland",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "2",
+      "league_prob_h": 0.664,
+      "league_prob_d": 0.119,
+      "league_prob_a": 0.217,
+      "ai_prob_h": 0.05,
+      "ai_prob_d": 0.15,
+      "ai_prob_a": 0.8,
+      "tabpfn_draw_prob": 0.339,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Haiti",
+      "away": "Scotland",
+      "league": "WorldCup",
+      "league_pred": "X",
+      "ai_pred": "2",
+      "league_prob_h": 0.03,
+      "league_prob_d": 0.512,
+      "league_prob_a": 0.458,
+      "ai_prob_h": 0.2,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.55,
+      "tabpfn_draw_prob": 0.403,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Germany",
+      "away": "Curaçao",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.93,
+      "league_prob_d": 0.031,
+      "league_prob_a": 0.039,
+      "ai_prob_h": 0.9,
+      "ai_prob_d": 0.05,
+      "ai_prob_a": 0.05,
+      "tabpfn_draw_prob": 0.281,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Ivory Coast",
+      "away": "Ecuador",
+      "league": "WorldCup",
+      "league_pred": "2",
+      "ai_pred": "X",
+      "league_prob_h": 0.03,
+      "league_prob_d": 0.042,
+      "league_prob_a": 0.929,
+      "ai_prob_h": 0.35,
+      "ai_prob_d": 0.35,
+      "ai_prob_a": 0.3,
+      "tabpfn_draw_prob": 0.385,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Netherlands",
+      "away": "Japan",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.791,
+      "league_prob_d": 0.048,
+      "league_prob_a": 0.161,
+      "ai_prob_h": 0.75,
+      "ai_prob_d": 0.2,
+      "ai_prob_a": 0.05,
+      "tabpfn_draw_prob": 0.344,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-14",
+      "home": "Australia",
+      "away": "Türkiye",
+      "league": "WorldCup",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.201,
+      "league_prob_d": 0.03,
+      "league_prob_a": 0.77,
+      "ai_prob_h": 0.15,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.6,
+      "tabpfn_draw_prob": 0.332,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-15",
+      "home": "Belgium",
+      "away": "Egypt",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.943,
+      "league_prob_d": 0.028,
+      "league_prob_a": 0.028,
+      "ai_prob_h": 0.8,
+      "ai_prob_d": 0.15,
+      "ai_prob_a": 0.05,
+      "tabpfn_draw_prob": 0.33,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-15",
+      "home": "Saudi Arabia",
+      "away": "Uruguay",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "X",
+      "league_prob_h": 0.755,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.216,
+      "ai_prob_h": 0.3,
+      "ai_prob_d": 0.4,
+      "ai_prob_a": 0.3,
+      "tabpfn_draw_prob": 0.326,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-15",
+      "home": "Spain",
+      "away": "Cape Verde Islands",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.92,
+      "league_prob_d": 0.032,
+      "league_prob_a": 0.048,
+      "ai_prob_h": 0.95,
+      "ai_prob_d": 0.03,
+      "ai_prob_a": 0.02,
+      "tabpfn_draw_prob": 0.299,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-15",
+      "home": "Sweden",
+      "away": "Tunisia",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.745,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.226,
+      "ai_prob_h": 0.5,
+      "ai_prob_d": 0.3,
+      "ai_prob_a": 0.2,
+      "tabpfn_draw_prob": 0.294,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-16",
+      "home": "Iran",
+      "away": "New Zealand",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "X",
+      "league_prob_h": 0.741,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.23,
+      "ai_prob_h": 0.3,
+      "ai_prob_d": 0.4,
+      "ai_prob_a": 0.3,
+      "tabpfn_draw_prob": 0.272,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-16",
+      "home": "France",
+      "away": "Senegal",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.786,
+      "league_prob_d": 0.053,
+      "league_prob_a": 0.161,
+      "ai_prob_h": 0.75,
+      "ai_prob_d": 0.15,
+      "ai_prob_a": 0.1,
+      "tabpfn_draw_prob": 0.336,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-16",
+      "home": "Iraq",
+      "away": "Norway",
+      "league": "WorldCup",
+      "league_pred": "2",
+      "ai_pred": "2",
+      "league_prob_h": 0.029,
+      "league_prob_d": 0.034,
+      "league_prob_a": 0.937,
+      "ai_prob_h": 0.05,
+      "ai_prob_d": 0.1,
+      "ai_prob_a": 0.85,
+      "tabpfn_draw_prob": 0.392,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Argentina",
+      "away": "Algeria",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.942,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.029,
+      "ai_prob_h": 0.7,
+      "ai_prob_d": 0.2,
+      "ai_prob_a": 0.1,
+      "tabpfn_draw_prob": 0.265,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Austria",
+      "away": "Jordan",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.913,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.057,
+      "ai_prob_h": 0.9,
+      "ai_prob_d": 0.05,
+      "ai_prob_a": 0.05,
+      "tabpfn_draw_prob": 0.28,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-17",
+      "home": "England",
+      "away": "Croatia",
+      "league": "WorldCup",
+      "league_pred": "X",
+      "ai_pred": "1",
+      "league_prob_h": 0.032,
+      "league_prob_d": 0.577,
+      "league_prob_a": 0.391,
+      "ai_prob_h": 0.6,
+      "ai_prob_d": 0.25,
+      "ai_prob_a": 0.15,
+      "tabpfn_draw_prob": 0.38,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Ghana",
+      "away": "Panama",
+      "league": "WorldCup",
+      "league_pred": "2",
+      "ai_pred": "X",
+      "league_prob_h": 0.147,
+      "league_prob_d": 0.03,
+      "league_prob_a": 0.823,
+      "ai_prob_h": 0.3,
+      "ai_prob_d": 0.4,
+      "ai_prob_a": 0.3,
+      "tabpfn_draw_prob": 0.31,
+      "league_model": "xgboost"
+    },
+    {
+      "date": "2026-06-17",
+      "home": "Portugal",
+      "away": "Congo DR",
+      "league": "WorldCup",
+      "league_pred": "1",
+      "ai_pred": "1",
+      "league_prob_h": 0.938,
+      "league_prob_d": 0.029,
+      "league_prob_a": 0.033,
+      "ai_prob_h": 0.9,
+      "ai_prob_d": 0.05,
+      "ai_prob_a": 0.05,
+      "tabpfn_draw_prob": 0.268,
+      "league_model": "xgboost"
     }
   ],
   "toto_forms": {
