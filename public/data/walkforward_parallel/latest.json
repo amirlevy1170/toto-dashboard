@@ -1,7 +1,7 @@
 {
   "pipeline": "walk_forward_daily",
-  "timestamp": "2026-06-12T12:00:37.205446",
-  "elapsed_minutes": 67.0,
+  "timestamp": "2026-06-12T20:27:18.550748",
+  "elapsed_minutes": 60.9,
   "config": {
     "train_years": 3.0,
     "test_years": 0.3333333333333333,
@@ -57,17 +57,17 @@
     },
     "Israel1": {
       "model": "calibrated_rf",
-      "ensemble": "E4_CLEAN_ELO_TREND_56",
-      "accuracy": 51.8,
-      "n_test": 713,
-      "buckets": 9
+      "ensemble": "E7_ELO_API_82",
+      "accuracy": 47.9,
+      "n_test": 1679,
+      "buckets": 21
     },
     "Israel2": {
       "model": "mlp_large",
-      "ensemble": "E3_CLEAN_ELO_45",
-      "accuracy": 42.6,
-      "n_test": 884,
-      "buckets": 9
+      "ensemble": "E1_ORIGINAL_51",
+      "accuracy": 41.1,
+      "n_test": 2075,
+      "buckets": 21
     },
     "Italy1": {
       "model": "calibrated_rf",
@@ -486,13 +486,6 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 49.8,
-        "n_test": 2650,
-        "buckets": 21
-      },
-      {
         "model": "xgboost",
         "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 49.7,
@@ -508,6 +501,13 @@
       },
       {
         "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 49.4,
+        "n_test": 2650,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
         "ensemble": "E8_COMPACT_23",
         "accuracy": 49.4,
         "n_test": 2650,
@@ -591,13 +591,6 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 48.7,
-        "n_test": 2650,
-        "buckets": 21
-      },
-      {
         "model": "gradient_boosting",
         "ensemble": "E2_CLEAN_42",
         "accuracy": 48.6,
@@ -626,13 +619,6 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 48.3,
-        "n_test": 2650,
-        "buckets": 21
-      },
-      {
         "model": "xgboost",
         "ensemble": "E8_COMPACT_23",
         "accuracy": 48.1,
@@ -648,22 +634,36 @@
       },
       {
         "model": "neural_network",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 47.5,
-        "n_test": 2650,
-        "buckets": 21
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.1,
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.9,
         "n_test": 2650,
         "buckets": 21
       },
       {
         "model": "neural_network",
         "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 46.9,
+        "accuracy": 47.7,
+        "n_test": 2650,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.5,
+        "n_test": 2650,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 47.4,
+        "n_test": 2650,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 47.2,
         "n_test": 2650,
         "buckets": 21
       },
@@ -817,6 +817,13 @@
         "buckets": 20
       },
       {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.2,
+        "n_test": 2334,
+        "buckets": 20
+      },
+      {
         "model": "mlp_small",
         "ensemble": "E7_ELO_API_82",
         "accuracy": 49.2,
@@ -873,6 +880,13 @@
         "buckets": 20
       },
       {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.8,
+        "n_test": 2334,
+        "buckets": 20
+      },
+      {
         "model": "tabnet",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 48.8,
@@ -880,8 +894,8 @@
         "buckets": 20
       },
       {
-        "model": "mlp_large",
-        "ensemble": "E1_ORIGINAL_51",
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
         "accuracy": 48.8,
         "n_test": 2334,
         "buckets": 20
@@ -901,13 +915,6 @@
         "buckets": 20
       },
       {
-        "model": "tabnet",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 48.6,
-        "n_test": 2334,
-        "buckets": 20
-      },
-      {
         "model": "perceptron",
         "ensemble": "E7_ELO_API_82",
         "accuracy": 48.6,
@@ -971,15 +978,15 @@
         "buckets": 20
       },
       {
-        "model": "tabnet",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 48.2,
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 48.1,
         "n_test": 2334,
         "buckets": 20
       },
       {
-        "model": "mlp_small",
-        "ensemble": "E1_ORIGINAL_51",
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 48.1,
         "n_test": 2334,
         "buckets": 20
@@ -1006,13 +1013,6 @@
         "buckets": 20
       },
       {
-        "model": "tabnet",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 47.9,
-        "n_test": 2334,
-        "buckets": 20
-      },
-      {
         "model": "catboost",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 47.8,
@@ -1020,22 +1020,8 @@
         "buckets": 20
       },
       {
-        "model": "neural_network",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 47.8,
-        "n_test": 2334,
-        "buckets": 20
-      },
-      {
         "model": "knn",
         "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 47.6,
-        "n_test": 2334,
-        "buckets": 20
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E2_CLEAN_42",
         "accuracy": 47.6,
         "n_test": 2334,
         "buckets": 20
@@ -1064,13 +1050,6 @@
       {
         "model": "knn",
         "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.3,
-        "n_test": 2334,
-        "buckets": 20
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E8_COMPACT_23",
         "accuracy": 47.3,
         "n_test": 2334,
         "buckets": 20
@@ -1111,6 +1090,13 @@
         "buckets": 20
       },
       {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.8,
+        "n_test": 2334,
+        "buckets": 20
+      },
+      {
         "model": "catboost",
         "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 46.7,
@@ -1135,6 +1121,20 @@
         "model": "catboost",
         "ensemble": "E8_COMPACT_23",
         "accuracy": 46.7,
+        "n_test": 2334,
+        "buckets": 20
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.6,
+        "n_test": 2334,
+        "buckets": 20
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.4,
         "n_test": 2334,
         "buckets": 20
       },
@@ -1174,13 +1174,6 @@
         "buckets": 20
       },
       {
-        "model": "neural_network",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 46.1,
-        "n_test": 2334,
-        "buckets": 20
-      },
-      {
         "model": "gradient_boosting",
         "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 45.7,
@@ -1196,7 +1189,7 @@
       },
       {
         "model": "neural_network",
-        "ensemble": "E7_ELO_API_82",
+        "ensemble": "E8_COMPACT_23",
         "accuracy": 45.6,
         "n_test": 2334,
         "buckets": 20
@@ -1205,6 +1198,13 @@
         "model": "lightgbm",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 45.5,
+        "n_test": 2334,
+        "buckets": 20
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.3,
         "n_test": 2334,
         "buckets": 20
       },
@@ -1230,16 +1230,16 @@
         "buckets": 20
       },
       {
-        "model": "neural_network",
+        "model": "lightgbm",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 45.0,
+        "accuracy": 44.8,
         "n_test": 2334,
         "buckets": 20
       },
       {
-        "model": "lightgbm",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 44.8,
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.6,
         "n_test": 2334,
         "buckets": 20
       },
@@ -1259,8 +1259,8 @@
       },
       {
         "model": "neural_network",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 44.5,
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 44.6,
         "n_test": 2334,
         "buckets": 20
       }
@@ -1379,9 +1379,9 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
+        "model": "tabnet",
         "ensemble": "E8_COMPACT_23",
-        "accuracy": 49.9,
+        "accuracy": 49.8,
         "n_test": 2136,
         "buckets": 21
       },
@@ -1477,6 +1477,13 @@
         "buckets": 21
       },
       {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 49.0,
+        "n_test": 2136,
+        "buckets": 21
+      },
+      {
         "model": "catboost",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 49.0,
@@ -1513,14 +1520,14 @@
       },
       {
         "model": "tabnet",
-        "ensemble": "E7_ELO_API_82",
+        "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 48.7,
         "n_test": 2136,
         "buckets": 21
       },
       {
-        "model": "tabnet",
-        "ensemble": "E8_COMPACT_23",
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 48.7,
         "n_test": 2136,
         "buckets": 21
@@ -1529,13 +1536,6 @@
         "model": "perceptron",
         "ensemble": "E8_COMPACT_23",
         "accuracy": 48.7,
-        "n_test": 2136,
-        "buckets": 21
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 48.6,
         "n_test": 2136,
         "buckets": 21
       },
@@ -1550,13 +1550,6 @@
         "model": "mlp_small",
         "ensemble": "E7_ELO_API_82",
         "accuracy": 48.6,
-        "n_test": 2136,
-        "buckets": 21
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 48.5,
         "n_test": 2136,
         "buckets": 21
       },
@@ -1603,6 +1596,13 @@
         "buckets": 21
       },
       {
+        "model": "neural_network",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 48.1,
+        "n_test": 2136,
+        "buckets": 21
+      },
+      {
         "model": "calibrated_lgbm",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 48.1,
@@ -1632,14 +1632,14 @@
       },
       {
         "model": "tabnet",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.9,
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 47.8,
         "n_test": 2136,
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E3_CLEAN_ELO_45",
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 47.8,
         "n_test": 2136,
         "buckets": 21
@@ -1648,6 +1648,13 @@
         "model": "gradient_boosting",
         "ensemble": "E2_CLEAN_42",
         "accuracy": 47.8,
+        "n_test": 2136,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.7,
         "n_test": 2136,
         "buckets": 21
       },
@@ -1659,8 +1666,8 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E2_CLEAN_42",
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
         "accuracy": 47.5,
         "n_test": 2136,
         "buckets": 21
@@ -1757,14 +1764,14 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
         "accuracy": 46.5,
         "n_test": 2136,
         "buckets": 21
       },
       {
-        "model": "lightgbm",
+        "model": "neural_network",
         "ensemble": "E7_ELO_API_82",
         "accuracy": 46.5,
         "n_test": 2136,
@@ -1778,15 +1785,22 @@
         "buckets": 21
       },
       {
-        "model": "gradient_boosting",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 46.3,
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.4,
         "n_test": 2136,
         "buckets": 21
       },
       {
         "model": "neural_network",
-        "ensemble": "E1_ORIGINAL_51",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.4,
+        "n_test": 2136,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 46.3,
         "n_test": 2136,
         "buckets": 21
@@ -1809,20 +1823,6 @@
         "model": "gradient_boosting",
         "ensemble": "E7_ELO_API_82",
         "accuracy": 45.8,
-        "n_test": 2136,
-        "buckets": 21
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 45.8,
-        "n_test": 2136,
-        "buckets": 21
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 45.6,
         "n_test": 2136,
         "buckets": 21
       },
@@ -1858,1181 +1858,1181 @@
     "Israel1": [
       {
         "model": "calibrated_rf",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 51.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 51.6,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 50.9,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 50.9,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 50.5,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 50.5,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 50.4,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 50.2,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 50.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 49.9,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
         "ensemble": "E7_ELO_API_82",
-        "accuracy": 49.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 49.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 49.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 49.6,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 49.4,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 49.4,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 47.9,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "calibrated_rf",
         "ensemble": "E8_COMPACT_23",
-        "accuracy": 49.2,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 49.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 49.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 48.9,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 48.7,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 48.7,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 48.5,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "knn",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 48.5,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 48.5,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 48.2,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 48.2,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 48.2,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 48.2,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 48.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 48.1,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 47.9,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "perceptron",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 48.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 48.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 48.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E3_CLEAN_ELO_45",
+        "ensemble": "E8_COMPACT_23",
         "accuracy": 47.8,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "calibrated_lgbm",
+        "model": "calibrated_rf",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 47.7,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 47.8,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "knn",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 47.7,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 47.5,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.4,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.4,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 47.3,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
+        "model": "calibrated_rf",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 47.3,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 47.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 47.2,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "random_forest",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.3,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 47.3,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E7_ELO_API_82",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 47.1,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "mlp_small",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 47.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "knn",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 46.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 46.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "knn",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 46.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 46.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 46.4,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 46.4,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
+        "model": "perceptron",
         "ensemble": "E7_ELO_API_82",
-        "accuracy": 46.4,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 46.9,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 46.8,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.8,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 46.6,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "mlp_small",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 46.5,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.5,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
         "ensemble": "E8_COMPACT_23",
         "accuracy": 46.4,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "catboost",
+        "model": "perceptron",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 46.3,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "xgboost",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 46.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 46.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 46.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
+        "model": "mlp_large",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 46.0,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 46.2,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "gradient_boosting",
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 46.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 46.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 46.0,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "extra_trees",
         "ensemble": "E2_CLEAN_42",
         "accuracy": 46.0,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.9,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.9,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.9,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.9,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
         "ensemble": "E2_CLEAN_42",
-        "accuracy": 46.0,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 45.9,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "tabnet",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 46.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
         "ensemble": "E8_COMPACT_23",
-        "accuracy": 46.0,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 45.8,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "knn",
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.7,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
         "ensemble": "E8_COMPACT_23",
-        "accuracy": 45.9,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 45.7,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "gradient_boosting",
+        "model": "mlp_large",
         "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 45.7,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "xgboost",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 45.7,
-        "n_test": 713,
-        "buckets": 9
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.6,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "catboost",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 45.6,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 45.5,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.5,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.5,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.4,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.4,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 45.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 45.0,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 45.0,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "extra_trees",
         "ensemble": "E8_COMPACT_23",
-        "accuracy": 45.6,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 45.0,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "lightgbm",
+        "model": "catboost",
         "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 45.2,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 45.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 45.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 45.0,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
-        "ensemble": "E7_ELO_API_82",
         "accuracy": 44.9,
-        "n_test": 713,
-        "buckets": 9
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.9,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.8,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "neural_network",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 44.7,
-        "n_test": 713,
-        "buckets": 9
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.8,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.8,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "catboost",
         "ensemble": "E7_ELO_API_82",
-        "accuracy": 44.7,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 44.8,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.8,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 44.8,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "gradient_boosting",
         "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 43.9,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 44.8,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
-        "model": "lightgbm",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 43.9,
-        "n_test": 713,
-        "buckets": 9
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.7,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "neural_network",
         "ensemble": "E8_COMPACT_23",
-        "accuracy": 43.9,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 43.8,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 43.3,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 43.1,
-        "n_test": 713,
-        "buckets": 9
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 42.5,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 44.7,
+        "n_test": 1679,
+        "buckets": 21
       },
       {
         "model": "neural_network",
         "ensemble": "E2_CLEAN_42",
-        "accuracy": 41.4,
-        "n_test": 713,
-        "buckets": 9
+        "accuracy": 44.7,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 44.4,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 44.4,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 44.4,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 44.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 44.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 44.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 44.0,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 43.8,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 43.8,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 43.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 43.3,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 43.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 43.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 43.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 43.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 43.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 43.1,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 42.9,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 42.6,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 42.2,
+        "n_test": 1679,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 41.5,
+        "n_test": 1679,
+        "buckets": 21
       }
     ],
     "Israel2": [
       {
         "model": "mlp_large",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 42.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 42.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 42.4,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 42.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 42.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 41.5,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 41.4,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 41.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 41.1,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 41.0,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 40.8,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
         "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 40.8,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 41.1,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "random_forest",
+        "model": "calibrated_rf",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 41.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
         "ensemble": "E2_CLEAN_42",
-        "accuracy": 40.8,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 41.0,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.6,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 40.6,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "calibrated_lgbm",
         "ensemble": "E7_ELO_API_82",
-        "accuracy": 40.7,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 40.5,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "random_forest",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 40.6,
-        "n_test": 884,
-        "buckets": 9
+        "model": "mlp_small",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 40.5,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "calibrated_rf",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 40.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
+        "model": "calibrated_lgbm",
         "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 40.5,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 40.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 40.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 40.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 40.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 40.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 40.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 40.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 40.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 40.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 40.0,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 40.0,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 40.0,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 40.0,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_large",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 39.9,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_rf",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 39.9,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 39.8,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 39.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 39.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 39.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "perceptron",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 39.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 39.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 39.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "knn",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 39.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 39.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "mlp_small",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 39.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "calibrated_lgbm",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 39.6,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "tabnet",
         "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 40.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 40.4,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 40.3,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 40.2,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.2,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 40.2,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 40.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 40.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 40.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 40.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_rf",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 40.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "perceptron",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 40.0,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 39.7,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E2_CLEAN_42",
         "accuracy": 39.6,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 39.6,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 39.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 39.4,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 39.3,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_large",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 39.3,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "perceptron",
         "ensemble": "E7_ELO_API_82",
-        "accuracy": 39.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 39.5,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "knn",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 39.5,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 39.3,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "mlp_small",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 39.5,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 39.4,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 39.4,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 39.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 39.3,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
         "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 39.0,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 39.2,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "knn",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 39.0,
-        "n_test": 884,
-        "buckets": 9
+        "model": "random_forest",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 39.1,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "calibrated_lgbm",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 39.0,
-        "n_test": 884,
-        "buckets": 9
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 39.1,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "xgboost",
-        "ensemble": "E3_CLEAN_ELO_45",
+        "model": "catboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 38.9,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "calibrated_lgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 38.9,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "knn",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 38.8,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 38.8,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 38.8,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "tabnet",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 38.8,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 38.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 38.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "extra_trees",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 38.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 38.6,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 38.6,
-        "n_test": 884,
-        "buckets": 9
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 38.9,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "tabnet",
         "ensemble": "E2_CLEAN_42",
-        "accuracy": 38.6,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 38.8,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 38.7,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 38.7,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "random_forest",
-        "ensemble": "E8_COMPACT_23",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 38.6,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E8_COMPACT_23",
+        "model": "extra_trees",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 38.6,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 38.5,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "knn",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 38.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
+        "model": "mlp_small",
         "ensemble": "E7_ELO_API_82",
-        "accuracy": 38.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "gradient_boosting",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 38.2,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "random_forest",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 38.1,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "catboost",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 38.1,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 38.0,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 38.0,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 37.8,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "xgboost",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 37.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "knn",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 37.7,
-        "n_test": 884,
-        "buckets": 9
-      },
-      {
-        "model": "lightgbm",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 37.4,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 38.4,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "tabnet",
         "ensemble": "E7_ELO_API_82",
-        "accuracy": 37.3,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 38.4,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
-        "model": "catboost",
+        "model": "extra_trees",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 38.3,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
         "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 37.0,
-        "n_test": 884,
-        "buckets": 9
+        "accuracy": 38.2,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "mlp_small",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 38.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 38.0,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 38.0,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 37.9,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 37.9,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 37.8,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 37.8,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 37.7,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "neural_network",
-        "ensemble": "E2_CLEAN_42",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 37.6,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "random_forest",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 37.6,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 37.6,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 37.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "tabnet",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 37.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 37.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "extra_trees",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 37.4,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 37.2,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 37.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "knn",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 36.9,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 36.9,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 36.8,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 36.8,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 36.8,
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "xgboost",
         "ensemble": "E8_COMPACT_23",
+        "accuracy": 36.6,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E1_ORIGINAL_51",
         "accuracy": 36.5,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
       },
       {
         "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 36.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
         "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 36.4,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 36.3,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 36.2,
-        "n_test": 884,
-        "buckets": 9
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 36.2,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "gradient_boosting",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 36.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 36.1,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 36.0,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 35.9,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "xgboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 35.8,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 35.8,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 35.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 35.5,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "lightgbm",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 35.4,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "catboost",
+        "ensemble": "E3_CLEAN_ELO_45",
+        "accuracy": 35.3,
+        "n_test": 2075,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 34.3,
+        "n_test": 2075,
+        "buckets": 21
       }
     ],
     "Italy1": [
@@ -3359,6 +3359,13 @@
         "buckets": 21
       },
       {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 50.9,
+        "n_test": 2661,
+        "buckets": 21
+      },
+      {
         "model": "perceptron",
         "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 50.8,
@@ -3389,13 +3396,6 @@
       {
         "model": "xgboost",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 50.2,
-        "n_test": 2661,
-        "buckets": 21
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 50.2,
         "n_test": 2661,
         "buckets": 21
@@ -3432,6 +3432,13 @@
         "model": "catboost",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 50.1,
+        "n_test": 2661,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 50.0,
         "n_test": 2661,
         "buckets": 21
       },
@@ -3471,13 +3478,6 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 49.5,
-        "n_test": 2661,
-        "buckets": 21
-      },
-      {
         "model": "knn",
         "ensemble": "E4_CLEAN_ELO_TREND_56",
         "accuracy": 49.5,
@@ -3500,7 +3500,7 @@
       },
       {
         "model": "neural_network",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 49.3,
         "n_test": 2661,
         "buckets": 21
@@ -3541,6 +3541,13 @@
         "buckets": 21
       },
       {
+        "model": "neural_network",
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 49.1,
+        "n_test": 2661,
+        "buckets": 21
+      },
+      {
         "model": "lightgbm",
         "ensemble": "E7_ELO_API_82",
         "accuracy": 48.9,
@@ -3569,6 +3576,13 @@
         "buckets": 21
       },
       {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 48.5,
+        "n_test": 2661,
+        "buckets": 21
+      },
+      {
         "model": "xgboost",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 48.4,
@@ -3583,13 +3597,6 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E8_COMPACT_23",
-        "accuracy": 48.3,
-        "n_test": 2661,
-        "buckets": 21
-      },
-      {
         "model": "lightgbm",
         "ensemble": "E2_CLEAN_42",
         "accuracy": 48.1,
@@ -3599,13 +3606,6 @@
       {
         "model": "lightgbm",
         "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 47.9,
-        "n_test": 2661,
-        "buckets": 21
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E2_CLEAN_42",
         "accuracy": 47.9,
         "n_test": 2661,
         "buckets": 21
@@ -4068,6 +4068,13 @@
         "buckets": 21
       },
       {
+        "model": "neural_network",
+        "ensemble": "E7_ELO_API_82",
+        "accuracy": 48.3,
+        "n_test": 2650,
+        "buckets": 21
+      },
+      {
         "model": "gradient_boosting",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 48.3,
@@ -4138,13 +4145,6 @@
         "buckets": 21
       },
       {
-        "model": "neural_network",
-        "ensemble": "E3_CLEAN_ELO_45",
-        "accuracy": 47.7,
-        "n_test": 2650,
-        "buckets": 21
-      },
-      {
         "model": "perceptron",
         "ensemble": "E1_ORIGINAL_51",
         "accuracy": 47.7,
@@ -4174,29 +4174,15 @@
       },
       {
         "model": "neural_network",
-        "ensemble": "E7_ELO_API_82",
-        "accuracy": 47.3,
-        "n_test": 2650,
-        "buckets": 21
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E8_COMPACT_23",
+        "ensemble": "E3_CLEAN_ELO_45",
         "accuracy": 47.1,
         "n_test": 2650,
         "buckets": 21
       },
       {
         "model": "neural_network",
-        "ensemble": "E1_ORIGINAL_51",
-        "accuracy": 46.9,
-        "n_test": 2650,
-        "buckets": 21
-      },
-      {
-        "model": "neural_network",
-        "ensemble": "E2_CLEAN_42",
-        "accuracy": 46.7,
+        "ensemble": "E4_CLEAN_ELO_TREND_56",
+        "accuracy": 46.8,
         "n_test": 2650,
         "buckets": 21
       },
@@ -4209,8 +4195,22 @@
       },
       {
         "model": "neural_network",
-        "ensemble": "E4_CLEAN_ELO_TREND_56",
-        "accuracy": 46.0,
+        "ensemble": "E1_ORIGINAL_51",
+        "accuracy": 45.2,
+        "n_test": 2650,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E8_COMPACT_23",
+        "accuracy": 45.1,
+        "n_test": 2650,
+        "buckets": 21
+      },
+      {
+        "model": "neural_network",
+        "ensemble": "E2_CLEAN_42",
+        "accuracy": 45.1,
         "n_test": 2650,
         "buckets": 21
       }
