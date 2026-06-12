@@ -1,7 +1,7 @@
 {
   "pipeline": "forms_walk_forward",
-  "timestamp": "2026-06-12T10:47:22.662452",
-  "elapsed_minutes": 259.2,
+  "timestamp": "2026-06-12T19:19:52.725717",
+  "elapsed_minutes": 234.3,
   "forms_used": 15,
   "config": {
     "models": [
@@ -50,7 +50,7 @@
       "form_id": "262101",
       "form_type": "world",
       "form_date": "24.05.2026",
-      "best_model": "calibrated_rf",
+      "best_model": "tabnet",
       "best_ensemble": "E4_CLEAN_ELO_TREND_56",
       "points": 10,
       "total": 14,
@@ -61,14 +61,14 @@
       "close_threshold": 0.25,
       "per_league_best": {
         "England1": {
-          "model": "calibrated_rf",
+          "model": "tabnet",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 6,
           "total": 9,
           "accuracy": 66.7
         },
         "Spain1": {
-          "model": "extra_trees",
+          "model": "tabnet",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 1,
           "total": 1,
@@ -94,7 +94,7 @@
           "closeness": 0.45,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "X",
           "correct": false
@@ -323,7 +323,7 @@
           "label": "3 doubles",
           "doubles_count": 3,
           "triples_count": 0,
-          "best_model": "calibrated_rf",
+          "best_model": "tabnet",
           "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 10,
           "total": 14,
@@ -334,14 +334,14 @@
           "close_threshold": 0.2,
           "per_league_best": {
             "England1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 6,
               "total": 9,
               "accuracy": 66.7
             },
             "Spain1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
@@ -367,7 +367,7 @@
               "closeness": 0.45,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -596,7 +596,7 @@
           "label": "4 doubles",
           "doubles_count": 4,
           "triples_count": 0,
-          "best_model": "calibrated_rf",
+          "best_model": "tabnet",
           "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 10,
           "total": 14,
@@ -607,14 +607,14 @@
           "close_threshold": 0.25,
           "per_league_best": {
             "England1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 6,
               "total": 9,
               "accuracy": 66.7
             },
             "Spain1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
@@ -640,7 +640,7 @@
               "closeness": 0.45,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -870,7 +870,7 @@
           "label": "5 doubles",
           "doubles_count": 5,
           "triples_count": 0,
-          "best_model": "calibrated_rf",
+          "best_model": "tabnet",
           "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 10,
           "total": 14,
@@ -881,14 +881,14 @@
           "close_threshold": 0.3,
           "per_league_best": {
             "England1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 6,
               "total": 9,
               "accuracy": 66.7
             },
             "Spain1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
@@ -914,7 +914,7 @@
               "closeness": 0.45,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -1145,7 +1145,7 @@
           "label": "3 doubles + 1 triple",
           "doubles_count": 3,
           "triples_count": 1,
-          "best_model": "calibrated_rf",
+          "best_model": "tabnet",
           "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 10,
           "total": 14,
@@ -1156,14 +1156,14 @@
           "close_threshold": 0.25,
           "per_league_best": {
             "England1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 6,
               "total": 9,
               "accuracy": 66.7
             },
             "Spain1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
@@ -1189,7 +1189,7 @@
               "closeness": 0.45,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -1427,7 +1427,7 @@
       "form_type": "world",
       "form_date": "17.05.2026",
       "best_model": "tabnet",
-      "best_ensemble": "E1_ORIGINAL_51",
+      "best_ensemble": "E3_CLEAN_ELO_45",
       "points": 12,
       "total": 15,
       "accuracy": 80.0,
@@ -1709,7 +1709,7 @@
           "doubles_count": 3,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E1_ORIGINAL_51",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 12,
           "total": 15,
           "accuracy": 80.0,
@@ -1991,7 +1991,7 @@
           "doubles_count": 4,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E1_ORIGINAL_51",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 12,
           "total": 15,
           "accuracy": 80.0,
@@ -2274,7 +2274,7 @@
           "doubles_count": 5,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E1_ORIGINAL_51",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 12,
           "total": 15,
           "accuracy": 80.0,
@@ -2886,7 +2886,7 @@
           "accuracy": 100.0
         },
         "Germany1": {
-          "model": "extra_trees",
+          "model": "tabnet",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 3,
           "total": 3,
@@ -2921,7 +2921,7 @@
           "closeness": 0.55,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "X",
           "correct": false
@@ -3189,7 +3189,7 @@
               "accuracy": 100.0
             },
             "Germany1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -3224,7 +3224,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -3492,7 +3492,7 @@
               "accuracy": 100.0
             },
             "Germany1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -3527,7 +3527,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -3796,7 +3796,7 @@
               "accuracy": 100.0
             },
             "Germany1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -3831,7 +3831,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -4101,7 +4101,7 @@
               "accuracy": 100.0
             },
             "Germany1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -4136,7 +4136,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -4373,18 +4373,18 @@
       "form_id": "261705",
       "form_type": "world",
       "form_date": "02.05.2026",
-      "best_model": "calibrated_rf",
-      "best_ensemble": "E4_CLEAN_ELO_TREND_56",
+      "best_model": "tabnet",
+      "best_ensemble": "E8_COMPACT_23",
       "points": 13,
       "total": 15,
       "accuracy": 86.7,
-      "single_combo_points": 12,
+      "single_combo_points": 13,
       "single_combo_total": 15,
-      "single_combo_accuracy": 80.0,
+      "single_combo_accuracy": 86.7,
       "close_threshold": 0.25,
       "per_league_best": {
         "Israel1": {
-          "model": "catboost",
+          "model": "extra_trees",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 3,
           "total": 3,
@@ -4412,7 +4412,7 @@
           "accuracy": 66.7
         },
         "Germany1": {
-          "model": "tabnet",
+          "model": "calibrated_rf",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 1,
           "total": 2,
@@ -4676,18 +4676,18 @@
           "label": "3 doubles",
           "doubles_count": 3,
           "triples_count": 0,
-          "best_model": "calibrated_rf",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
           "points": 13,
           "total": 15,
           "accuracy": 86.7,
-          "single_combo_points": 12,
+          "single_combo_points": 13,
           "single_combo_total": 15,
-          "single_combo_accuracy": 80.0,
+          "single_combo_accuracy": 86.7,
           "close_threshold": 0.05,
           "per_league_best": {
             "Israel1": {
-              "model": "catboost",
+              "model": "extra_trees",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -4715,7 +4715,7 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "tabnet",
+              "model": "calibrated_rf",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 2,
@@ -4979,18 +4979,18 @@
           "label": "4 doubles",
           "doubles_count": 4,
           "triples_count": 0,
-          "best_model": "calibrated_rf",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
           "points": 13,
           "total": 15,
           "accuracy": 86.7,
-          "single_combo_points": 12,
+          "single_combo_points": 13,
           "single_combo_total": 15,
-          "single_combo_accuracy": 80.0,
+          "single_combo_accuracy": 86.7,
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "catboost",
+              "model": "extra_trees",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -5018,7 +5018,7 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "tabnet",
+              "model": "calibrated_rf",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 2,
@@ -5283,18 +5283,18 @@
           "label": "5 doubles",
           "doubles_count": 5,
           "triples_count": 0,
-          "best_model": "calibrated_rf",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
           "points": 13,
           "total": 15,
           "accuracy": 86.7,
-          "single_combo_points": 12,
+          "single_combo_points": 13,
           "single_combo_total": 15,
-          "single_combo_accuracy": 80.0,
+          "single_combo_accuracy": 86.7,
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "catboost",
+              "model": "extra_trees",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -5322,7 +5322,7 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "tabnet",
+              "model": "calibrated_rf",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 2,
@@ -5588,18 +5588,18 @@
           "label": "3 doubles + 1 triple",
           "doubles_count": 3,
           "triples_count": 1,
-          "best_model": "calibrated_rf",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
           "points": 13,
           "total": 15,
           "accuracy": 86.7,
-          "single_combo_points": 12,
+          "single_combo_points": 13,
           "single_combo_total": 15,
-          "single_combo_accuracy": 80.0,
+          "single_combo_accuracy": 86.7,
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "catboost",
+              "model": "extra_trees",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -5627,7 +5627,7 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "tabnet",
+              "model": "calibrated_rf",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 2,
@@ -5931,7 +5931,7 @@
           "accuracy": 100.0
         },
         "Italy1": {
-          "model": "extra_trees",
+          "model": "tabnet",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 3,
           "total": 3,
@@ -6133,7 +6133,7 @@
           "closeness": 0.2,
           "is_double": true,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": "X",
           "actual": "X",
           "correct": true
@@ -6193,7 +6193,7 @@
         "games": [
           "Valencia vs Girona: 1+X (actual: 1, \u2713)",
           "Atletico Madrid vs Athletic Club: 1+X (actual: 1, \u2713)",
-          "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)",
+          "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)",
           "Hamburger SV vs 1899 Hoffenheim: 2+X (actual: 2, \u2713)"
         ]
       },
@@ -6234,7 +6234,7 @@
               "accuracy": 100.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -6436,7 +6436,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -6496,7 +6496,7 @@
             "games": [
               "Valencia vs Girona: 1+X (actual: 1, \u2713)",
               "Atletico Madrid vs Athletic Club: 1+X (actual: 1, \u2713)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)"
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)"
             ]
           },
           "triple_summary": null
@@ -6537,7 +6537,7 @@
               "accuracy": 100.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -6739,7 +6739,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -6799,7 +6799,7 @@
             "games": [
               "Valencia vs Girona: 1+X (actual: 1, \u2713)",
               "Atletico Madrid vs Athletic Club: 1+X (actual: 1, \u2713)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)",
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)",
               "Hamburger SV vs 1899 Hoffenheim: 2+X (actual: 2, \u2713)"
             ]
           },
@@ -6841,7 +6841,7 @@
               "accuracy": 100.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -7043,7 +7043,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -7104,7 +7104,7 @@
               "West Ham vs Everton: 1+X (actual: 1, \u2713)",
               "Valencia vs Girona: 1+X (actual: 1, \u2713)",
               "Atletico Madrid vs Athletic Club: 1+X (actual: 1, \u2713)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)",
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)",
               "Hamburger SV vs 1899 Hoffenheim: 2+X (actual: 2, \u2713)"
             ]
           },
@@ -7146,7 +7146,7 @@
               "accuracy": 100.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -7348,7 +7348,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -7407,7 +7407,7 @@
             "correct": 3,
             "games": [
               "Atletico Madrid vs Athletic Club: 1+X (actual: 1, \u2713)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)",
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)",
               "Hamburger SV vs 1899 Hoffenheim: 2+X (actual: 2, \u2713)"
             ]
           },
@@ -7427,16 +7427,16 @@
       "form_date": "18.04.2026",
       "best_model": "calibrated_rf",
       "best_ensemble": "E3_CLEAN_ELO_45",
-      "points": 9,
+      "points": 7,
       "total": 15,
-      "accuracy": 60.0,
+      "accuracy": 46.7,
       "single_combo_points": 7,
       "single_combo_total": 15,
       "single_combo_accuracy": 46.7,
       "close_threshold": 0.4,
       "per_league_best": {
         "England1": {
-          "model": "tabnet",
+          "model": "catboost",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 2,
           "total": 4,
@@ -7450,18 +7450,18 @@
           "accuracy": 33.3
         },
         "Germany1": {
-          "model": "tabnet",
-          "ensemble": "E2_CLEAN_42",
-          "points": 4,
+          "model": "calibrated_rf",
+          "ensemble": "E4_CLEAN_ELO_TREND_56",
+          "points": 3,
           "total": 5,
-          "accuracy": 80.0
+          "accuracy": 60.0
         },
         "France1": {
           "model": "tabnet",
-          "ensemble": "E1_ORIGINAL_51",
-          "points": 2,
+          "ensemble": "E4_CLEAN_ELO_TREND_56",
+          "points": 1,
           "total": 3,
-          "accuracy": 66.7
+          "accuracy": 33.3
         }
       },
       "games": [
@@ -7492,10 +7492,10 @@
           "closeness": 0.3,
           "is_double": true,
           "is_triple": false,
-          "prediction": "1",
+          "prediction": "2",
           "double_prediction": "X",
           "actual": "2",
-          "correct": false
+          "correct": true
         },
         {
           "game_number": 3,
@@ -7508,10 +7508,10 @@
           "closeness": 1.5,
           "is_double": false,
           "is_triple": false,
-          "prediction": "X",
+          "prediction": "2",
           "double_prediction": null,
           "actual": "X",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 4,
@@ -7572,7 +7572,7 @@
           "closeness": 0.2,
           "is_double": true,
           "is_triple": false,
-          "prediction": "1",
+          "prediction": "2",
           "double_prediction": "X",
           "actual": "X",
           "correct": true
@@ -7588,10 +7588,10 @@
           "closeness": 0.4,
           "is_double": true,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": "X",
           "actual": "2",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 9,
@@ -7668,10 +7668,10 @@
           "closeness": 0.65,
           "is_double": false,
           "is_triple": false,
-          "prediction": "1",
+          "prediction": "2",
           "double_prediction": null,
           "actual": "1",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 14,
@@ -7710,9 +7710,9 @@
         "count": 4,
         "correct": 3,
         "games": [
-          "Newcastle vs Bournemouth: 1+X (actual: 2, \u2717)",
-          "AS Roma vs Atalanta: 1+X (actual: X, \u2713)",
-          "Union Berlin vs VfL Wolfsburg: 2+X (actual: 2, \u2713)",
+          "Newcastle vs Bournemouth: 2+X (actual: 2, \u2713)",
+          "AS Roma vs Atalanta: 2+X (actual: X, \u2713)",
+          "Union Berlin vs VfL Wolfsburg: 1+X (actual: 2, \u2717)",
           "Angers vs Le Havre: 2+X (actual: X, \u2713)"
         ]
       },
@@ -7723,16 +7723,16 @@
           "triples_count": 0,
           "best_model": "calibrated_rf",
           "best_ensemble": "E3_CLEAN_ELO_45",
-          "points": 9,
+          "points": 7,
           "total": 15,
-          "accuracy": 60.0,
+          "accuracy": 46.7,
           "single_combo_points": 7,
           "single_combo_total": 15,
           "single_combo_accuracy": 46.7,
           "close_threshold": 0.3,
           "per_league_best": {
             "England1": {
-              "model": "tabnet",
+              "model": "catboost",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 2,
               "total": 4,
@@ -7746,18 +7746,18 @@
               "accuracy": 33.3
             },
             "Germany1": {
-              "model": "tabnet",
-              "ensemble": "E2_CLEAN_42",
-              "points": 4,
+              "model": "calibrated_rf",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "France1": {
               "model": "tabnet",
-              "ensemble": "E1_ORIGINAL_51",
-              "points": 2,
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 1,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 33.3
             }
           },
           "games": [
@@ -7788,10 +7788,10 @@
               "closeness": 0.3,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 3,
@@ -7804,10 +7804,10 @@
               "closeness": 1.5,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -7868,7 +7868,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -7884,10 +7884,10 @@
               "closeness": 0.4,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 9,
@@ -7964,10 +7964,10 @@
               "closeness": 0.65,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 14,
@@ -8004,10 +8004,10 @@
           ],
           "doubles_summary": {
             "count": 3,
-            "correct": 2,
+            "correct": 3,
             "games": [
-              "Newcastle vs Bournemouth: 1+X (actual: 2, \u2717)",
-              "AS Roma vs Atalanta: 1+X (actual: X, \u2713)",
+              "Newcastle vs Bournemouth: 2+X (actual: 2, \u2713)",
+              "AS Roma vs Atalanta: 2+X (actual: X, \u2713)",
               "Angers vs Le Havre: 2+X (actual: X, \u2713)"
             ]
           },
@@ -8019,16 +8019,16 @@
           "triples_count": 0,
           "best_model": "calibrated_rf",
           "best_ensemble": "E3_CLEAN_ELO_45",
-          "points": 9,
+          "points": 7,
           "total": 15,
-          "accuracy": 60.0,
+          "accuracy": 46.7,
           "single_combo_points": 7,
           "single_combo_total": 15,
           "single_combo_accuracy": 46.7,
           "close_threshold": 0.4,
           "per_league_best": {
             "England1": {
-              "model": "tabnet",
+              "model": "catboost",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 2,
               "total": 4,
@@ -8042,18 +8042,18 @@
               "accuracy": 33.3
             },
             "Germany1": {
-              "model": "tabnet",
-              "ensemble": "E2_CLEAN_42",
-              "points": 4,
+              "model": "calibrated_rf",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "France1": {
               "model": "tabnet",
-              "ensemble": "E1_ORIGINAL_51",
-              "points": 2,
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 1,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 33.3
             }
           },
           "games": [
@@ -8084,10 +8084,10 @@
               "closeness": 0.3,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 3,
@@ -8100,10 +8100,10 @@
               "closeness": 1.5,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -8164,7 +8164,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -8180,10 +8180,10 @@
               "closeness": 0.4,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 9,
@@ -8260,10 +8260,10 @@
               "closeness": 0.65,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 14,
@@ -8302,9 +8302,9 @@
             "count": 4,
             "correct": 3,
             "games": [
-              "Newcastle vs Bournemouth: 1+X (actual: 2, \u2717)",
-              "AS Roma vs Atalanta: 1+X (actual: X, \u2713)",
-              "Union Berlin vs VfL Wolfsburg: 2+X (actual: 2, \u2713)",
+              "Newcastle vs Bournemouth: 2+X (actual: 2, \u2713)",
+              "AS Roma vs Atalanta: 2+X (actual: X, \u2713)",
+              "Union Berlin vs VfL Wolfsburg: 1+X (actual: 2, \u2717)",
               "Angers vs Le Havre: 2+X (actual: X, \u2713)"
             ]
           },
@@ -8316,16 +8316,16 @@
           "triples_count": 0,
           "best_model": "calibrated_rf",
           "best_ensemble": "E3_CLEAN_ELO_45",
-          "points": 9,
+          "points": 7,
           "total": 15,
-          "accuracy": 60.0,
+          "accuracy": 46.7,
           "single_combo_points": 7,
           "single_combo_total": 15,
           "single_combo_accuracy": 46.7,
           "close_threshold": 0.4,
           "per_league_best": {
             "England1": {
-              "model": "tabnet",
+              "model": "catboost",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 2,
               "total": 4,
@@ -8339,18 +8339,18 @@
               "accuracy": 33.3
             },
             "Germany1": {
-              "model": "tabnet",
-              "ensemble": "E2_CLEAN_42",
-              "points": 4,
+              "model": "calibrated_rf",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "France1": {
               "model": "tabnet",
-              "ensemble": "E1_ORIGINAL_51",
-              "points": 2,
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 1,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 33.3
             }
           },
           "games": [
@@ -8381,10 +8381,10 @@
               "closeness": 0.3,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 3,
@@ -8397,10 +8397,10 @@
               "closeness": 1.5,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -8461,7 +8461,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -8477,10 +8477,10 @@
               "closeness": 0.4,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 9,
@@ -8557,10 +8557,10 @@
               "closeness": 0.65,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 14,
@@ -8599,9 +8599,9 @@
             "count": 5,
             "correct": 4,
             "games": [
-              "Newcastle vs Bournemouth: 1+X (actual: 2, \u2717)",
-              "AS Roma vs Atalanta: 1+X (actual: X, \u2713)",
-              "Union Berlin vs VfL Wolfsburg: 2+X (actual: 2, \u2713)",
+              "Newcastle vs Bournemouth: 2+X (actual: 2, \u2713)",
+              "AS Roma vs Atalanta: 2+X (actual: X, \u2713)",
+              "Union Berlin vs VfL Wolfsburg: 1+X (actual: 2, \u2717)",
               "Werder Bremen vs Hamburger SV: 1+X (actual: 1, \u2713)",
               "Angers vs Le Havre: 2+X (actual: X, \u2713)"
             ]
@@ -8614,16 +8614,16 @@
           "triples_count": 1,
           "best_model": "calibrated_rf",
           "best_ensemble": "E3_CLEAN_ELO_45",
-          "points": 9,
+          "points": 7,
           "total": 15,
-          "accuracy": 60.0,
+          "accuracy": 46.7,
           "single_combo_points": 7,
           "single_combo_total": 15,
           "single_combo_accuracy": 46.7,
           "close_threshold": 0.4,
           "per_league_best": {
             "England1": {
-              "model": "tabnet",
+              "model": "catboost",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 2,
               "total": 4,
@@ -8637,18 +8637,18 @@
               "accuracy": 33.3
             },
             "Germany1": {
-              "model": "tabnet",
-              "ensemble": "E2_CLEAN_42",
-              "points": 4,
+              "model": "calibrated_rf",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "France1": {
               "model": "tabnet",
-              "ensemble": "E1_ORIGINAL_51",
-              "points": 2,
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "points": 1,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 33.3
             }
           },
           "games": [
@@ -8679,10 +8679,10 @@
               "closeness": 0.3,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 3,
@@ -8695,10 +8695,10 @@
               "closeness": 1.5,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -8759,7 +8759,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -8775,10 +8775,10 @@
               "closeness": 0.4,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 9,
@@ -8855,10 +8855,10 @@
               "closeness": 0.65,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 14,
@@ -8897,9 +8897,9 @@
             "count": 3,
             "correct": 2,
             "games": [
-              "Newcastle vs Bournemouth: 1+X (actual: 2, \u2717)",
-              "AS Roma vs Atalanta: 1+X (actual: X, \u2713)",
-              "Union Berlin vs VfL Wolfsburg: 2+X (actual: 2, \u2713)"
+              "Newcastle vs Bournemouth: 2+X (actual: 2, \u2713)",
+              "AS Roma vs Atalanta: 2+X (actual: X, \u2713)",
+              "Union Berlin vs VfL Wolfsburg: 1+X (actual: 2, \u2717)"
             ]
           },
           "triple_summary": {
@@ -8917,13 +8917,13 @@
       "form_type": "winner16",
       "form_date": "18.04.2026",
       "best_model": "tabnet",
-      "best_ensemble": "E2_CLEAN_42",
+      "best_ensemble": "E4_CLEAN_ELO_TREND_56",
       "points": 11,
       "total": 16,
       "accuracy": 68.8,
-      "single_combo_points": 10,
+      "single_combo_points": 9,
       "single_combo_total": 16,
-      "single_combo_accuracy": 62.5,
+      "single_combo_accuracy": 56.2,
       "close_threshold": 0.15,
       "per_league_best": {
         "France1": {
@@ -8941,7 +8941,7 @@
           "accuracy": 75.0
         },
         "Spain1": {
-          "model": "tabnet",
+          "model": "mlp_large",
           "ensemble": "E8_COMPACT_23",
           "points": 2,
           "total": 3,
@@ -8956,7 +8956,7 @@
         },
         "Germany1": {
           "model": "tabnet",
-          "ensemble": "E3_CLEAN_ELO_45",
+          "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 2,
           "total": 3,
           "accuracy": 66.7
@@ -9134,10 +9134,10 @@
           "closeness": 0.3,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "1",
-          "correct": false
+          "correct": true
         },
         {
           "game_number": 12,
@@ -9166,10 +9166,10 @@
           "closeness": 0.15,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "X",
           "double_prediction": null,
           "actual": "2",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 14,
@@ -9214,7 +9214,7 @@
           "closeness": 0.15,
           "is_double": true,
           "is_triple": false,
-          "prediction": "1",
+          "prediction": "2",
           "double_prediction": "X",
           "actual": "X",
           "correct": true
@@ -9227,7 +9227,7 @@
           "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)",
           "Como vs Inter: 2+X (actual: 2, \u2713)",
           "Toulouse vs Lille: 2+X (actual: 2, \u2713)",
-          "Angers vs Le Havre: 1+X (actual: X, \u2713)"
+          "Angers vs Le Havre: 2+X (actual: X, \u2713)"
         ]
       },
       "double_variants": {
@@ -9236,13 +9236,13 @@
           "doubles_count": 3,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E2_CLEAN_42",
+          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 11,
           "total": 16,
           "accuracy": 68.8,
-          "single_combo_points": 9,
+          "single_combo_points": 8,
           "single_combo_total": 16,
-          "single_combo_accuracy": 56.2,
+          "single_combo_accuracy": 50.0,
           "close_threshold": 0.1,
           "per_league_best": {
             "France1": {
@@ -9260,7 +9260,7 @@
               "accuracy": 75.0
             },
             "Spain1": {
-              "model": "tabnet",
+              "model": "mlp_large",
               "ensemble": "E8_COMPACT_23",
               "points": 2,
               "total": 3,
@@ -9275,7 +9275,7 @@
             },
             "Germany1": {
               "model": "tabnet",
-              "ensemble": "E3_CLEAN_ELO_45",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 2,
               "total": 3,
               "accuracy": 66.7
@@ -9453,10 +9453,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 12,
@@ -9485,10 +9485,10 @@
               "closeness": 0.15,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 14,
@@ -9555,13 +9555,13 @@
           "doubles_count": 4,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E2_CLEAN_42",
+          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 11,
           "total": 16,
           "accuracy": 68.8,
-          "single_combo_points": 10,
+          "single_combo_points": 9,
           "single_combo_total": 16,
-          "single_combo_accuracy": 62.5,
+          "single_combo_accuracy": 56.2,
           "close_threshold": 0.15,
           "per_league_best": {
             "France1": {
@@ -9579,7 +9579,7 @@
               "accuracy": 75.0
             },
             "Spain1": {
-              "model": "tabnet",
+              "model": "mlp_large",
               "ensemble": "E8_COMPACT_23",
               "points": 2,
               "total": 3,
@@ -9594,7 +9594,7 @@
             },
             "Germany1": {
               "model": "tabnet",
-              "ensemble": "E3_CLEAN_ELO_45",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 2,
               "total": 3,
               "accuracy": 66.7
@@ -9772,10 +9772,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 12,
@@ -9804,10 +9804,10 @@
               "closeness": 0.15,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 14,
@@ -9852,7 +9852,7 @@
               "closeness": 0.15,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -9865,7 +9865,7 @@
               "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)",
               "Como vs Inter: 2+X (actual: 2, \u2713)",
               "Toulouse vs Lille: 2+X (actual: 2, \u2713)",
-              "Angers vs Le Havre: 1+X (actual: X, \u2713)"
+              "Angers vs Le Havre: 2+X (actual: X, \u2713)"
             ]
           },
           "triple_summary": null
@@ -9875,10 +9875,10 @@
           "doubles_count": 5,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E2_CLEAN_42",
-          "points": 11,
+          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
+          "points": 12,
           "total": 16,
-          "accuracy": 68.8,
+          "accuracy": 75.0,
           "single_combo_points": 10,
           "single_combo_total": 16,
           "single_combo_accuracy": 62.5,
@@ -9899,7 +9899,7 @@
               "accuracy": 75.0
             },
             "Spain1": {
-              "model": "tabnet",
+              "model": "mlp_large",
               "ensemble": "E8_COMPACT_23",
               "points": 2,
               "total": 3,
@@ -9913,11 +9913,11 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "gradient_boosting",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 2,
+              "points": 3,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 100.0
             }
           },
           "games": [
@@ -10092,10 +10092,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 12,
@@ -10172,7 +10172,7 @@
               "closeness": 0.15,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -10186,7 +10186,7 @@
               "Como vs Inter: 2+X (actual: 2, \u2713)",
               "FSV Mainz 05 vs SC Freiburg: X+2 (actual: 2, \u2713)",
               "Toulouse vs Lille: 2+X (actual: 2, \u2713)",
-              "Angers vs Le Havre: 1+X (actual: X, \u2713)"
+              "Angers vs Le Havre: 2+X (actual: X, \u2713)"
             ]
           },
           "triple_summary": null
@@ -10196,13 +10196,13 @@
           "doubles_count": 3,
           "triples_count": 1,
           "best_model": "tabnet",
-          "best_ensemble": "E2_CLEAN_42",
+          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 11,
           "total": 16,
           "accuracy": 68.8,
-          "single_combo_points": 10,
+          "single_combo_points": 9,
           "single_combo_total": 16,
-          "single_combo_accuracy": 62.5,
+          "single_combo_accuracy": 56.2,
           "close_threshold": 0.15,
           "per_league_best": {
             "France1": {
@@ -10235,7 +10235,7 @@
             },
             "Germany1": {
               "model": "tabnet",
-              "ensemble": "E3_CLEAN_ELO_45",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 2,
               "total": 3,
               "accuracy": 66.7
@@ -10413,10 +10413,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 12,
@@ -10445,10 +10445,10 @@
               "closeness": 0.15,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 14,
@@ -10493,7 +10493,7 @@
               "closeness": 0.15,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -10505,7 +10505,7 @@
             "games": [
               "Como vs Inter: 2+X (actual: 2, \u2713)",
               "Toulouse vs Lille: 2+X (actual: 2, \u2713)",
-              "Angers vs Le Havre: 1+X (actual: X, \u2713)"
+              "Angers vs Le Havre: 2+X (actual: X, \u2713)"
             ]
           },
           "triple_summary": {
@@ -10523,13 +10523,13 @@
       "form_type": "world",
       "form_date": "11.04.2026",
       "best_model": "tabnet",
-      "best_ensemble": "E8_COMPACT_23",
+      "best_ensemble": "E3_CLEAN_ELO_45",
       "points": 14,
       "total": 15,
       "accuracy": 93.3,
-      "single_combo_points": 14,
+      "single_combo_points": 12,
       "single_combo_total": 15,
-      "single_combo_accuracy": 93.3,
+      "single_combo_accuracy": 80.0,
       "close_threshold": 0.35,
       "per_league_best": {
         "England1": {
@@ -10541,7 +10541,7 @@
         },
         "Spain1": {
           "model": "tabnet",
-          "ensemble": "E4_CLEAN_ELO_TREND_56",
+          "ensemble": "E3_CLEAN_ELO_45",
           "points": 3,
           "total": 3,
           "accuracy": 100.0
@@ -10819,13 +10819,13 @@
           "doubles_count": 3,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E8_COMPACT_23",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 14,
           "total": 15,
           "accuracy": 93.3,
-          "single_combo_points": 13,
+          "single_combo_points": 12,
           "single_combo_total": 15,
-          "single_combo_accuracy": 86.7,
+          "single_combo_accuracy": 80.0,
           "close_threshold": 0.3,
           "per_league_best": {
             "England1": {
@@ -10837,7 +10837,7 @@
             },
             "Spain1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 3,
               "total": 3,
               "accuracy": 100.0
@@ -11115,13 +11115,13 @@
           "doubles_count": 4,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E8_COMPACT_23",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 14,
           "total": 15,
           "accuracy": 93.3,
-          "single_combo_points": 14,
+          "single_combo_points": 12,
           "single_combo_total": 15,
-          "single_combo_accuracy": 93.3,
+          "single_combo_accuracy": 80.0,
           "close_threshold": 0.35,
           "per_league_best": {
             "England1": {
@@ -11133,7 +11133,7 @@
             },
             "Spain1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 3,
               "total": 3,
               "accuracy": 100.0
@@ -11412,13 +11412,13 @@
           "doubles_count": 5,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E8_COMPACT_23",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 14,
           "total": 15,
           "accuracy": 93.3,
-          "single_combo_points": 14,
+          "single_combo_points": 12,
           "single_combo_total": 15,
-          "single_combo_accuracy": 93.3,
+          "single_combo_accuracy": 80.0,
           "close_threshold": 0.5,
           "per_league_best": {
             "England1": {
@@ -11430,7 +11430,7 @@
             },
             "Spain1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 3,
               "total": 3,
               "accuracy": 100.0
@@ -11710,13 +11710,13 @@
           "doubles_count": 3,
           "triples_count": 1,
           "best_model": "tabnet",
-          "best_ensemble": "E8_COMPACT_23",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 14,
           "total": 15,
           "accuracy": 93.3,
-          "single_combo_points": 14,
+          "single_combo_points": 12,
           "single_combo_total": 15,
-          "single_combo_accuracy": 93.3,
+          "single_combo_accuracy": 80.0,
           "close_threshold": 0.35,
           "per_league_best": {
             "England1": {
@@ -11728,7 +11728,7 @@
             },
             "Spain1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 3,
               "total": 3,
               "accuracy": 100.0
@@ -12045,7 +12045,7 @@
           "accuracy": 33.3
         },
         "Germany1": {
-          "model": "tabnet",
+          "model": "calibrated_rf",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 4,
           "total": 5,
@@ -12176,7 +12176,7 @@
           "closeness": 0.6,
           "is_double": false,
           "is_triple": false,
-          "prediction": "1",
+          "prediction": "X",
           "double_prediction": null,
           "actual": "2",
           "correct": false
@@ -12472,7 +12472,7 @@
               "closeness": 0.6,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "2",
               "correct": false
@@ -12637,7 +12637,7 @@
               "accuracy": 33.3
             },
             "Germany1": {
-              "model": "tabnet",
+              "model": "calibrated_rf",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 4,
               "total": 5,
@@ -12768,7 +12768,7 @@
               "closeness": 0.6,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "2",
               "correct": false
@@ -12934,7 +12934,7 @@
               "accuracy": 33.3
             },
             "Germany1": {
-              "model": "tabnet",
+              "model": "calibrated_rf",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 4,
               "total": 5,
@@ -13065,7 +13065,7 @@
               "closeness": 0.6,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "2",
               "correct": false
@@ -13200,7 +13200,7 @@
           "label": "3 doubles + 1 triple",
           "doubles_count": 3,
           "triples_count": 1,
-          "best_model": "tabnet",
+          "best_model": "calibrated_rf",
           "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 10,
           "total": 15,
@@ -13232,7 +13232,7 @@
               "accuracy": 33.3
             },
             "Germany1": {
-              "model": "tabnet",
+              "model": "calibrated_rf",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 4,
               "total": 5,
@@ -13363,7 +13363,7 @@
               "closeness": 0.6,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "2",
               "correct": false
@@ -15031,21 +15031,21 @@
       "form_type": "winner16",
       "form_date": "16.05.2026",
       "best_model": "tabnet",
-      "best_ensemble": "E1_ORIGINAL_51",
-      "points": 11,
+      "best_ensemble": "E3_CLEAN_ELO_45",
+      "points": 10,
       "total": 15,
-      "accuracy": 73.3,
-      "single_combo_points": 9,
+      "accuracy": 66.7,
+      "single_combo_points": 8,
       "single_combo_total": 15,
-      "single_combo_accuracy": 60.0,
+      "single_combo_accuracy": 53.3,
       "close_threshold": 0.2,
       "per_league_best": {
         "Israel1": {
           "model": "tabnet",
-          "ensemble": "E4_CLEAN_ELO_TREND_56",
-          "points": 4,
+          "ensemble": "E3_CLEAN_ELO_45",
+          "points": 3,
           "total": 5,
-          "accuracy": 80.0
+          "accuracy": 60.0
         },
         "England1": {
           "model": "gradient_boosting",
@@ -15055,7 +15055,7 @@
           "accuracy": 100.0
         },
         "Spain1": {
-          "model": "calibrated_rf",
+          "model": "tabnet",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 3,
           "total": 3,
@@ -15136,10 +15136,10 @@
           "closeness": 0.35,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "2",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 6,
@@ -15334,21 +15334,21 @@
           "doubles_count": 3,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E1_ORIGINAL_51",
-          "points": 11,
+          "best_ensemble": "E3_CLEAN_ELO_45",
+          "points": 10,
           "total": 15,
-          "accuracy": 73.3,
-          "single_combo_points": 9,
+          "accuracy": 66.7,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 60.0,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.15,
           "per_league_best": {
             "Israel1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 4,
+              "ensemble": "E3_CLEAN_ELO_45",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "England1": {
               "model": "gradient_boosting",
@@ -15358,7 +15358,7 @@
               "accuracy": 100.0
             },
             "Spain1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -15439,10 +15439,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 6,
@@ -15637,21 +15637,21 @@
           "doubles_count": 4,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E1_ORIGINAL_51",
-          "points": 11,
+          "best_ensemble": "E3_CLEAN_ELO_45",
+          "points": 10,
           "total": 15,
-          "accuracy": 73.3,
-          "single_combo_points": 9,
+          "accuracy": 66.7,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 60.0,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.2,
           "per_league_best": {
             "Israel1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 4,
+              "ensemble": "E3_CLEAN_ELO_45",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "England1": {
               "model": "gradient_boosting",
@@ -15661,7 +15661,7 @@
               "accuracy": 100.0
             },
             "Spain1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -15742,10 +15742,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 6,
@@ -15941,21 +15941,21 @@
           "doubles_count": 5,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E1_ORIGINAL_51",
-          "points": 11,
+          "best_ensemble": "E3_CLEAN_ELO_45",
+          "points": 10,
           "total": 15,
-          "accuracy": 73.3,
-          "single_combo_points": 9,
+          "accuracy": 66.7,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 60.0,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.2,
           "per_league_best": {
             "Israel1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 4,
+              "ensemble": "E3_CLEAN_ELO_45",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "England1": {
               "model": "gradient_boosting",
@@ -15965,7 +15965,7 @@
               "accuracy": 100.0
             },
             "Spain1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -16046,10 +16046,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 6,
@@ -16246,21 +16246,21 @@
           "doubles_count": 3,
           "triples_count": 1,
           "best_model": "tabnet",
-          "best_ensemble": "E1_ORIGINAL_51",
-          "points": 11,
+          "best_ensemble": "E3_CLEAN_ELO_45",
+          "points": 10,
           "total": 15,
-          "accuracy": 73.3,
-          "single_combo_points": 9,
+          "accuracy": 66.7,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 60.0,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.2,
           "per_league_best": {
             "Israel1": {
               "model": "tabnet",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 4,
+              "ensemble": "E3_CLEAN_ELO_45",
+              "points": 3,
               "total": 5,
-              "accuracy": 80.0
+              "accuracy": 60.0
             },
             "England1": {
               "model": "gradient_boosting",
@@ -16270,7 +16270,7 @@
               "accuracy": 100.0
             },
             "Spain1": {
-              "model": "calibrated_rf",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -16351,10 +16351,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 6,
@@ -16556,19 +16556,19 @@
       "form_id": "261801",
       "form_type": "winner16",
       "form_date": "09.05.2026",
-      "best_model": "mlp_large",
-      "best_ensemble": "E4_CLEAN_ELO_TREND_56",
-      "points": 10,
+      "best_model": "tabnet",
+      "best_ensemble": "E8_COMPACT_23",
+      "points": 11,
       "total": 15,
-      "accuracy": 66.7,
-      "single_combo_points": 7,
+      "accuracy": 73.3,
+      "single_combo_points": 8,
       "single_combo_total": 15,
-      "single_combo_accuracy": 46.7,
+      "single_combo_accuracy": 53.3,
       "close_threshold": 0.25,
       "per_league_best": {
         "Israel1": {
-          "model": "gradient_boosting",
-          "ensemble": "E4_CLEAN_ELO_TREND_56",
+          "model": "tabnet",
+          "ensemble": "E3_CLEAN_ELO_45",
           "points": 2,
           "total": 5,
           "accuracy": 40.0
@@ -16588,11 +16588,11 @@
           "accuracy": 66.7
         },
         "Germany1": {
-          "model": "extra_trees",
-          "ensemble": "E4_CLEAN_ELO_TREND_56",
-          "points": 2,
+          "model": "tabnet",
+          "ensemble": "E2_CLEAN_42",
+          "points": 3,
           "total": 3,
-          "accuracy": 66.7
+          "accuracy": 100.0
         },
         "France1": {
           "model": "tabnet",
@@ -16614,7 +16614,7 @@
           "closeness": 0.55,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "X",
           "correct": false
@@ -16646,10 +16646,10 @@
           "closeness": 1.3,
           "is_double": false,
           "is_triple": false,
-          "prediction": "X",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "X",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 4,
@@ -16662,10 +16662,10 @@
           "closeness": 0.2,
           "is_double": true,
           "is_triple": false,
-          "prediction": "X",
-          "double_prediction": "2",
+          "prediction": "1",
+          "double_prediction": "X",
           "actual": "1",
-          "correct": false
+          "correct": true
         },
         {
           "game_number": 6,
@@ -16822,10 +16822,10 @@
           "closeness": 0.55,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "1",
-          "correct": false
+          "correct": true
         },
         {
           "game_number": 16,
@@ -16846,9 +16846,9 @@
       ],
       "doubles_summary": {
         "count": 4,
-        "correct": 3,
+        "correct": 4,
         "games": [
-          "Hapoel Haifa vs Ashdod: X+2 (actual: 1, \u2717)",
+          "Hapoel Haifa vs Ashdod: 1+X (actual: 1, \u2713)",
           "Nottingham Forest vs Newcastle: X+1 (actual: X, \u2713)",
           "Oviedo vs Getafe: 2+X (actual: X, \u2713)",
           "Auxerre vs Nice: 1+X (actual: 1, \u2713)"
@@ -16859,19 +16859,19 @@
           "label": "3 doubles",
           "doubles_count": 3,
           "triples_count": 0,
-          "best_model": "mlp_large",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
-          "points": 10,
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
+          "points": 11,
           "total": 15,
-          "accuracy": 66.7,
-          "single_combo_points": 7,
+          "accuracy": 73.3,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 46.7,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.2,
           "per_league_best": {
             "Israel1": {
-              "model": "gradient_boosting",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "model": "tabnet",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 2,
               "total": 5,
               "accuracy": 40.0
@@ -16891,11 +16891,11 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "extra_trees",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 2,
+              "model": "tabnet",
+              "ensemble": "E2_CLEAN_42",
+              "points": 3,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 100.0
             },
             "France1": {
               "model": "tabnet",
@@ -16917,7 +16917,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -16949,10 +16949,10 @@
               "closeness": 1.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -16965,10 +16965,10 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "X",
-              "double_prediction": "2",
+              "prediction": "1",
+              "double_prediction": "X",
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -17125,10 +17125,10 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 16,
@@ -17149,9 +17149,9 @@
           ],
           "doubles_summary": {
             "count": 3,
-            "correct": 2,
+            "correct": 3,
             "games": [
-              "Hapoel Haifa vs Ashdod: X+2 (actual: 1, \u2717)",
+              "Hapoel Haifa vs Ashdod: 1+X (actual: 1, \u2713)",
               "Nottingham Forest vs Newcastle: X+1 (actual: X, \u2713)",
               "Oviedo vs Getafe: 2+X (actual: X, \u2713)"
             ]
@@ -17162,19 +17162,19 @@
           "label": "4 doubles",
           "doubles_count": 4,
           "triples_count": 0,
-          "best_model": "mlp_large",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
-          "points": 10,
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
+          "points": 11,
           "total": 15,
-          "accuracy": 66.7,
-          "single_combo_points": 7,
+          "accuracy": 73.3,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 46.7,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "gradient_boosting",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "model": "tabnet",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 2,
               "total": 5,
               "accuracy": 40.0
@@ -17194,11 +17194,11 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "extra_trees",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 2,
+              "model": "tabnet",
+              "ensemble": "E2_CLEAN_42",
+              "points": 3,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 100.0
             },
             "France1": {
               "model": "tabnet",
@@ -17220,7 +17220,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -17252,10 +17252,10 @@
               "closeness": 1.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -17268,10 +17268,10 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "X",
-              "double_prediction": "2",
+              "prediction": "1",
+              "double_prediction": "X",
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -17428,10 +17428,10 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 16,
@@ -17452,9 +17452,9 @@
           ],
           "doubles_summary": {
             "count": 4,
-            "correct": 3,
+            "correct": 4,
             "games": [
-              "Hapoel Haifa vs Ashdod: X+2 (actual: 1, \u2717)",
+              "Hapoel Haifa vs Ashdod: 1+X (actual: 1, \u2713)",
               "Nottingham Forest vs Newcastle: X+1 (actual: X, \u2713)",
               "Oviedo vs Getafe: 2+X (actual: X, \u2713)",
               "Auxerre vs Nice: 1+X (actual: 1, \u2713)"
@@ -17466,19 +17466,19 @@
           "label": "5 doubles",
           "doubles_count": 5,
           "triples_count": 0,
-          "best_model": "mlp_large",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
-          "points": 10,
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
+          "points": 11,
           "total": 15,
-          "accuracy": 66.7,
-          "single_combo_points": 7,
+          "accuracy": 73.3,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 46.7,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.35,
           "per_league_best": {
             "Israel1": {
-              "model": "gradient_boosting",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "model": "tabnet",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 2,
               "total": 5,
               "accuracy": 40.0
@@ -17498,11 +17498,11 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "extra_trees",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 2,
+              "model": "tabnet",
+              "ensemble": "E2_CLEAN_42",
+              "points": 3,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 100.0
             },
             "France1": {
               "model": "tabnet",
@@ -17524,7 +17524,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -17556,10 +17556,10 @@
               "closeness": 1.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -17572,10 +17572,10 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "X",
-              "double_prediction": "2",
+              "prediction": "1",
+              "double_prediction": "X",
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -17732,10 +17732,10 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 16,
@@ -17756,9 +17756,9 @@
           ],
           "doubles_summary": {
             "count": 5,
-            "correct": 4,
+            "correct": 5,
             "games": [
-              "Hapoel Haifa vs Ashdod: X+2 (actual: 1, \u2717)",
+              "Hapoel Haifa vs Ashdod: 1+X (actual: 1, \u2713)",
               "Nottingham Forest vs Newcastle: X+1 (actual: X, \u2713)",
               "Oviedo vs Getafe: 2+X (actual: X, \u2713)",
               "FC Augsburg vs Borussia M\u00f6nchengladbach: 1+X (actual: 1, \u2713)",
@@ -17771,19 +17771,19 @@
           "label": "3 doubles + 1 triple",
           "doubles_count": 3,
           "triples_count": 1,
-          "best_model": "mlp_large",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
-          "points": 10,
+          "best_model": "tabnet",
+          "best_ensemble": "E8_COMPACT_23",
+          "points": 11,
           "total": 15,
-          "accuracy": 66.7,
-          "single_combo_points": 7,
+          "accuracy": 73.3,
+          "single_combo_points": 8,
           "single_combo_total": 15,
-          "single_combo_accuracy": 46.7,
+          "single_combo_accuracy": 53.3,
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "gradient_boosting",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
+              "model": "tabnet",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 2,
               "total": 5,
               "accuracy": 40.0
@@ -17803,11 +17803,11 @@
               "accuracy": 66.7
             },
             "Germany1": {
-              "model": "extra_trees",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 2,
+              "model": "tabnet",
+              "ensemble": "E2_CLEAN_42",
+              "points": 3,
               "total": 3,
-              "accuracy": 66.7
+              "accuracy": 100.0
             },
             "France1": {
               "model": "tabnet",
@@ -17829,7 +17829,7 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
               "correct": false
@@ -17861,10 +17861,10 @@
               "closeness": 1.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 4,
@@ -17877,10 +17877,10 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "X",
-              "double_prediction": "2",
+              "prediction": "1",
+              "double_prediction": "X",
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -18037,10 +18037,10 @@
               "closeness": 0.55,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "1",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 16,
@@ -18061,9 +18061,9 @@
           ],
           "doubles_summary": {
             "count": 3,
-            "correct": 2,
+            "correct": 3,
             "games": [
-              "Hapoel Haifa vs Ashdod: X+2 (actual: 1, \u2717)",
+              "Hapoel Haifa vs Ashdod: 1+X (actual: 1, \u2713)",
               "Oviedo vs Getafe: 2+X (actual: X, \u2713)",
               "Auxerre vs Nice: 1+X (actual: 1, \u2713)"
             ]
@@ -18082,19 +18082,19 @@
       "form_id": "261701",
       "form_type": "winner16",
       "form_date": "02.05.2026",
-      "best_model": "catboost",
+      "best_model": "gradient_boosting",
       "best_ensemble": "E8_COMPACT_23",
       "points": 14,
       "total": 15,
       "accuracy": 93.3,
-      "single_combo_points": 12,
+      "single_combo_points": 11,
       "single_combo_total": 15,
-      "single_combo_accuracy": 80.0,
+      "single_combo_accuracy": 73.3,
       "close_threshold": 0.25,
       "per_league_best": {
         "Israel1": {
-          "model": "catboost",
-          "ensemble": "E7_ELO_API_82",
+          "model": "gradient_boosting",
+          "ensemble": "E8_COMPACT_23",
           "points": 6,
           "total": 6,
           "accuracy": 100.0
@@ -18393,10 +18393,10 @@
           "doubles_count": 3,
           "triples_count": 0,
           "best_model": "calibrated_rf",
-          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
-          "points": 13,
+          "best_ensemble": "E8_COMPACT_23",
+          "points": 14,
           "total": 15,
-          "accuracy": 86.7,
+          "accuracy": 93.3,
           "single_combo_points": 11,
           "single_combo_total": 15,
           "single_combo_accuracy": 73.3,
@@ -18404,10 +18404,10 @@
           "per_league_best": {
             "Israel1": {
               "model": "calibrated_rf",
-              "ensemble": "E4_CLEAN_ELO_TREND_56",
-              "points": 5,
+              "ensemble": "E8_COMPACT_23",
+              "points": 6,
               "total": 6,
-              "accuracy": 83.3
+              "accuracy": 100.0
             },
             "England1": {
               "model": "tabnet",
@@ -18521,10 +18521,10 @@
               "closeness": 0.25,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -18702,19 +18702,19 @@
           "label": "4 doubles",
           "doubles_count": 4,
           "triples_count": 0,
-          "best_model": "catboost",
+          "best_model": "gradient_boosting",
           "best_ensemble": "E8_COMPACT_23",
           "points": 14,
           "total": 15,
           "accuracy": 93.3,
-          "single_combo_points": 12,
+          "single_combo_points": 11,
           "single_combo_total": 15,
-          "single_combo_accuracy": 80.0,
+          "single_combo_accuracy": 73.3,
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "catboost",
-              "ensemble": "E7_ELO_API_82",
+              "model": "gradient_boosting",
+              "ensemble": "E8_COMPACT_23",
               "points": 6,
               "total": 6,
               "accuracy": 100.0
@@ -19013,19 +19013,19 @@
           "label": "5 doubles",
           "doubles_count": 5,
           "triples_count": 0,
-          "best_model": "catboost",
+          "best_model": "gradient_boosting",
           "best_ensemble": "E8_COMPACT_23",
           "points": 14,
           "total": 15,
           "accuracy": 93.3,
-          "single_combo_points": 12,
+          "single_combo_points": 11,
           "single_combo_total": 15,
-          "single_combo_accuracy": 80.0,
+          "single_combo_accuracy": 73.3,
           "close_threshold": 0.3,
           "per_league_best": {
             "Israel1": {
-              "model": "catboost",
-              "ensemble": "E7_ELO_API_82",
+              "model": "gradient_boosting",
+              "ensemble": "E8_COMPACT_23",
               "points": 6,
               "total": 6,
               "accuracy": 100.0
@@ -19325,19 +19325,19 @@
           "label": "3 doubles + 1 triple",
           "doubles_count": 3,
           "triples_count": 1,
-          "best_model": "catboost",
+          "best_model": "gradient_boosting",
           "best_ensemble": "E8_COMPACT_23",
           "points": 14,
           "total": 15,
           "accuracy": 93.3,
-          "single_combo_points": 12,
+          "single_combo_points": 11,
           "single_combo_total": 15,
-          "single_combo_accuracy": 80.0,
+          "single_combo_accuracy": 73.3,
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "catboost",
-              "ensemble": "E7_ELO_API_82",
+              "model": "gradient_boosting",
+              "ensemble": "E8_COMPACT_23",
               "points": 6,
               "total": 6,
               "accuracy": 100.0
@@ -19654,15 +19654,15 @@
       "close_threshold": 0.25,
       "per_league_best": {
         "Israel1": {
-          "model": "tabnet",
-          "ensemble": "E7_ELO_API_82",
+          "model": "gradient_boosting",
+          "ensemble": "E1_ORIGINAL_51",
           "points": 4,
           "total": 6,
           "accuracy": 66.7
         },
         "England1": {
-          "model": "mlp_large",
-          "ensemble": "E3_CLEAN_ELO_45",
+          "model": "tabnet",
+          "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 1,
           "total": 1,
           "accuracy": 100.0
@@ -19675,7 +19675,7 @@
           "accuracy": 50.0
         },
         "Italy1": {
-          "model": "extra_trees",
+          "model": "tabnet",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 3,
           "total": 3,
@@ -19749,10 +19749,10 @@
           "closeness": 0.25,
           "is_double": true,
           "is_triple": false,
-          "prediction": "1",
-          "double_prediction": "X",
+          "prediction": "X",
+          "double_prediction": "2",
           "actual": "2",
-          "correct": false
+          "correct": true
         },
         {
           "game_number": 5,
@@ -19781,10 +19781,10 @@
           "closeness": 0.3,
           "is_double": false,
           "is_triple": false,
-          "prediction": "1",
+          "prediction": "2",
           "double_prediction": null,
           "actual": "1",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 8,
@@ -19861,7 +19861,7 @@
           "closeness": 0.2,
           "is_double": true,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": "X",
           "actual": "X",
           "correct": true
@@ -19933,12 +19933,12 @@
       ],
       "doubles_summary": {
         "count": 4,
-        "correct": 3,
+        "correct": 4,
         "games": [
           "Hapoel Petah Tikva vs Hapoel Tel Aviv: 2+X (actual: 2, \u2713)",
-          "Ashdod vs Maccabi Bnei Raina: 1+X (actual: 2, \u2717)",
+          "Ashdod vs Maccabi Bnei Raina: X+2 (actual: 2, \u2713)",
           "AC Milan vs Juventus: 1+X (actual: X, \u2713)",
-          "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)"
+          "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)"
         ]
       },
       "double_variants": {
@@ -19957,15 +19957,15 @@
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "tabnet",
-              "ensemble": "E7_ELO_API_82",
+              "model": "extra_trees",
+              "ensemble": "E2_CLEAN_42",
               "points": 4,
               "total": 6,
               "accuracy": 66.7
             },
             "England1": {
-              "model": "mlp_large",
-              "ensemble": "E3_CLEAN_ELO_45",
+              "model": "tabnet",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
               "accuracy": 100.0
@@ -19978,7 +19978,7 @@
               "accuracy": 50.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -20052,10 +20052,10 @@
               "closeness": 0.25,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 5,
@@ -20084,10 +20084,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 8,
@@ -20164,7 +20164,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -20240,7 +20240,7 @@
             "games": [
               "Hapoel Petah Tikva vs Hapoel Tel Aviv: 2+X (actual: 2, \u2713)",
               "AC Milan vs Juventus: 1+X (actual: X, \u2713)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)"
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)"
             ]
           },
           "triple_summary": null
@@ -20260,15 +20260,15 @@
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "tabnet",
-              "ensemble": "E7_ELO_API_82",
+              "model": "gradient_boosting",
+              "ensemble": "E1_ORIGINAL_51",
               "points": 4,
               "total": 6,
               "accuracy": 66.7
             },
             "England1": {
-              "model": "mlp_large",
-              "ensemble": "E3_CLEAN_ELO_45",
+              "model": "tabnet",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
               "accuracy": 100.0
@@ -20281,7 +20281,7 @@
               "accuracy": 50.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -20355,10 +20355,10 @@
               "closeness": 0.25,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
-              "double_prediction": "X",
+              "prediction": "X",
+              "double_prediction": "2",
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 5,
@@ -20387,10 +20387,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 8,
@@ -20467,7 +20467,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -20539,12 +20539,12 @@
           ],
           "doubles_summary": {
             "count": 4,
-            "correct": 3,
+            "correct": 4,
             "games": [
               "Hapoel Petah Tikva vs Hapoel Tel Aviv: 2+X (actual: 2, \u2713)",
-              "Ashdod vs Maccabi Bnei Raina: 1+X (actual: 2, \u2717)",
+              "Ashdod vs Maccabi Bnei Raina: X+2 (actual: 2, \u2713)",
               "AC Milan vs Juventus: 1+X (actual: X, \u2713)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)"
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)"
             ]
           },
           "triple_summary": null
@@ -20564,15 +20564,15 @@
           "close_threshold": 0.3,
           "per_league_best": {
             "Israel1": {
-              "model": "tabnet",
-              "ensemble": "E7_ELO_API_82",
+              "model": "gradient_boosting",
+              "ensemble": "E1_ORIGINAL_51",
               "points": 4,
               "total": 6,
               "accuracy": 66.7
             },
             "England1": {
-              "model": "mlp_large",
-              "ensemble": "E3_CLEAN_ELO_45",
+              "model": "tabnet",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
               "accuracy": 100.0
@@ -20585,7 +20585,7 @@
               "accuracy": 50.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -20659,10 +20659,10 @@
               "closeness": 0.25,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
-              "double_prediction": "X",
+              "prediction": "X",
+              "double_prediction": "2",
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 5,
@@ -20691,10 +20691,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 8,
@@ -20771,7 +20771,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -20843,12 +20843,12 @@
           ],
           "doubles_summary": {
             "count": 5,
-            "correct": 4,
+            "correct": 5,
             "games": [
               "Hapoel Petah Tikva vs Hapoel Tel Aviv: 2+X (actual: 2, \u2713)",
-              "Ashdod vs Maccabi Bnei Raina: 1+X (actual: 2, \u2717)",
+              "Ashdod vs Maccabi Bnei Raina: X+2 (actual: 2, \u2713)",
               "AC Milan vs Juventus: 1+X (actual: X, \u2713)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)",
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)",
               "1. FC Heidenheim vs FC St. Pauli: 1+X (actual: 1, \u2713)"
             ]
           },
@@ -20869,15 +20869,15 @@
           "close_threshold": 0.25,
           "per_league_best": {
             "Israel1": {
-              "model": "tabnet",
-              "ensemble": "E7_ELO_API_82",
+              "model": "gradient_boosting",
+              "ensemble": "E1_ORIGINAL_51",
               "points": 4,
               "total": 6,
               "accuracy": 66.7
             },
             "England1": {
-              "model": "mlp_large",
-              "ensemble": "E3_CLEAN_ELO_45",
+              "model": "tabnet",
+              "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 1,
               "total": 1,
               "accuracy": 100.0
@@ -20890,7 +20890,7 @@
               "accuracy": 50.0
             },
             "Italy1": {
-              "model": "extra_trees",
+              "model": "tabnet",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 3,
               "total": 3,
@@ -20964,10 +20964,10 @@
               "closeness": 0.25,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
-              "double_prediction": "X",
+              "prediction": "X",
+              "double_prediction": "2",
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 5,
@@ -20996,10 +20996,10 @@
               "closeness": 0.3,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "1",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 8,
@@ -21076,7 +21076,7 @@
               "closeness": 0.2,
               "is_double": true,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -21148,11 +21148,11 @@
           ],
           "doubles_summary": {
             "count": 3,
-            "correct": 2,
+            "correct": 3,
             "games": [
               "Hapoel Petah Tikva vs Hapoel Tel Aviv: 2+X (actual: 2, \u2713)",
-              "Ashdod vs Maccabi Bnei Raina: 1+X (actual: 2, \u2717)",
-              "Hellas Verona vs Lecce: 2+X (actual: X, \u2713)"
+              "Ashdod vs Maccabi Bnei Raina: X+2 (actual: 2, \u2713)",
+              "Hellas Verona vs Lecce: 1+X (actual: X, \u2713)"
             ]
           },
           "triple_summary": {
@@ -21170,17 +21170,17 @@
       "form_type": "winner16",
       "form_date": "11.04.2026",
       "best_model": "tabnet",
-      "best_ensemble": "E3_CLEAN_ELO_45",
+      "best_ensemble": "E4_CLEAN_ELO_TREND_56",
       "points": 12,
       "total": 15,
       "accuracy": 80.0,
-      "single_combo_points": 10,
+      "single_combo_points": 9,
       "single_combo_total": 15,
-      "single_combo_accuracy": 66.7,
+      "single_combo_accuracy": 60.0,
       "close_threshold": 0.2,
       "per_league_best": {
         "Israel1": {
-          "model": "extra_trees",
+          "model": "gradient_boosting",
           "ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 4,
           "total": 5,
@@ -21220,10 +21220,10 @@
           "closeness": 0.35,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "1",
           "double_prediction": null,
           "actual": "2",
-          "correct": true
+          "correct": false
         },
         {
           "game_number": 3,
@@ -21252,7 +21252,7 @@
           "closeness": 0.0,
           "is_double": true,
           "is_triple": false,
-          "prediction": "1",
+          "prediction": "2",
           "double_prediction": "X",
           "actual": "X",
           "correct": true
@@ -21268,10 +21268,10 @@
           "closeness": 0.2,
           "is_double": false,
           "is_triple": false,
-          "prediction": "2",
+          "prediction": "X",
           "double_prediction": null,
           "actual": "X",
-          "correct": false
+          "correct": true
         },
         {
           "game_number": 6,
@@ -21455,7 +21455,7 @@
         "correct": 4,
         "games": [
           "Ironi Tiberias vs Ashdod: 2+X (actual: X, \u2713)",
-          "Maccabi Netanya vs Hapoel Haifa: 1+X (actual: X, \u2713)",
+          "Maccabi Netanya vs Hapoel Haifa: 2+X (actual: X, \u2713)",
           "Brentford vs Everton: 2+X (actual: X, \u2713)",
           "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)"
         ]
@@ -21465,19 +21465,19 @@
           "label": "3 doubles",
           "doubles_count": 3,
           "triples_count": 0,
-          "best_model": "gradient_boosting",
-          "best_ensemble": "E1_ORIGINAL_51",
+          "best_model": "tabnet",
+          "best_ensemble": "E3_CLEAN_ELO_45",
           "points": 12,
           "total": 15,
           "accuracy": 80.0,
-          "single_combo_points": 10,
+          "single_combo_points": 9,
           "single_combo_total": 15,
-          "single_combo_accuracy": 66.7,
+          "single_combo_accuracy": 60.0,
           "close_threshold": 0.1,
           "per_league_best": {
             "Israel1": {
-              "model": "gradient_boosting",
-              "ensemble": "E1_ORIGINAL_51",
+              "model": "tabnet",
+              "ensemble": "E3_CLEAN_ELO_45",
               "points": 4,
               "total": 5,
               "accuracy": 80.0
@@ -21516,10 +21516,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "2",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 3,
@@ -21548,8 +21548,8 @@
               "closeness": 0.0,
               "is_double": true,
               "is_triple": false,
-              "prediction": "X",
-              "double_prediction": "2",
+              "prediction": "1",
+              "double_prediction": "X",
               "actual": "X",
               "correct": true
             },
@@ -21564,10 +21564,10 @@
               "closeness": 0.2,
               "is_double": false,
               "is_triple": false,
-              "prediction": "X",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "X",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 6,
@@ -21750,7 +21750,7 @@
             "count": 3,
             "correct": 3,
             "games": [
-              "Maccabi Netanya vs Hapoel Haifa: X+2 (actual: X, \u2713)",
+              "Maccabi Netanya vs Hapoel Haifa: 1+X (actual: X, \u2713)",
               "Brentford vs Everton: 2+X (actual: X, \u2713)",
               "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)"
             ]
@@ -21762,17 +21762,17 @@
           "doubles_count": 4,
           "triples_count": 0,
           "best_model": "tabnet",
-          "best_ensemble": "E3_CLEAN_ELO_45",
+          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 12,
           "total": 15,
           "accuracy": 80.0,
-          "single_combo_points": 10,
+          "single_combo_points": 9,
           "single_combo_total": 15,
-          "single_combo_accuracy": 66.7,
+          "single_combo_accuracy": 60.0,
           "close_threshold": 0.2,
           "per_league_best": {
             "Israel1": {
-              "model": "extra_trees",
+              "model": "gradient_boosting",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 4,
               "total": 5,
@@ -21812,10 +21812,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 3,
@@ -21844,7 +21844,7 @@
               "closeness": 0.0,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -21860,10 +21860,10 @@
               "closeness": 0.2,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "X",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -22047,7 +22047,7 @@
             "correct": 4,
             "games": [
               "Ironi Tiberias vs Ashdod: 2+X (actual: X, \u2713)",
-              "Maccabi Netanya vs Hapoel Haifa: 1+X (actual: X, \u2713)",
+              "Maccabi Netanya vs Hapoel Haifa: 2+X (actual: X, \u2713)",
               "Brentford vs Everton: 2+X (actual: X, \u2713)",
               "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)"
             ]
@@ -22063,13 +22063,13 @@
           "points": 12,
           "total": 15,
           "accuracy": 80.0,
-          "single_combo_points": 11,
+          "single_combo_points": 10,
           "single_combo_total": 15,
-          "single_combo_accuracy": 73.3,
+          "single_combo_accuracy": 66.7,
           "close_threshold": 0.2,
           "per_league_best": {
             "Israel1": {
-              "model": "extra_trees",
+              "model": "gradient_boosting",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 4,
               "total": 5,
@@ -22109,10 +22109,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 3,
@@ -22141,7 +22141,7 @@
               "closeness": 0.0,
               "is_double": true,
               "is_triple": false,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": "X",
               "actual": "X",
               "correct": true
@@ -22157,10 +22157,10 @@
               "closeness": 0.2,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "X",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -22344,7 +22344,7 @@
             "correct": 5,
             "games": [
               "Ironi Tiberias vs Ashdod: 2+X (actual: X, \u2713)",
-              "Maccabi Netanya vs Hapoel Haifa: 1+X (actual: X, \u2713)",
+              "Maccabi Netanya vs Hapoel Haifa: 2+X (actual: X, \u2713)",
               "Brentford vs Everton: 2+X (actual: X, \u2713)",
               "Mallorca vs Rayo Vallecano: 1+X (actual: 1, \u2713)",
               "Athletic Club vs Villarreal: 2+X (actual: 2, \u2713)"
@@ -22357,17 +22357,17 @@
           "doubles_count": 3,
           "triples_count": 1,
           "best_model": "tabnet",
-          "best_ensemble": "E3_CLEAN_ELO_45",
+          "best_ensemble": "E4_CLEAN_ELO_TREND_56",
           "points": 12,
           "total": 15,
           "accuracy": 80.0,
-          "single_combo_points": 10,
+          "single_combo_points": 9,
           "single_combo_total": 15,
-          "single_combo_accuracy": 66.7,
+          "single_combo_accuracy": 60.0,
           "close_threshold": 0.2,
           "per_league_best": {
             "Israel1": {
-              "model": "extra_trees",
+              "model": "gradient_boosting",
               "ensemble": "E4_CLEAN_ELO_TREND_56",
               "points": 4,
               "total": 5,
@@ -22407,10 +22407,10 @@
               "closeness": 0.35,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "1",
               "double_prediction": null,
               "actual": "2",
-              "correct": true
+              "correct": false
             },
             {
               "game_number": 3,
@@ -22439,7 +22439,7 @@
               "closeness": 0.0,
               "is_double": false,
               "is_triple": true,
-              "prediction": "1",
+              "prediction": "2",
               "double_prediction": null,
               "actual": "X",
               "correct": true
@@ -22455,10 +22455,10 @@
               "closeness": 0.2,
               "is_double": false,
               "is_triple": false,
-              "prediction": "2",
+              "prediction": "X",
               "double_prediction": null,
               "actual": "X",
-              "correct": false
+              "correct": true
             },
             {
               "game_number": 6,
@@ -22665,8 +22665,8 @@
     },
     "France1": {
       "model": "tabnet",
-      "ensemble": "E1_ORIGINAL_51",
-      "accuracy": 70.0
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "accuracy": 60.0
     },
     "Germany1": {
       "model": "mlp_large",
@@ -22676,17 +22676,17 @@
     "Israel1": {
       "model": "extra_trees",
       "ensemble": "E8_COMPACT_23",
-      "accuracy": 57.1
+      "accuracy": 60.0
     },
     "Italy1": {
-      "model": "calibrated_rf",
+      "model": "tabnet",
       "ensemble": "E4_CLEAN_ELO_TREND_56",
-      "accuracy": 65.7
+      "accuracy": 71.4
     },
     "Spain1": {
       "model": "tabnet",
       "ensemble": "E3_CLEAN_ELO_45",
-      "accuracy": 63.0
+      "accuracy": 65.2
     }
   },
   "predictions": [
@@ -22696,13 +22696,13 @@
       "league": "France1",
       "home_team": "Saint Etienne",
       "away_team": "Rodez",
-      "prediction": "1",
-      "prob_home": 0.484,
-      "prob_draw": 0.202,
-      "prob_away": 0.314,
+      "prediction": "X",
+      "prob_home": 0.349,
+      "prob_draw": 0.426,
+      "prob_away": 0.226,
       "model": "tabnet",
-      "ensemble": "E1_ORIGINAL_51",
-      "walk_forward_accuracy": 70.0
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 60.0
     },
     {
       "fixture_id": 1388000,
@@ -22710,13 +22710,13 @@
       "league": "France1",
       "home_team": "Nantes",
       "away_team": "Toulouse",
-      "prediction": "2",
-      "prob_home": 0.199,
-      "prob_draw": 0.36,
-      "prob_away": 0.442,
+      "prediction": "1",
+      "prob_home": 0.461,
+      "prob_draw": 0.4,
+      "prob_away": 0.139,
       "model": "tabnet",
-      "ensemble": "E1_ORIGINAL_51",
-      "walk_forward_accuracy": 70.0
+      "ensemble": "E4_CLEAN_ELO_TREND_56",
+      "walk_forward_accuracy": 60.0
     },
     {
       "fixture_id": 1545418,
